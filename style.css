@@ -136,7 +136,7 @@ a {
     height: 320px;
     background: linear-gradient(135deg, #00f2fe, #4facfe);
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    animation: ondulacion suave 8s ease-in-out infinite;
+    animation: ondulacion-suave 8s ease-in-out infinite;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -150,7 +150,7 @@ a {
     object-fit: cover;
 }
 
-@keyframes ondulacion suave {
+@keyframes ondulacion-suave {
     0% {
         border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     }

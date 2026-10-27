@@ -1,406 +1,435 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorge David Perdomo | Desarrollador Full Stack</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jorge David Perdomo — Developer Full Stack &amp; Support</title>
+<meta name="description" content="Portafolio de Jorge David Perdomo, desarrollador Full Stack y soporte técnico en Bogotá, Colombia.">
+<link rel="icon" type="image/svg+xml" href="imagenes/Favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&amp;family=DM+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="estilos/Animaciones.css">
+<link rel="stylesheet" href="estilos/Vistas.css">
+<link rel="stylesheet" href="estilos/Contacto.css">
+<link rel="stylesheet" href="estilos/Adaptable.css">
+<noscript><style>body.Cargando { visibility: visible; }</style></noscript>
 </head>
+<body class="Cargando">
+<div data-at-class="[[Raiz.Clase]]" itemscope="" itemtype="https://schema.org/Person">
+<meta itemprop="name" content="Jorge David Perdomo">
+<meta itemprop="email" content="joperdomoo16@gmail.com">
+<a class="Saltar" href="#Contenido">Saltar al contenido</a>
 
-<body data-bs-spy="scroll" data-bs-target='[id="menu navegacion"]' data-bs-offset="100" tabindex="0">
+<header class="Cabecera" data-at-aria-hidden="[[Capa.Fondooculto]]">
+<nav class="Navegacion" aria-label="Secciones del portafolio">
+<ul class="Listanav">
+<template data-si="Nav.Mostrarinicio">
+<li><button class="Enlacenav Enlaceinicio" type="button" data-ev-click="Nav.Inicio.Ir"><svg class="Icono" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M13.5 8h-10M7 4L3 8l4 4"></path></svg>Inicio</button></li>
+</template>
+<li><button data-at-class="[[Nav.Habilidades.Clase]]" type="button" data-at-aria-current="[[Nav.Habilidades.Actual]]" data-ev-click="Nav.Habilidades.Ir"><span class="Rodillo"><span class="Rodillonormal">HABILIDADES</span><span class="Rodillocursiva" aria-hidden="true">HABILIDADES</span></span></button></li>
+<li><button data-at-class="[[Nav.Experiencia.Clase]]" type="button" data-at-aria-current="[[Nav.Experiencia.Actual]]" data-ev-click="Nav.Experiencia.Ir"><span class="Rodillo"><span class="Rodillonormal">EXPERIENCIA</span><span class="Rodillocursiva" aria-hidden="true">EXPERIENCIA</span></span></button></li>
+<li><button data-at-class="[[Nav.Conoceme.Clase]]" type="button" data-at-aria-current="[[Nav.Conoceme.Actual]]" data-ev-click="Nav.Conoceme.Ir"><span class="Rodillo"><span class="Rodillonormal">CONÓCEME</span><span class="Rodillocursiva" aria-hidden="true">CONÓCEME</span></span></button></li>
+</ul>
+<button class="Botonmenu" type="button" data-at-aria-expanded="[[Menu.Expandido]]" aria-controls="Menumovil" data-ev-click="Menu.Alternar"><span data-tx="Menu.Texto"></span></button>
+</nav>
+<div class="Accionescabecera">
+<ul class="Listaredes">
+<li><a class="Botonicono" href="https://github.com/joperdomoo16" target="_blank" rel="noopener noreferrer" aria-label="GitHub (se abre en otra pestaña)" title="GitHub" itemprop="sameAs"><svg width="28" height="28" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"></path></svg></a></li>
+<li><a class="Botonicono" href="https://www.linkedin.com/in/jorge-perdomoo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (se abre en otra pestaña)" title="LinkedIn" itemprop="sameAs"><svg width="27" height="27" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"></path></svg></a></li>
+<li><a class="Botonicono" href="imagenes/cv-jorge-perdomo.pdf" download="CV Jorge Perdomo.pdf" target="_blank" rel="noopener noreferrer" aria-label="Descargar CV en PDF" title="Descargar CV"><svg width="26" height="30" viewBox="0 0 26 30" aria-hidden="true"><path d="M2 1.5h15.5L24.5 8.5V28.5H2Z" fill="currentColor"></path><path class="Trazocv" d="M17.5 1.5V8.5H24.5"></path><text class="Letrascv" x="13" y="20">CV</text><path class="Trazocv" d="M7 24h12"></path></svg></a></li>
+</ul>
+<span class="Divisor" aria-hidden="true"></span>
+<button class="Botoncontacto Conrodillo" type="button" data-ref="Contacto.Fijarboton" data-ev-click="Contacto.Abrir"><span class="Aro" aria-hidden="true"><svg class="Iconotelefono" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.2 3.5h3.1l1.9 4.6-2.4 1.5a11.6 11.6 0 0 0 5.6 5.6l1.5-2.4 4.6 1.9v3.1a2 2 0 0 1-2.2 2A16.2 16.2 0 0 1 3.2 5.7a2 2 0 0 1 2-2.2"></path><path d="M14.6 3.4a6.4 6.4 0 0 1 6 6M14.4 7.1a2.8 2.8 0 0 1 2.5 2.5"></path></svg></span><span class="Rodillo Textocontacto"><span class="Rodillonormal">CONTÁCTAME</span><span class="Rodillocursiva" aria-hidden="true">CONTÁCTAME</span></span></button>
+</div>
+</header>
 
-    <header>
-        <nav id="menu navegacion" class="navbar navbar-expand-lg navbar-dark fixed-top barra navegacion">
-            <div class="container d-flex justify-content-center">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target='[id="menu colapsable"]'
-                    aria-controls="menu colapsable" aria-expanded="false" aria-label="Abrir navegacion">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-center" id="menu colapsable">
-                    <ul class="navbar-nav gap-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#seccion inicio"><i class="bi-house-door"></i> Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#seccion sobre mi"><i class="bi-person"></i> Sobre mí</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#seccion habilidades"><i class="bi-tools"></i> Habilidades</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#seccion proyectos"><i class="bi-briefcase"></i> Proyectos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#seccion experiencia"><i class="bi-clock-history"></i> Experiencia</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#seccion contacto"><i class="bi-chat-dots"></i> Contacto</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+<template data-si="Menu.Abierto">
+<div id="Menumovil" class="Menumovil">
+<ul class="Listamovil">
+<li><button class="Enlacemovil" type="button" data-ev-click="Nav.Inicio.Ir">Inicio</button></li>
+<li><button class="Enlacemovil" type="button" data-ev-click="Nav.Habilidades.Ir">HABILIDADES</button></li>
+<li><button class="Enlacemovil" type="button" data-ev-click="Nav.Experiencia.Ir">EXPERIENCIA</button></li>
+<li><button class="Enlacemovil" type="button" data-ev-click="Nav.Conoceme.Ir">CONÓCEME</button></li>
+<li><a class="Enlacemovil Secundario" href="https://github.com/joperdomoo16" target="_blank" rel="noopener noreferrer">GitHub<svg class="Icono" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"></path></svg></a></li>
+<li><a class="Enlacemovil Secundario" href="https://www.linkedin.com/in/jorge-perdomoo/" target="_blank" rel="noopener noreferrer">LinkedIn<svg class="Icono" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"></path></svg></a></li>
+<li><a class="Enlacemovil Secundario" href="imagenes/cv-jorge-perdomo.pdf" download="CV Jorge Perdomo.pdf" target="_blank" rel="noopener noreferrer">Descargar CV<svg class="Icono" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M8 2.5v10M4 9l4 4 4-4"></path></svg></a></li>
+</ul>
+</div>
+</template>
 
-    <section id="seccion inicio" class="d-flex align-items-center min-vh-100 espacio seccion">
-        <div class="container">
-            <div class="row align-items-center flex-column-reverse flex-lg-row">
+<main id="Contenido" data-at-aria-hidden="[[Capa.Fondooculto]]">
 
-                <div class="col-lg-6 mt-5 mt-lg-0 text-center text-lg-start">
-                    <h1 class="titulo bienvenida">Jorge David Perdomo</h1>
-                    <h2 class="subtitulo bienvenida mb-4">Desarrollador Full Stack & Support</h2>
+<template data-si="Ver.Inicio">
+<section data-at-class="[[Clases.Pantalla]]" aria-labelledby="Tituloinicio">
+<div class="Escenario">
+<p class="Gigante" aria-hidden="true"><span class="Palabragigante Rojo" data-ref="Titulo.Inicio">DEVELOPER</span></p>
+<p class="Gigante Reflejo" aria-hidden="true"><span class="Palabragigante Rojo">DEVELOPER</span></p>
+<img class="Retrato" src="imagenes/retrato-inicio.webp" alt="Retrato en blanco y negro de Jorge David Perdomo, con lentes y camiseta negra, de brazos cruzados" width="1100" height="1552" itemprop="image" draggable="false">
+<div class="Saludo">
+<h1 id="Tituloinicio" class="Titulosaludo"><span class="Hola Entra" style="--Orden: 0">Hola,</span><span class="Soy Entra" style="--Orden: 1">soy <span itemprop="givenName">Jorge</span></span><span class="Ocultovisual"> David Perdomo</span></h1>
+<p class="Dato Datosaludo Entra" style="--Orden: 2">Bogotá, Colombia</p>
+</div>
+<div class="Rolinicio">
+<p class="Rol Entra" style="--Orden: 2" itemprop="jobTitle"><span class="Ocultovisual">Developer </span><span class="Rolfila"><span class="Rolcursiva">Full Stack</span> <span class="Rolestrecha">&amp; Support</span></span></p>
+<p class="Dato Entra" style="--Orden: 3">+3 años en soporte técnico y QA</p>
+</div>
+<div class="Vitrina">
+<ul class="Carteles" aria-label="Proyectos">
+<li data-at-class="[[Cartel.Uno.Clase]]" data-at-style="[[Cartel.Uno.Estilo]]">
+<button class="Cartelboton" type="button" data-ref="Cartel.Uno.Fijar" data-ev-click="Cartel.Uno.Pulsar" data-ev-keydown="Cartel.Teclas" data-at-aria-label="[[Cartel.Uno.Etiqueta]]"><img class="Cartelimagen" src="imagenes/icono-neon.webp" alt="" width="256" height="256" draggable="false"><span class="Cartelpie"><span class="Carteltitulo">Neon Jump</span><span class="Carteltipo">Juego móvil</span></span></button>
+</li>
+<li data-at-class="[[Cartel.Dos.Clase]]" data-at-style="[[Cartel.Dos.Estilo]]">
+<button class="Cartelboton" type="button" data-ref="Cartel.Dos.Fijar" data-ev-click="Cartel.Dos.Pulsar" data-ev-keydown="Cartel.Teclas" data-at-aria-label="[[Cartel.Dos.Etiqueta]]"><img class="Cartelimagen" src="imagenes/icono-sonica.webp" alt="" width="256" height="252" draggable="false"><span class="Cartelpie"><span class="Carteltitulo">Sónica</span><span class="Carteltipo">App de podcasts</span></span></button>
+</li>
+<li data-at-class="[[Cartel.Tres.Clase]]" data-at-style="[[Cartel.Tres.Estilo]]">
+<button class="Cartelboton" type="button" data-ref="Cartel.Tres.Fijar" data-ev-click="Cartel.Tres.Pulsar" data-ev-keydown="Cartel.Teclas" data-at-aria-label="[[Cartel.Tres.Etiqueta]]"><span class="Iconomoderador" aria-hidden="true"><span class="Marcamoderador">Sónica</span><span class="Submoderador">MODERACIÓN</span></span><span class="Cartelpie"><span class="Carteltitulo">Moderador</span><span class="Carteltipo">BackOffice</span></span></button>
+</li>
+</ul>
+<div class="Mandovitrina">
+<button class="Flechacartel" type="button" data-ev-click="Cartel.Anterior" aria-label="Proyecto anterior"><svg class="Icono" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"></path></svg></button>
+<p class="Cuentavitrina"><span data-tx="Cartel.Cuenta"></span></p>
+<button class="Flechacartel" type="button" data-ev-click="Cartel.Siguiente" aria-label="Proyecto siguiente"><svg class="Icono" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"></path></svg></button>
+</div>
+</div>
+<p class="Dato Ubicacion Entra" style="--Orden: 4">Bogotá, Colombia</p>
+</div>
+</section>
+</template>
 
-                    <div class="d-flex gap-3 mb-4 redes presentacion justify-content-center justify-content-lg-start">
-                        <a href="https://www.linkedin.com/in/jorge-perdomoo/" target="enlace externo" class="icono social"
-                            title="LinkedIn"><i class="bi-linkedin"></i></a>
-                        <a href="https://github.com/joperdomoo16" target="enlace externo" class="icono social" title="GitHub"><i
-                                class="bi-github"></i></a>
-                        <a href="src/pdf/CV Jorge Perdomo.pdf" target="enlace externo" class="icono social" title="Descargar CV"
-                            download><i class="bi-file-earmark-text"></i></a>
-                    </div>
+<template data-si="Ver.Habilidades">
+<section data-at-class="[[Clases.Pantalla]]" style="--Tamano: min(12.4vw, 240px)" aria-labelledby="Titulohabilidades">
+<div class="Contenedor">
+<h2 id="Titulohabilidades" class="Titulogigante"><span class="Palabragigante Tinta" data-ref="Titulo.Habilidades">habilidades</span></h2>
+<div class="Eco" aria-hidden="true"><span>habilidades</span><span>habilidades</span></div>
+<div class="Salecontenido">
+<div class="Introseccion">
+<p class="Dato Entra">Lo que uso para construir</p>
+<p class="Subtitulo Entra" style="--Orden: 1">Frontend con HTML, CSS y JavaScript; backend con Python y Firebase.</p>
+</div>
+<div class="Gruposhabilidad">
+<section class="Grupohabilidad Entra" style="--Orden: 2" aria-labelledby="Grupofrontend">
+<h3 id="Grupofrontend" class="Titulogrupo"><span class="Dato">01</span>Frontend Developer</h3>
+<ul class="Listahabilidad">
+<li class="Habilidad"><img src="imagenes/habilidad-html5.svg" alt="" width="34" height="34"><span class="Nombrehabilidad">HTML5</span></li>
+<li class="Habilidad"><img src="imagenes/habilidad-css3.svg" alt="" width="34" height="34"><span class="Nombrehabilidad">CSS3</span></li>
+<li class="Habilidad"><img src="imagenes/habilidad-javascript.svg" alt="" width="34" height="34"><span class="Nombrehabilidad">JavaScript</span></li>
+<li class="Habilidad"><img src="imagenes/habilidad-diseno.svg" alt="" width="34" height="34"><span class="Nombrehabilidad">Diseño UI y UX</span></li>
+</ul>
+</section>
+<section class="Grupohabilidad Entra" style="--Orden: 3" aria-labelledby="Grupobackend">
+<h3 id="Grupobackend" class="Titulogrupo"><span class="Dato">02</span>Backend y QA</h3>
+<ul class="Listahabilidad">
+<li class="Habilidad"><img src="imagenes/habilidad-python.svg" alt="" width="34" height="34"><span class="Nombrehabilidad">Python</span></li>
+<li class="Habilidad"><img src="imagenes/habilidad-firebase.svg" alt="" width="34" height="34"><span class="Nombrehabilidad">Firebase</span></li>
+<li class="Habilidad"><img src="imagenes/habilidad-sql.svg" alt="" width="34" height="34"><span class="Nombrehabilidad">SQL</span></li>
+<li class="Habilidad"><img src="imagenes/habilidad-qa.svg" alt="" width="34" height="34"><span class="Nombrehabilidad">QA y Testing</span></li>
+</ul>
+</section>
+</div>
+</div>
+</div>
+</section>
+</template>
 
-                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
-                        <a href="#seccion proyectos" class="btn boton principal">Ver Proyectos</a>
-                        <a href="#seccion contacto" class="btn boton secundario">Contactar</a>
-                    </div>
-                </div>
+<template data-si="Ver.Experiencia">
+<section data-at-class="[[Clases.Pantalla]]" style="--Tamano: min(12.4vw, 240px)" aria-labelledby="Tituloexperiencia">
+<div class="Contenedor">
+<h2 id="Tituloexperiencia" class="Titulogigante"><span class="Palabragigante Tinta" data-ref="Titulo.Experiencia">experiencia</span></h2>
+<div class="Eco" aria-hidden="true"><span>experiencia</span><span>experiencia</span></div>
+<div class="Salecontenido">
+<div class="Introseccion">
+<p class="Dato Entra">Trayectoria</p>
+<p class="Subtitulo Entra" style="--Orden: 1">De diagnosticar fallas en soporte a escribir y revisar código.</p>
+</div>
+<div class="Columnasexperiencia">
+<section class="Grupoexperiencia Entra" style="--Orden: 2" aria-labelledby="Grupotrabajo">
+<h3 id="Grupotrabajo" class="Titulogrupo"><span class="Dato">01</span>Experiencia laboral</h3>
+<ol class="Listahitos">
+<li class="Hito Actual">
+<p class="Periodo">2026 – Actualidad</p>
+<h4 class="Cargo">Entrenador y Evaluador de Código</h4>
+<p class="Lugar">Outlier de Scale AI · Remoto</p>
+<p class="Detalle">Reviso y depuro código en JavaScript, detectando errores de lógica, de sintaxis y de implementación. Elaboro casos de prueba y rúbricas técnicas que elevan la calidad del código generado.</p>
+</li>
+<li class="Hito">
+<p class="Periodo">Oct 2024 – Dic 2025</p>
+<h4 class="Cargo">Técnico Convergente</h4>
+<p class="Lugar">Jazzplat Colombia SAS · Bogotá</p>
+<p class="Detalle">Resolví fallas de software y producto junto a los equipos de desarrollo e infraestructura. Documenté incidencias y requerimientos siguiendo el ciclo de vida del desarrollo.</p>
+</li>
+<li class="Hito">
+<p class="Periodo">Ago 2022 – Jun 2024</p>
+<h4 class="Cargo">Soporte Técnico Nivel 1 y Nivel 2</h4>
+<p class="Lugar">Vodafone by Konecta · Bogotá</p>
+<p class="Detalle">Diagnostiqué y solucioné fallas complejas de software y equipos. Traduje las necesidades de los usuarios a requerimientos técnicos claros, ayudando a mejorar la estabilidad de las plataformas.</p>
+</li>
+</ol>
+</section>
+<section class="Grupoexperiencia Entra" style="--Orden: 3" aria-labelledby="Grupoeducacion">
+<h3 id="Grupoeducacion" class="Titulogrupo"><span class="Dato">02</span>Educación</h3>
+<ol class="Listahitos">
+<li class="Hito Actual">
+<p class="Periodo">En curso</p>
+<h4 class="Cargo">Tecnólogo en Análisis y Desarrollo de Software</h4>
+<p class="Lugar">SENA · Modalidad virtual</p>
+</li>
+<li class="Hito Actual">
+<p class="Periodo">Sep 2026 – Dic 2026</p>
+<h4 class="Cargo">Desarrollador junior Full Stack/Java</h4>
+<p class="Lugar">Generation Colombia · Bogotá</p>
+</li>
+<li class="Hito">
+<p class="Periodo">2015 – 2017</p>
+<h4 class="Cargo">Administración de Empresas</h4>
+<p class="Lugar">Universidad EAN · Bogotá</p>
+</li>
+</ol>
+</section>
+</div>
+</div>
+</div>
+</section>
+</template>
 
-                <div class="col-lg-6 d-flex justify-content-center">
-                    <div class="silueta perfil">
-                        <img src="src/image/perfil.png" alt="Jorge David Perdomo" class="img-fluid">
-                    </div>
-                </div>
+<template data-si="Ver.Conoceme">
+<section data-at-class="[[Clases.Pantalla]]" style="--Tamano: min(14.4vw, 240px)" aria-labelledby="Tituloconoceme">
+<div class="Contenedor">
+<h2 id="Tituloconoceme" class="Titulogigante"><span class="Palabragigante Tinta" data-ref="Titulo.Conoceme">conóceme</span></h2>
+<div class="Eco" aria-hidden="true"><span>conóceme</span><span>conóceme</span></div>
+<div class="Salecontenido">
+<div class="Conocemerejilla" style="margin-top: clamp(32px, 5vw, 72px)">
+<figure class="Composicion Entra">
+<span class="Circulorojo" aria-hidden="true"></span>
+<svg class="Arcos" viewBox="0 0 560 605" preserveAspectRatio="none" aria-hidden="true"><path d="M70 600 A 330 330 0 0 1 560 196" fill="none" stroke="var(--Coloracento)" stroke-width="1"></path><path d="M30 600 A 380 380 0 0 1 560 150" fill="none" stroke="var(--Coloracento)" stroke-width="1" stroke-opacity=".7"></path><path d="M-6 600 A 430 430 0 0 1 560 104" fill="none" stroke="var(--Coloracento)" stroke-width="1" stroke-opacity=".45"></path></svg>
+<div class="Retratocirculo"><img src="imagenes/retrato-conoceme.webp" alt="Jorge David Perdomo, retrato en blanco y negro" width="1000" height="1000" draggable="false"></div>
+<figcaption class="Firma"><span class="Nombrefirma">Jorge David Perdomo</span><span class="Rolfirma">Desarrollador Full Stack &amp; Support</span></figcaption>
+<svg class="Flechafirma" viewBox="0 0 140 120" aria-hidden="true"><path d="M22 4 C 8 40, 18 86, 132 112" fill="none" stroke="var(--Coloracento)" stroke-width="1.6" stroke-linecap="round"></path><path d="M120 104 L 133 112 L 119 118" fill="none" stroke="var(--Coloracento)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</figure>
+<div class="Textoconoceme">
+<p class="Subtitulo Entra" style="--Orden: 1">Sobre mí</p>
+<p class="Lead Entra" style="--Orden: 2">Especializado en construir y publicar aplicaciones web y Apps móviles. Combino sólidas bases en Frontend y Backend con un diseño enfocado en la experiencia del usuario.</p>
+<p class="Parrafo Entra" style="--Orden: 3">Mis más de 3 años previos en soporte técnico y calidad de software me dieron algo que me diferencia: la costumbre de diagnosticar problemas a fondo y de cuidar que lo que se entrega funcione bien.</p>
+<p class="Parrafo Entra" style="--Orden: 3">Construyo y publico aplicaciones web y videojuegos móviles en Google Play. Trabajo el frontend con HTML, CSS y JavaScript, y el backend con Python y Firebase.</p>
+<dl class="Ficha Entra" style="--Orden: 4">
+<div class="Fichacelda" itemprop="address" itemscope="" itemtype="https://schema.org/PostalAddress"><dt class="Dato">Ubicación</dt><dd><span itemprop="addressLocality">Bogotá</span>, <span itemprop="addressCountry">Colombia</span></dd></div>
+<div class="Fichacelda"><dt class="Dato">Experiencia</dt><dd>+3 años en soporte técnico y QA</dd></div>
+<div class="Fichacelda"><dt class="Dato">Formación</dt><dd>Tecnólogo en Análisis y Desarrollo de Software · SENA</dd></div>
+<div class="Fichacelda"><dt class="Dato">Idiomas</dt><dd><span itemprop="knowsLanguage">Español</span> nativo · <span itemprop="knowsLanguage">Inglés</span> B1+</dd></div>
+</dl>
+<div class="Acciones Entra" style="--Orden: 5">
+<button class="Boton Botonprincipal" type="button" data-ev-click="Contacto.Abrir">Contáctame<svg class="Icono Iconoderecha" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8h10M9 4l4 4-4 4"></path></svg></button>
+<a class="Boton" href="imagenes/cv-jorge-perdomo.pdf" download="CV Jorge Perdomo.pdf" target="_blank" rel="noopener noreferrer">Descargar CV<svg class="Icono Iconoabajo" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M8 2.5v10M4 9l4 4 4-4"></path></svg></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</template>
 
-            </div>
-        </div>
-    </section>
+<template data-si="Ver.Sonica">
+<section data-at-class="[[Clases.Pantalla]]" style="--Tamano: min(21.2vw, 240px)" aria-labelledby="Titulosonica">
+<div class="Contenedor">
+<div class="Cabeceraproyecto">
+<h2 id="Titulosonica" class="Titulogigante"><span class="Palabragigante Tinta" data-ref="Titulo.Sonica">Sónica</span></h2>
+<div class="Eco" aria-hidden="true"><span>Sónica</span><span>Sónica</span></div>
+<img class="Iconoproyecto Destinovuelo" data-ref="Icono.Sonica" src="imagenes/icono-sonica.webp" alt="Ícono de la app Sónica" width="256" height="252">
+</div>
+<div class="Salecontenido Proyectorejilla">
+<div class="Textoproyecto">
+<div class="Entra" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px"><button class="Botonvolver" type="button" data-ev-click="Nav.Inicio.Ir"><svg class="Icono" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M13.5 8h-10M7 4L3 8l4 4"></path></svg>Proyectos</button><p class="Dato">Proyecto 01 / 03 · App móvil · Podcasts con IA</p></div>
+<p class="Subtitulo Entra" style="--Orden: 1">Aplicación para escuchar y crear podcasts que genera diálogos realistas, efectos de sonido e imitación de emociones en las voces.</p>
+<ol class="Puntos Entra" style="--Orden: 2" aria-label="Puntos clave de Sónica">
+<li><span class="Numeropunto">1.1</span><span>Generación de diálogos realistas.</span></li>
+<li><span class="Numeropunto">1.2</span><span>Uso de WebAudio API para control de sonido inmersivo.</span></li>
+<li><span class="Numeropunto">1.3</span><span>Sistema de usuarios y gestión de contenido interactivo.</span></li>
+</ol>
+<dl class="Fichaproyecto Entra" style="--Orden: 3">
+<div><dt>Tipo</dt><dd>App móvil · Podcasts con IA</dd></div>
+<div><dt>Stack</dt><dd>JavaScript · Audio · WebAudio</dd></div>
+<div><dt>Sitio</dt><dd>sónica.com</dd></div>
+</dl>
+<div class="Acciones Entra" style="--Orden: 4"><a class="Boton Botonprincipal" href="https://sónica.com" target="_blank" rel="noopener noreferrer">Ir a Sónica<svg class="Icono Iconodiagonal" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"></path></svg></a></div>
+</div>
+<div class="Mesa Conmano Entra" style="--Orden: 3">
+<div class="Marcomovil">
+<div class="Marcofoto">
+<div class="Marcopantalla"><div class="Carrusel" data-at-style="[[Carrusel.Estilo]]"><div class="Diapo"><img src="imagenes/sonica-1.webp" alt="Pantalla de inicio de Sónica con la serie destacada y episodios para seguir escuchando" width="400" height="845" draggable="false"></div><div class="Diapo"><img src="imagenes/sonica-2.webp" alt="Reproductor de Sónica con la forma de onda del episodio y los controles" width="400" height="845" draggable="false"></div><div class="Diapo"><img src="imagenes/sonica-3.webp" alt="Categorías populares en la sección Explorar de Sónica" width="400" height="845" draggable="false"></div></div></div>
+<img class="Marcocapa" src="imagenes/marco-movil.webp" alt="" width="1066" height="2153" draggable="false">
+</div>
+<div class="Navmovil">
+<button class="Flechamovil Anterior" type="button" data-ev-click="Carrusel.Anterior" aria-label="Captura anterior"><svg class="Icono" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"></path></svg></button>
+<p class="Contadormovil">Captura <span data-tx="Carrusel.Etiqueta"></span></p>
+<button class="Flechamovil Siguiente" type="button" data-ev-click="Carrusel.Siguiente" aria-label="Captura siguiente"><svg class="Icono" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"></path></svg></button>
+</div>
+<div class="Puntosmovil" aria-hidden="true"><span data-at-class="[[Carrusel.Puntouno]]"></span><span data-at-class="[[Carrusel.Puntodos]]"></span><span data-at-class="[[Carrusel.Puntotres]]"></span></div>
+<p class="Piecarrusel"><span data-tx="Carrusel.Pie"></span></p>
+</div>
+</div>
+<nav class="Pasoproyectos Entra" style="--Orden: 5" aria-label="Otros proyectos">
+<button class="Botonpaso" type="button" data-ev-click="Proyectos.Moderador"><span class="Dato">Anterior</span><span class="Nombrepaso">Sónica Moderador</span></button>
+<button class="Botonpaso Derecha" type="button" data-ev-click="Proyectos.Neon"><span class="Dato">Siguiente</span><span class="Nombrepaso">Neon Jump</span></button>
+</nav>
 
-    <section id="seccion sobre mi" class="espacio seccion">
-        <div class="container">
-            <h3 class="titulo seccion text-center mb-5">Sobre mí</h3>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="panel cristal p-4 p-md-5 text-center">
-                        <p class="lead text-muted mb-0">
-                            Especializado en construir y publicar aplicaciones web y Apps móviles. Combino
-                            sólidas bases en Frontend y Backend con un diseño enfocado en la experiencia del usuario.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+</div>
+</div>
+</section>
+</template>
 
-    <section id="seccion habilidades" class="espacio seccion">
-        <div class="container">
-            <h3 class="titulo seccion text-center mb-5">Habilidades</h3>
-            <div class="row g-4">
+<template data-si="Ver.Neon">
+<section data-at-class="[[Clases.Pantalla]]" style="--Tamano: min(14.1vw, 240px)" aria-labelledby="Tituloneon">
+<div class="Contenedor">
+<div class="Cabeceraproyecto">
+<h2 id="Tituloneon" class="Titulogigante"><span class="Palabragigante Tinta" data-ref="Titulo.Neon">Neon Jump</span></h2>
+<div class="Eco" aria-hidden="true"><span>Neon Jump</span><span>Neon Jump</span></div>
+<img class="Iconoproyecto Destinovuelo" data-ref="Icono.Neon" src="imagenes/icono-neon.webp" alt="Ícono del juego Neon Jump" width="256" height="256">
+</div>
+<div class="Salecontenido Proyectorejilla">
+<div class="Textoproyecto">
+<div class="Entra" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px"><button class="Botonvolver" type="button" data-ev-click="Nav.Inicio.Ir"><svg class="Icono" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M13.5 8h-10M7 4L3 8l4 4"></path></svg>Proyectos</button><p class="Dato">Proyecto 02 / 03 · Videojuego móvil · Google Play</p></div>
+<p class="Subtitulo Entra" style="--Orden: 1">Videojuego de estilo casual y estética neón, disponible en la tienda Google Play.</p>
+<ol class="Puntos Entra" style="--Orden: 2" aria-label="Puntos clave de Neon Jump">
+<li><span class="Numeropunto">2.1</span><span>Físicas de salto y generación procedural de niveles.</span></li>
+<li><span class="Numeropunto">2.2</span><span>Integración con servicios de monetización.</span></li>
+<li><span class="Numeropunto">2.3</span><span>Optimización de rendimiento para dispositivos de gama baja.</span></li>
+</ol>
+<dl class="Fichaproyecto Entra" style="--Orden: 3">
+<div><dt>Tipo</dt><dd>Videojuego móvil · Google Play</dd></div>
+<div><dt>Stack</dt><dd>Mobile · Google Play · GameDev</dd></div>
+<div><dt>Tienda</dt><dd>Google Play</dd></div>
+</dl>
+<div class="Acciones Entra" style="--Orden: 4"><a class="Boton Botonprincipal" href="https://play.google.com/store/apps/details?id=com.tustudio.neon%5Fjump" target="_blank" rel="noopener noreferrer">Ver en Google Play<svg class="Icono Iconodiagonal" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"></path></svg></a></div>
+</div>
+<div class="Mesa Conmano Entra" style="--Orden: 3">
+<div class="Marcomovil">
+<div class="Marcofoto">
+<div class="Marcopantalla"><div class="Carrusel" data-at-style="[[Carrusel.Estilo]]"><div class="Diapo"><img src="imagenes/neon-1.webp" alt="Menú principal de Neon Jump" width="400" height="845" draggable="false"></div><div class="Diapo"><img src="imagenes/neon-2.webp" alt="Partida en curso de Neon Jump" width="400" height="845" draggable="false"></div><div class="Diapo"><img src="imagenes/neon-3.webp" alt="Ranking global de Neon Jump" width="400" height="845" draggable="false"></div></div></div>
+<img class="Marcocapa" src="imagenes/marco-movil.webp" alt="" width="1066" height="2153" draggable="false">
+</div>
+<div class="Navmovil">
+<button class="Flechamovil Anterior" type="button" data-ev-click="Carrusel.Anterior" aria-label="Captura anterior"><svg class="Icono" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"></path></svg></button>
+<p class="Contadormovil">Captura <span data-tx="Carrusel.Etiqueta"></span></p>
+<button class="Flechamovil Siguiente" type="button" data-ev-click="Carrusel.Siguiente" aria-label="Captura siguiente"><svg class="Icono" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"></path></svg></button>
+</div>
+<div class="Puntosmovil" aria-hidden="true"><span data-at-class="[[Carrusel.Puntouno]]"></span><span data-at-class="[[Carrusel.Puntodos]]"></span><span data-at-class="[[Carrusel.Puntotres]]"></span></div>
+<p class="Piecarrusel"><span data-tx="Carrusel.Pie"></span></p>
+</div>
+</div>
+<nav class="Pasoproyectos Entra" style="--Orden: 5" aria-label="Otros proyectos">
+<button class="Botonpaso" type="button" data-ev-click="Proyectos.Sonica"><span class="Dato">Anterior</span><span class="Nombrepaso">Sónica App de Podcasts</span></button>
+<button class="Botonpaso Derecha" type="button" data-ev-click="Proyectos.Moderador"><span class="Dato">Siguiente</span><span class="Nombrepaso">Sónica Moderador</span></button>
+</nav>
 
-                <div class="col-md-6">
-                    <div class="panel cristal p-4 h-100 text-center">
-                        <h4 class="mb-4 titulo habilidades justify-content-center"><i class="bi-code-slash"></i> Frontend Developer</h4>
-                        <div class="d-flex flex-wrap justify-content-center gap-4 mt-4 pt-2">
-                            <div class="text-center">
-                                <img src="src/image/html5.svg" alt="HTML5"
-                                    style="width: 3.5rem; height: 3.5rem; filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.3));">
-                                <p class="mt-2 text-muted fw-medium">HTML5</p>
-                            </div>
-                            <div class="text-center">
-                                <img src="src/image/css3.svg" alt="CSS3"
-                                    style="width: 3.5rem; height: 3.5rem; filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.3));">
-                                <p class="mt-2 text-muted fw-medium">CSS3</p>
-                            </div>
-                            <div class="text-center">
-                                <img src="src/image/js.svg" alt="JavaScript"
-                                    style="width: 3.5rem; height: 3.5rem; filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.3));">
-                                <p class="mt-2 text-muted fw-medium">JavaScript</p>
-                            </div>
-                            <div class="text-center">
-                                <img src="src/image/figma.svg" alt="Figma UI UX"
-                                    style="width: 3.5rem; height: 3.5rem; filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.3));">
-                                <p class="mt-2 text-muted fw-medium">Diseño UI y UX</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+</div>
+</div>
+</section>
+</template>
 
-                <div class="col-md-6">
-                    <div class="panel cristal p-4 h-100 text-center">
-                        <h4 class="mb-4 titulo habilidades justify-content-center"><i class="bi-server"></i> Backend y QA</h4>
-                        <div class="d-flex flex-wrap justify-content-center gap-4 mt-4 pt-2">
-                            <div class="text-center">
-                                <img src="src/image/python.svg" alt="Python"
-                                    style="width: 3.5rem; height: 3.5rem; filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.3));">
-                                <p class="mt-2 text-muted fw-medium">Python</p>
-                            </div>
-                            <div class="text-center">
-                                <img src="src/image/firebase.svg" alt="Firebase"
-                                    style="width: 3.5rem; height: 3.5rem; filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.3));">
-                                <p class="mt-2 text-muted fw-medium">Firebase</p>
-                            </div>
-                            <div class="text-center">
-                                <img src="src/image/sql.svg" alt="SQL"
-                                    style="width: 3.5rem; height: 3.5rem; filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.3));">
-                                <p class="mt-2 text-muted fw-medium">SQL</p>
-                            </div>
-                            <div class="text-center">
-                                <img src="src/image/qa.svg" alt="QA & Testing"
-                                    style="width: 3.5rem; height: 3.5rem; filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.3));">
-                                <p class="mt-2 text-muted fw-medium">QA y Testing</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<template data-si="Ver.Moderador">
+<section data-at-class="[[Clases.Pantalla]]" style="--Tamano: min(12.8vw, 240px)" aria-labelledby="Titulomoderador">
+<div class="Contenedor">
+<div class="Cabeceraproyecto">
+<h2 id="Titulomoderador" class="Titulogigante"><span class="Ocultovisual">Sónica </span><span class="Palabragigante Tinta" data-ref="Titulo.Moderador">Moderador</span></h2>
+<div class="Eco" aria-hidden="true"><span>Moderador</span><span>Moderador</span></div>
+<span class="Iconoproyecto Iconomoderador Destinovuelo" data-ref="Icono.Moderador" aria-hidden="true"><span class="Marcamoderador">Sónica</span><span class="Submoderador">MODERACIÓN</span></span>
+</div>
+<div class="Salecontenido Proyectorejilla">
+<div class="Textoproyecto">
+<div class="Entra" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px"><button class="Botonvolver" type="button" data-ev-click="Nav.Inicio.Ir"><svg class="Icono" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M13.5 8h-10M7 4L3 8l4 4"></path></svg>Proyectos</button><p class="Dato">Proyecto 03 / 03 · Panel web · Back office</p></div>
+<p class="Subtitulo Entra" style="--Orden: 1">Panel de control Backoffice utilizado para la moderación del ecosistema Sónica.</p>
+<ol class="Puntos Entra" style="--Orden: 2" aria-label="Puntos clave de Sónica Moderador">
+<li><span class="Numeropunto">3.1</span><span>Desarrollado con JavaScript y conexión directa a Firebase.</span></li>
+<li><span class="Numeropunto">3.2</span><span>Gestión en tiempo real de reportes y aprobaciones.</span></li>
+<li><span class="Numeropunto">3.3</span><span>Dashboard analítico para administradores.</span></li>
+</ol>
+<dl class="Fichaproyecto Entra" style="--Orden: 3">
+<div><dt>Tipo</dt><dd>Panel web · Back office</dd></div>
+<div><dt>Stack</dt><dd>JavaScript · Firebase · Backoffice</dd></div>
+</dl>
+<div class="Acciones Entra" style="--Orden: 4"><a class="Boton Botonprincipal" href="https://sonica-moderador-client.web.app/#/login" target="_blank" rel="noopener noreferrer">Ir a Sónica Moderador<svg class="Icono Iconodiagonal" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"></path></svg></a></div>
+</div>
+<div class="Mesa Conportal Entra" style="--Orden: 3">
+<div data-at-class="[[Portal.Clase]]">
+<button class="Abretapa" type="button" data-ev-click="Portal.Alternar" data-at-aria-expanded="[[Portal.Abierta]]" data-at-aria-label="[[Portal.Etiqueta]]">
+<div class="Tapaportatil">
+<div class="Pantallaportatil"><div class="Carruselweb" data-at-style="[[Carrusel.Estilo]]"><div class="Diapoweb"><img src="imagenes/moderador-1.webp" alt="Panel principal de Sónica Moderador con métricas de moderación" width="1200" height="522" draggable="false"></div><div class="Diapoweb"><img src="imagenes/moderador-2.webp" alt="Sección Series publicadas del panel Sónica Moderador" width="1200" height="522" draggable="false"></div></div></div>
+<img class="Capatapa" src="imagenes/portatil-tapa.webp" alt="" width="352" height="204" draggable="false">
+</div>
+<img class="Baseportatil" src="imagenes/portatil-base.webp" alt="" width="352" height="146" draggable="false">
+<span class="Pistaportatil" aria-hidden="true">Haz clic para abrirlo</span>
+</button>
+<div class="Navmovil">
+<button class="Flechamovil Anterior" type="button" data-ev-click="Carrusel.Anterior" aria-label="Captura anterior"><svg class="Icono" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"></path></svg></button>
+<p class="Contadormovil">Captura <span data-tx="Carrusel.Etiqueta"></span></p>
+<button class="Flechamovil Siguiente" type="button" data-ev-click="Carrusel.Siguiente" aria-label="Captura siguiente"><svg class="Icono" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"></path></svg></button>
+</div>
+<div class="Puntosmovil" aria-hidden="true"><span data-at-class="[[Carrusel.Puntouno]]"></span><span data-at-class="[[Carrusel.Puntodos]]"></span></div>
+<p class="Piecarrusel"><span data-tx="Carrusel.Pie"></span></p>
+</div>
+</div>
+<nav class="Pasoproyectos Entra" style="--Orden: 5" aria-label="Otros proyectos">
+<button class="Botonpaso" type="button" data-ev-click="Proyectos.Neon"><span class="Dato">Anterior</span><span class="Nombrepaso">Neon Jump</span></button>
+<button class="Botonpaso Derecha" type="button" data-ev-click="Proyectos.Sonica"><span class="Dato">Siguiente</span><span class="Nombrepaso">Sónica App de Podcasts</span></button>
+</nav>
 
-            </div>
-        </div>
-    </section>
+</div>
+</div>
+</section>
+</template>
 
-    <section id="seccion proyectos" class="espacio seccion">
-        <div class="container">
-            <h3 class="titulo seccion text-center mb-5">Proyectos Destacados</h3>
-            <div class="row g-4">
+</main>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="card tarjeta proyecto h-100">
-                        <div class="d-flex card-img-top"
-                            style="height: 200px; overflow: hidden; border-bottom: 1px solid rgba(0, 242, 254, 0.2); border-bottom-left-radius: 0; border-bottom-right-radius: 0; background-color: rgba(18, 30, 38, 0.6);">
-                            <div class="w-50 h-100 d-flex justify-content-center align-items-center">
-                                <video src="src/gifs/sonica video.mp4" class="w-100 h-100" style="object-fit: contain;"
-                                    autoplay loop muted playsinline aria-label="Sónica Video"></video>
-                            </div>
-                            <div class="w-50 h-100 d-flex justify-content-center align-items-center p-3">
-                                <img src="src/image/logo sonica.png" alt="Sónica Logo" class="img-fluid"
-                                    style="max-height: 100%; object-fit: contain;">
-                            </div>
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Sónica App de Podcasts</h5>
+<template data-si="Palabra.Visible">
+<div class="Capapalabra" aria-hidden="true"><div data-at-class="[[Palabra.Clasecontenedor]]" data-ref="Palabra.Fijar"><span data-at-class="[[Palabra.Clase]]" data-at-style="[[Palabra.Estilo]]"><span data-tx="Palabra.Texto"></span></span></div></div>
+</template>
 
-                            <div class="mb-3 d-flex flex-wrap gap-2">
-                                <span class="badge etiqueta proyecto">JavaScript</span>
-                                <span class="badge etiqueta proyecto">Audio</span>
-                                <span class="badge etiqueta proyecto">WebAudio</span>
-                            </div>
-                            <button type="button" class="btn btn-link enlace detalle p-0 text-start" data-bs-toggle="modal"
-                                data-bs-target='[id="modal proyecto sonica"]'>
-                                Ver Detalles <i class="bi-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+<template data-si="Vuelo.Visible">
+<div class="Vuelo" data-ref="Vuelo.Fijar" aria-hidden="true">
+<template data-si="Vuelo.Esimagen"><span class="Vueloimagen" data-at-style="[[Vuelo.Estiloimagen]]"></span></template>
+<template data-si="Vuelo.Esmoderador"><span class="Iconomoderador"><span class="Marcamoderador">Sónica</span><span class="Submoderador">MODERACIÓN</span></span></template>
+</div>
+</template>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="card tarjeta proyecto h-100">
-                        <div class="d-flex card-img-top"
-                            style="height: 200px; overflow: hidden; border-bottom: 1px solid rgba(0, 242, 254, 0.2); border-bottom-left-radius: 0; border-bottom-right-radius: 0; background-color: rgba(18, 30, 38, 0.6);">
-                            <div class="w-50 h-100 d-flex justify-content-center align-items-center">
-                                <video src="src/gifs/Neon Jump video.mp4" class="w-100 h-100"
-                                    style="object-fit: contain;" autoplay loop muted playsinline
-                                    aria-label="Neon Jump Video"></video>
-                            </div>
-                            <div class="w-50 h-100 d-flex justify-content-center align-items-center p-3">
-                                <img src="src/image/logo Neon Jump.png" alt="Neon Jump Logo" class="img-fluid"
-                                    style="max-height: 100%; object-fit: contain;">
-                            </div>
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Neon Jump</h5>
+<template data-si="Contacto.Visible">
+<div data-at-class="[[Contacto.Clase]]" data-at-style="--Origenx: [[Contacto.X]]px; --Origeny: [[Contacto.Y]]px" role="dialog" aria-modal="true" aria-labelledby="Titulocontacto" data-ev-keydown="Contacto.Teclas">
+<div class="Mundo" data-ref="Llamada.Mundo" aria-hidden="true">
+<svg class="Cablelargo" data-ref="Llamada.Svglargo" aria-hidden="true"><path class="Cordon" data-ref="Llamada.Cablelargo" d="M0 0"></path><path class="Cordonbrillo" data-ref="Llamada.Cablelargobrillo" d="M0 0"></path></svg>
+<div class="Escenallamada" data-ref="Llamada.Escena">
+<svg class="Cablecorto" viewBox="0 0 1076 620" preserveAspectRatio="none" aria-hidden="true"><path class="Cordon" data-ref="Llamada.Cablecorto" d="M0 0" stroke-width="5"></path><path class="Cordonbrillo" data-ref="Llamada.Cablecortobrillo" d="M0 0" stroke-width="1.5"></path></svg>
+<img class="Capabase" src="imagenes/telefono-base.webp" alt="" width="605" height="408" draggable="false">
+<div class="Grupomano" data-ref="Llamada.Grupo"><img class="Capamano" src="imagenes/telefono-mano.webp" alt="" width="946" height="494" draggable="false"></div>
+</div>
+</div>
+<div class="Textosllamada" data-ref="Llamada.Textos">
+<div class="Volverllamada"><button class="Botonvolver" type="button" data-ref="Contacto.Fijarcerrar" data-ev-click="Contacto.Cerrar"><svg class="Icono" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M13.5 8h-10M7 4L3 8l4 4"></path></svg>Volver</button></div>
+<p class="Anios Aparece">2022 — 2026</p>
+<div class="Bloquellamada">
+<h2 id="Titulocontacto" class="Contactotitulo Aparece" style="--Orden: 1"><span class="Contactogrueso">Espero</span> <span class="Contactocursiva">tu mensaje</span></h2>
+<p class="Contactotexto Aparece" style="--Orden: 2">Gracias por tomarte el tiempo de conocer mi trabajo. Escríbeme y hablemos de tu proyecto.</p>
+<div class="Filacorreo Aparece" style="--Orden: 3">
+<a class="Enlacecorreo" href="mailto:joperdomoo16@gmail.com">joperdomoo16@gmail.com</a>
+<button class="Botoncopiar" type="button" data-at-aria-label="[[Correo.Etiqueta]]" data-ev-click="Correo.Copiar"><span data-tx="Correo.Texto"></span></button>
+<input class="Campooculto" data-ref="Correo.Campo" type="text" value="joperdomoo16@gmail.com" readonly="" tabindex="-1" aria-hidden="true">
+</div>
+<ul class="Enlacescontacto Aparece" style="--Orden: 4">
+<li><a class="Enlacecontacto" href="https://www.linkedin.com/in/jorge-perdomoo/" target="_blank" rel="noopener noreferrer">LinkedIn<svg class="Icono" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"></path></svg></a></li>
+<li><a class="Enlacecontacto" href="https://github.com/joperdomoo16" target="_blank" rel="noopener noreferrer">GitHub<svg class="Icono" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"></path></svg></a></li>
+<li><a class="Enlacecontacto" href="imagenes/cv-jorge-perdomo.pdf" download="CV Jorge Perdomo.pdf" target="_blank" rel="noopener noreferrer">CV<svg class="Icono" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M8 2.5v10M4 9l4 4 4-4"></path></svg></a></li>
+</ul>
+</div>
+<p class="Gracias"><span class="Ocultovisual">Muchas gracias</span><span class="Letra" style="--Orden: 0" aria-hidden="true">M</span><span class="Letra" style="--Orden: 1" aria-hidden="true">U</span><span class="Letra" style="--Orden: 2" aria-hidden="true">C</span><span class="Letra" style="--Orden: 3" aria-hidden="true">H</span><span class="Letra" style="--Orden: 4" aria-hidden="true">A</span><span class="Letra" style="--Orden: 5" aria-hidden="true">S</span><svg class="Asterisco Letra" style="--Orden: 6" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 1.5 C 23.2 9.5, 23.2 14.5, 20 20 C 16.8 14.5, 16.8 9.5, 20 1.5 Z" transform="rotate(0 20 20)"></path><path d="M20 1.5 C 23.2 9.5, 23.2 14.5, 20 20 C 16.8 14.5, 16.8 9.5, 20 1.5 Z" transform="rotate(60 20 20)"></path><path d="M20 1.5 C 23.2 9.5, 23.2 14.5, 20 20 C 16.8 14.5, 16.8 9.5, 20 1.5 Z" transform="rotate(120 20 20)"></path><path d="M20 1.5 C 23.2 9.5, 23.2 14.5, 20 20 C 16.8 14.5, 16.8 9.5, 20 1.5 Z" transform="rotate(180 20 20)"></path><path d="M20 1.5 C 23.2 9.5, 23.2 14.5, 20 20 C 16.8 14.5, 16.8 9.5, 20 1.5 Z" transform="rotate(240 20 20)"></path><path d="M20 1.5 C 23.2 9.5, 23.2 14.5, 20 20 C 16.8 14.5, 16.8 9.5, 20 1.5 Z" transform="rotate(300 20 20)"></path></svg><span class="Letra" style="--Orden: 7" aria-hidden="true">G</span><span class="Letra" style="--Orden: 8" aria-hidden="true">R</span><span class="Letra" style="--Orden: 9" aria-hidden="true">A</span><span class="Letra" style="--Orden: 10" aria-hidden="true">C</span><span class="Letra" style="--Orden: 11" aria-hidden="true">I</span><span class="Letra" style="--Orden: 12" aria-hidden="true">A</span><span class="Letra" style="--Orden: 13" aria-hidden="true">S</span></p>
+<div class="Piellamada Aparece" style="--Orden: 5"><span class="Lineadiagonal" aria-hidden="true"></span><p class="Textopie">Bogotá, Colombia</p></div>
+</div>
+</div>
+</template>
 
-                            <div class="mb-3 d-flex flex-wrap gap-2">
-                                <span class="badge etiqueta proyecto">Mobile</span>
-                                <span class="badge etiqueta proyecto">GooglePlay</span>
-                                <span class="badge etiqueta proyecto">GameDev</span>
-                            </div>
-                            <button type="button" class="btn btn-link enlace detalle p-0 text-start" data-bs-toggle="modal"
-                                data-bs-target='[id="modal proyecto neon jump"]'>
-                                Ver Detalles <i class="bi-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="card tarjeta proyecto h-100">
-                        <video src="src/gifs/sonica moderador.mp4" class="card-img-top"
-                            style="height: 200px; object-fit: cover;" autoplay loop muted playsinline
-                            aria-label="Sónica Moderador"></video>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Sónica Moderador</h5>
-
-                            <div class="mb-3 d-flex flex-wrap gap-2">
-                                <span class="badge etiqueta proyecto">JavaScript</span>
-                                <span class="badge etiqueta proyecto">Firebase</span>
-                                <span class="badge etiqueta proyecto">Backoffice</span>
-                            </div>
-                            <button type="button" class="btn btn-link enlace detalle p-0 text-start" data-bs-toggle="modal"
-                                data-bs-target='[id="modal proyecto sonica moderador"]'>
-                                Ver Detalles <i class="bi-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="seccion experiencia" class="espacio seccion">
-        <div class="container">
-            <h3 class="titulo seccion text-center mb-5">Experiencia Laboral</h3>
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-8">
-                    <div class="guia temporal">
-                        <div class="hito temporal">
-                            <h5>Entrenador y Evaluador de Código Outlier Scale</h5>
-                            <span class="fecha periodo">2026 a la Actualidad</span>
-                            <p class="text-muted mt-2">Reviso y depuro código en JavaScript, detectando errores de
-                                lógica, de sintaxis y de implementación. Elaboro casos de prueba y rúbricas técnicas que
-                                elevan la calidad del código generado.</p>
-                        </div>
-                        <div class="hito temporal">
-                            <h5>Técnico Convergente Jazzplat Colombia SAS</h5>
-                            <span class="fecha periodo">Oct/2024 a Dic/2025</span>
-                            <p class="text-muted mt-2">Resolví fallas de software y producto junto a los equipos de
-                                desarrollo e infraestructura. Documenté incidencias y requerimientos siguiendo el ciclo
-                                de vida del desarrollo.</p>
-                        </div>
-                        <div class="hito temporal">
-                            <h5>Soporte Técnico Nivel 1 y Nivel 2 Vodafone by Konecta</h5>
-                            <span class="fecha periodo">Ago/2022 a Jun/2024</span>
-                            <p class="text-muted mt-2">Diagnostiqué y solucioné fallas complejas de software y equipos.
-                                Traduje las necesidades de los usuarios a requerimientos técnicos claros, ayudando a
-                                mejorar la estabilidad de las plataformas.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="titulo seccion text-center mb-5">Educación</h3>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="guia temporal">
-                        <div class="hito temporal">
-                            <h5>Tecnólogo en Análisis y Desarrollo de Software</h5>
-                            <span class="fecha periodo">Actualidad</span>
-                            <p class="text-muted mt-2">SENA, modalidad virtual.</p>
-                        </div>
-                        <div class="hito temporal">
-                            <h5>Desarrollador junior Full Stack/Java</h5>
-                            <span class="fecha periodo">Sep/2026 a Dic/2026</span>
-                            <p class="text-muted mt-2">Generation Colombia, Bogotá.</p>
-                        </div>
-                        <div class="hito temporal">
-                            <h5>Administración de Empresas</h5>
-                            <span class="fecha periodo">2015 a 2017</span>
-                            <p class="text-muted mt-2">Universidad EAN, Bogotá.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="seccion contacto" class="espacio seccion">
-        <div class="container">
-            <h3 class="titulo seccion text-center mb-5">Contacto</h3>
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center panel cristal p-5">
-                    <p class="text-muted fs-5 mb-4">¿Tienes un proyecto en mente o quieres conocer más sobre mi trabajo?
-                    </p>
-                    <a href="mailto:joperdomoo16@gmail.com" class="correo enlace">joperdomoo16@gmail.com</a>
-                    <p class="text-muted mt-4"><i class="bi-geo-alt"></i> Bogotá, Colombia</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="pie pagina py-4 text-center">
-        <div class="container">
-            <p class="text-muted mb-0">&copy; 2026 Jorge David Perdomo Ortiz. Desarrollado con dedicación.</p>
-        </div>
-    </footer>
-
-    <div class="modal fade" id="modal proyecto sonica" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content caja modal">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title encabezado modal">Sónica App de Podcasts</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="text-muted">Aplicación para escuchar y crear podcasts que genera diálogos realistas,
-                        efectos de sonido e imitación de emociones en las voces.</p>
-                    <ul class="text-muted lista elementos">
-                        <li>Generación de diálogos realistas.</li>
-                        <li>Uso de WebAudio API para control de sonido inmersivo.</li>
-                        <li>Sistema de usuarios y gestión de contenido interactivo.</li>
-                    </ul>
-                </div>
-                <div class="modal-footer border-0">
-                    <a href="https://sónica.com" target="enlace externo" class="btn boton principal">Ir a Sónica</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modal proyecto neon jump" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content caja modal">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title encabezado modal">Neon Jump Juego Móvil</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="text-muted">Videojuego de estilo casual y estética neón, disponible en la tienda Google
-                        Play.</p>
-                    <ul class="text-muted lista elementos">
-                        <li>Físicas de salto y generación procedural de niveles.</li>
-                        <li>Integración con servicios de monetización.</li>
-                        <li>Optimización de rendimiento para dispositivos de gama baja.</li>
-                    </ul>
-                </div>
-                <div class="modal-footer border-0">
-                    <a href="https://play.google.com/store/apps/details?id=com.tustudio.neon%5Fjump" target="enlace externo"
-                        rel="noopener noreferrer" class="btn boton principal">Ver en Google Play</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modal proyecto sonica moderador" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content caja modal">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title encabezado modal">Sónica Moderador</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="text-muted">Panel de control Backoffice utilizado para la moderación del ecosistema
-                        Sónica.</p>
-                    <ul class="text-muted lista elementos">
-                        <li>Desarrollado con JavaScript y conexión directa a Firebase.</li>
-                        <li>Gestión en tiempo real de reportes y aprobaciones.</li>
-                        <li>Dashboard analítico para administradores.</li>
-                    </ul>
-                </div>
-                <div class="modal-footer border-0">
-                    <a href="https://sonica-moderador-client.web.app/#/login" target="enlace externo"
-                        class="btn boton principal">Ir a Sónica Moderador</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+</div>
+<script src="logica/Datosportafolio.js"></script>
+<script src="logica/Geometria.js"></script>
+<script src="logica/Utilidades.js"></script>
+<script src="logica/Motorreactivo.js"></script>
+<script src="guion.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,131 @@
+﻿/* ==========================================================================
+   Tokens globales, normalización, tipografía y componentes base
+   ========================================================================== */
+
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #DCDCDA; }
+*, *::before, *::after { box-sizing: border-box; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+
+/* Tokens de diseño del sistema */
+.Raiz {
+  --Colorpapel: #DCDCDA;
+  --Colorpapelclaro: #E9E9E6;
+  --Colorpapelhondo: #CDCDCA;
+  --Colortinta: #0D0D0D;
+  --Colortintasuave: #3D3D3B;
+  --Colortintatenue: #575754;
+  --Colorlinea: rgba(13, 13, 13, 0.14);
+  --Colorlineafuerte: rgba(13, 13, 13, 0.3);
+  --Coloracento: #B0261A;
+  --Colorrojohondo: #6E120C;
+  --Colorsobreacento: #F1F0EC;
+  --Colorturquesa: #3CD3C6;
+  --Sombrapapel: 3px 4px 0 rgba(13, 13, 13, 0.14);
+  --Texturapapel: url(imagenes/textura-papel.webp);
+  --Granotinta: url(imagenes/grano-tinta.webp);
+  --Tipogigante: 'Archivo', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  --Tipocuerpo: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --Tiposerif: 'Instrument Serif', 'Times New Roman', Georgia, serif;
+  --Tipomono: 'DM Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --Radiocontrol: 4px;
+  --Radiofoto: 6px;
+  --Radiotarjeta: 10px;
+  --Margenlateral: clamp(20px, 3.9vw, 56px);
+  --Altocabecera: 76px;
+  --Tamanonombre: min(22.5vw, 37vh);
+  --Estiramiento: 1.60;
+  --Facil: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --Corte: cubic-bezier(0.7, 0, 0.2, 1);
+  --Transicion: 150ms ease-out;
+}
+
+.Raiz.Acentoprofundo { --Coloracento: #8B1A14; --Colorrojohondo: #4A0B07; }
+.Raiz.Acentotinta { --Coloracento: #2A2A28; --Colorrojohondo: #0D0D0D; }
+
+.Raiz {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: clip;
+  background: var(--Colorpapel) var(--Texturapapel) 0 0 / 1024px 1024px repeat;
+  color: var(--Colortinta);
+  font-family: var(--Tipocuerpo);
+  font-stretch: 100%;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.Raiz ::selection { background: var(--Colortinta); color: var(--Colorpapel); }
+.Raiz :focus-visible { outline: 2px solid var(--Coloracento); outline-offset: 3px; border-radius: 2px; }
+
+/* Tipografía y utilidades de texto */
+.Dato { margin: 0; font-family: var(--Tipomono); font-size: 12px; font-weight: 400; line-height: 1.5; letter-spacing: 0.1em; text-transform: uppercase; color: var(--Colortintatenue); }
+.Cursiva { font-family: var(--Tiposerif); font-style: italic; font-weight: 400; }
+.Ocultovisual { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.Saltar { position: absolute; left: 16px; top: -80px; z-index: 95; padding: 12px 16px; border-radius: var(--Radiocontrol); background: var(--Colortinta); color: var(--Colorpapel); font-family: var(--Tipomono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
+.Saltar:focus { top: 12px; }
+.Parrafo { margin: 0; max-width: 62ch; font-size: 17px; line-height: 1.7; color: var(--Colortintasuave); text-wrap: pretty; }
+
+/* Texto con rodillo tipográfico al cursor */
+.Rodillo { display: inline-grid; overflow: hidden; line-height: 1.3; }
+.Rodillo > span { grid-area: 1 / 1; transition: transform 380ms var(--Facil); }
+.Rodillonormal { font-family: var(--Tipocuerpo); font-stretch: 100%; font-weight: 500; }
+.Rodillocursiva { font-family: var(--Tiposerif); font-style: italic; font-weight: 400; color: var(--Coloracento); transform: translateY(105%); }
+.Conrodillo:hover .Rodillonormal, .Conrodillo:focus-visible .Rodillonormal, .Conrodillo.Activo .Rodillonormal { transform: translateY(-105%); }
+.Conrodillo:hover .Rodillocursiva, .Conrodillo:focus-visible .Rodillocursiva, .Conrodillo.Activo .Rodillocursiva { transform: translateY(0); }
+
+/* Botones */
+.Boton { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 22px; border: 1px solid var(--Colortinta); border-radius: var(--Radiocontrol); background: transparent; color: var(--Colortinta); font-family: var(--Tipocuerpo); font-size: 16px; font-weight: 600; line-height: 1; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color var(--Transicion), color var(--Transicion), border-color var(--Transicion); }
+.Boton:hover { background: var(--Colortinta); color: var(--Colorpapel); }
+.Botonprincipal { background: var(--Colortinta); color: var(--Colorpapel); }
+.Botonprincipal:hover { border-color: var(--Coloracento); background: var(--Coloracento); color: var(--Colorsobreacento); }
+.Icono { flex: none; transition: transform var(--Transicion); }
+.Boton:hover .Iconoderecha { transform: translateX(3px); }
+.Boton:hover .Iconodiagonal { transform: translate(2px, -2px); }
+.Boton:hover .Iconoabajo { transform: translateY(2px); }
+.Botonvolver { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 14px 0 10px; border: 1px solid var(--Colorlineafuerte); border-radius: var(--Radiocontrol); background: var(--Colorpapelclaro); color: var(--Colortinta); font-family: var(--Tipomono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background-color var(--Transicion), border-color var(--Transicion); }
+.Botonvolver:hover { border-color: var(--Colortinta); background: var(--Colorpapel); }
+.Botonvolver:hover .Icono { transform: translateX(-3px); }
+
+/* Cabecera y Navegación */
+.Cabecera { position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 24px; height: var(--Altocabecera); padding: 0 var(--Margenlateral); background: var(--Colorpapel) var(--Texturapapel) 0 0 / 1024px 1024px repeat; }
+.Navegacion { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.Listanav { display: flex; align-items: center; gap: clamp(2px, 1.2vw, 20px); margin: 0; padding: 0; list-style: none; }
+.Enlacenav { display: inline-flex; align-items: center; min-height: 44px; padding: 0 6px; border: 0; background: none; cursor: pointer; font-size: clamp(17px, 1.4vw, 21px); }
+.Enlacenav .Rodillocursiva { font-size: 1.16em; }
+.Enlaceinicio { font-family: var(--Tipomono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--Colortintasuave); gap: 8px; }
+.Botonmenu { display: none; align-items: center; justify-content: center; min-height: 44px; padding: 0 16px; border: 1px solid var(--Colortinta); border-radius: var(--Radiocontrol); background: transparent; font-family: var(--Tipomono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; }
+.Accionescabecera { display: flex; align-items: center; gap: clamp(8px, 1.2vw, 18px); }
+.Listaredes { display: flex; align-items: center; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.Botonicono { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: var(--Radiocontrol); color: var(--Colortinta); transition: transform var(--Transicion), color var(--Transicion); }
+.Botonicono:hover { color: var(--Coloracento); transform: translateY(-2px); }
+.Trazocv { fill: none; stroke: var(--Colorpapel); stroke-width: 1.4; }
+.Letrascv { font-family: var(--Tipogigante); font-size: 9px; font-weight: 700; text-anchor: middle; fill: var(--Colorpapel); }
+.Divisor { width: 2px; height: 40px; background: var(--Colortinta); }
+.Botoncontacto { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 4px 0 0; border: 0; background: none; cursor: pointer; font-size: clamp(17px, 1.4vw, 21px); }
+.Aro { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1.5px solid var(--Colortinta); border-radius: 50%; transition: background-color var(--Transicion), color var(--Transicion); }
+.Botoncontacto:hover .Aro { background: var(--Colortinta); color: var(--Colorpapel); }
+.Botoncontacto:hover .Iconotelefono { animation: Timbre 600ms ease-out; }
+
+.Menumovil { position: fixed; left: 0; right: 0; top: var(--Altocabecera); z-index: 39; padding: 8px var(--Margenlateral) 28px; border-bottom: 1px solid var(--Colorlineafuerte); background: var(--Colorpapel) var(--Texturapapel) 0 0 / 1024px 1024px; animation: Menubaja 260ms var(--Facil) both; }
+.Listamovil { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.Enlacemovil { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 58px; padding: 0; border: 0; border-bottom: 1px solid var(--Colorlinea); background: none; font-family: var(--Tipogigante); font-size: 30px; font-weight: 800; font-stretch: 75%; text-align: left; text-decoration: none; color: var(--Colortinta); cursor: pointer; }
+.Enlacemovil.Secundario { font-family: var(--Tipomono); font-size: 13px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* Palabras gigantes */
+.Palabragigante { display: inline-block; padding-top: 0.17em; text-transform: uppercase; font-family: var(--Tipogigante); font-size: calc(var(--Tamano) * var(--Escalatitulo, 1)); font-weight: 820; font-stretch: 100%; line-height: 0.8; letter-spacing: -0.04em; white-space: nowrap; color: var(--Colortinta); }
+.Palabragigante.Rojo { font-size: var(--Tamanonombre); font-weight: 900; font-stretch: 62%; line-height: 0.74; letter-spacing: 0; transform: scaleY(var(--Estiramiento)); transform-origin: 50% 0; background: var(--Granotinta) 0 0 / 256px 256px repeat, linear-gradient(180deg, var(--Coloracento) 18%, var(--Colorrojohondo) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.Palabragigante.Tinta { background: var(--Granotinta) 0 0 / 256px 256px repeat, linear-gradient(180deg, var(--Colortinta) 46%, var(--Colorrojohondo) 78%, var(--Coloracento) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.Titulogigante { position: relative; z-index: 1; margin: calc(var(--Tamano, 0px) * var(--Escalatitulo, 1) * -0.17) 0 0; text-align: center; }
+.Eco { display: grid; justify-items: center; margin-top: calc(var(--Tamano) * var(--Escalatitulo, 1) * -0.02); pointer-events: none; user-select: none; }
+.Eco > span { display: block; text-transform: uppercase; height: calc(var(--Tamano) * var(--Escalatitulo, 1) * 0.36); overflow: hidden; font-family: var(--Tipogigante); font-size: calc(var(--Tamano) * var(--Escalatitulo, 1)); font-weight: 820; font-stretch: 100%; line-height: 0.8; letter-spacing: -0.04em; white-space: nowrap; color: transparent; -webkit-text-stroke: 1.2px var(--Colortinta); animation: Eco 760ms var(--Facil) both; }
+.Eco > span:nth-child(1) { opacity: 0.38; animation-delay: 980ms; }
+.Eco > span:nth-child(2) { opacity: 0.14; animation-delay: 1080ms; }
+
+/* Las reglas responsive viven en estilos/Adaptable.css (se carga al final) */
+
+/* Evita el parpadeo del marcado sin pintar en la primera carga */
+body.Cargando { visibility: hidden; }

@@ -1,0 +1,339 @@
+/* ==========================================================================
+   Estilos de la escena interactiva de contacto y llamada telefónica
+   ========================================================================== */
+
+.Contacto {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  overflow: hidden;
+  background: var(--Colorpapel) var(--Texturapapel) 0 0 / 1024px 1024px repeat;
+}
+
+.Contacto.Abre {
+  animation: Revelar 640ms var(--Corte) both;
+}
+
+.Contacto.Cierra {
+  animation: Ocultar 560ms var(--Corte) both;
+}
+
+@keyframes Revelar {
+  from { clip-path: circle(0px at var(--Origenx) var(--Origeny)); }
+  to { clip-path: circle(150vmax at var(--Origenx) var(--Origeny)); }
+}
+
+@keyframes Ocultar {
+  from { clip-path: circle(150vmax at var(--Origenx) var(--Origeny)); }
+  to { clip-path: circle(0px at var(--Origenx) var(--Origeny)); }
+}
+
+.Mundo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.Cablelargo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  overflow: visible;
+}
+
+.Cordon {
+  fill: none;
+  stroke: #222220;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.Cordonbrillo {
+  fill: none;
+  stroke: #9A9A96;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.55;
+}
+
+.Escenallamada {
+  position: absolute;
+  z-index: 2;
+}
+
+.Cablecorto {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.Capabase {
+  position: absolute;
+  left: 31.088%;
+  top: 56.129%;
+  z-index: 2;
+  width: 37.5%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.Grupomano {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  transform-origin: 40.799% 33.387%;
+  will-change: transform;
+}
+
+.Capamano {
+  position: absolute;
+  left: 1.626%;
+  top: 1.855%;
+  width: 58.643%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.Textosllamada {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.Textosllamada > * {
+  pointer-events: auto;
+}
+
+.Volverllamada {
+  position: absolute;
+  left: var(--Margenlateral);
+  top: 22px;
+}
+
+.Anios {
+  position: absolute;
+  left: 50%;
+  top: 22px;
+  margin: 0;
+  transform: translateX(-50%);
+  font-family: var(--Tipogigante);
+  font-size: 24px;
+  font-weight: 500;
+  font-stretch: 100%;
+  line-height: 44px;
+  white-space: nowrap;
+}
+
+.Bloquellamada {
+  position: absolute;
+  left: var(--Bloqueizquierda, 51%);
+  top: 31%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(32%, 460px);
+}
+
+.Contactotitulo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.22em;
+  margin: 0 0 2px;
+  font-weight: 400;
+}
+
+.Contactogrueso {
+  font-family: var(--Tipogigante);
+  font-size: clamp(30px, 3.1vw, 50px);
+  font-weight: 800;
+  font-stretch: 118%;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.Contactocursiva {
+  font-family: var(--Tiposerif);
+  font-style: italic;
+  font-size: clamp(32px, 3.3vw, 54px);
+  line-height: 1;
+  color: var(--Coloracento);
+}
+
+.Contactotexto {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--Colortintasuave);
+}
+
+.Filacorreo {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+}
+
+.Enlacecorreo {
+  font-family: var(--Tipogigante);
+  font-size: clamp(18px, 1.5vw, 22px);
+  font-weight: 600;
+  color: var(--Colortinta);
+  text-decoration: underline;
+  text-decoration-color: var(--Coloracento);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  overflow-wrap: anywhere;
+  transition: color var(--Transicion), text-decoration-thickness var(--Transicion);
+}
+
+.Enlacecorreo:hover {
+  color: var(--Coloracento);
+  text-decoration-thickness: 2px;
+}
+
+.Botoncopiar {
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--Colortinta);
+  border-radius: var(--Radiocontrol);
+  background: transparent;
+  font-family: var(--Tipomono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color var(--Transicion), color var(--Transicion);
+}
+
+.Botoncopiar:hover {
+  background: var(--Colortinta);
+  color: var(--Colorpapel);
+}
+
+.Campooculto {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.Enlacescontacto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.Enlacecontacto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  font-family: var(--Tipomono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--Colortinta);
+}
+
+.Enlacecontacto:hover {
+  color: var(--Coloracento);
+}
+
+.Gracias {
+  position: absolute;
+  right: clamp(10px, 2.2vw, 40px);
+  top: 50%;
+  display: flex;
+  align-items: center;
+  gap: 0.08em;
+  margin: 0;
+  font-family: var(--Tipogigante);
+  font-size: clamp(38px, 7.6vh, 80px);
+  font-weight: 200;
+  font-stretch: 100%;
+  line-height: 1;
+  writing-mode: vertical-rl;
+  transform: translateY(-50%);
+}
+
+.Gracias .Letra {
+  display: inline-block;
+  opacity: 0;
+}
+
+.Asterisco {
+  display: block;
+  width: 0.66em;
+  height: 0.66em;
+  margin: 0.16em 0;
+  fill: var(--Colortinta);
+}
+
+.Piellamada {
+  position: absolute;
+  left: var(--Margenlateral);
+  bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.Lineadiagonal {
+  display: block;
+  width: 52px;
+  height: 1px;
+  margin-bottom: 18px;
+  background: var(--Colortinta);
+  transform: rotate(-38deg);
+  transform-origin: left center;
+}
+
+.Textopie {
+  margin: 0;
+  font-family: var(--Tipocuerpo);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.Aparece {
+  opacity: 0;
+}
+
+.Textosvisibles .Aparece {
+  animation: Entrar 700ms var(--Facil) both;
+  animation-delay: calc(var(--Orden, 0) * 90ms);
+}
+
+.Textosvisibles .Gracias .Letra {
+  animation: Letraentra 640ms var(--Facil) both;
+  animation-delay: calc(var(--Orden) * 40ms);
+}
+
+@keyframes Letraentra {
+  from { opacity: 0; transform: translateX(46px); }
+  to { opacity: 1; transform: none; }
+}

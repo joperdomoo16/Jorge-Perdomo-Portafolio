@@ -1,0 +1,57 @@
+/* Tipografias locales: las mismas tres familias que trae Google Fonts, pero servidas
+   desde esta carpeta para que el sitio funcione sin internet. Para usarlas, en
+   index.html reemplaza los tres <link> de fonts.googleapis.com por esta sola linea:
+
+   <link rel="stylesheet" href="tipografias/tipografias.css">
+
+   Debe ir ANTES de <link rel="stylesheet" href="estilos.css">. */
+
+@font-face {
+  font-family: 'Archivo';
+  src: url(archivo.woff2) format('woff2');
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  src: url(archivo-italica.woff2) format('woff2');
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url(instrument-serif.woff2) format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url(instrument-serif-italica.woff2) format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  src: url(dm-mono-400.woff2) format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  src: url(dm-mono-500.woff2) format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}

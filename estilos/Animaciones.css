@@ -1,0 +1,175 @@
+/* ==========================================================================
+   Animaciones, fotogramas clave y transiciones cinemáticas
+   ========================================================================== */
+
+/* Animación del timbre en el botón de contacto */
+@keyframes Timbre {
+  0%, 100% { transform: rotate(0); }
+  20% { transform: rotate(-14deg); }
+  40% { transform: rotate(12deg); }
+  60% { transform: rotate(-8deg); }
+  80% { transform: rotate(5deg); }
+}
+
+/* Despliegue del menú móvil */
+@keyframes Menubaja {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Eco de títulos gigantes */
+@keyframes Eco {
+  from { transform: translateY(-40%); clip-path: inset(0 0 100% 0); }
+  to { transform: none; clip-path: inset(0 0 0 0); }
+}
+
+/* Rebanado horizontal al salir */
+@keyframes Rebanarsale {
+  0% { clip-path: polygon(-5% -20%, 105% -20%, 105% 8%, -5% 8%, -5% 8%, 105% 8%, 105% 36%, -5% 36%, -5% 36%, 105% 36%, 105% 64%, -5% 64%, -5% 64%, 105% 64%, 105% 92%, -5% 92%, -5% 92%, 105% 92%, 105% 120%, -5% 120%); }
+  45% { clip-path: polygon(-5% -6%, 105% -6%, 105% -6%, -5% -6%, -5% 12%, 105% 12%, 105% 32%, -5% 32%, -5% 50%, 105% 50%, 105% 50%, -5% 50%, -5% 68%, 105% 68%, 105% 88%, -5% 88%, -5% 106%, 105% 106%, 105% 106%, -5% 106%); }
+  100% { clip-path: polygon(-5% -6%, 105% -6%, 105% -6%, -5% -6%, -5% 22%, 105% 22%, 105% 22%, -5% 22%, -5% 50%, 105% 50%, 105% 50%, -5% 50%, -5% 78%, 105% 78%, 105% 78%, -5% 78%, -5% 106%, 105% 106%, 105% 106%, -5% 106%); }
+}
+
+/* Rebanado horizontal al entrar */
+@keyframes Rebanarentra {
+  0% { clip-path: polygon(-5% -6%, 105% -6%, 105% -6%, -5% -6%, -5% 22%, 105% 22%, 105% 22%, -5% 22%, -5% 50%, 105% 50%, 105% 50%, -5% 50%, -5% 78%, 105% 78%, 105% 78%, -5% 78%, -5% 106%, 105% 106%, 105% 106%, -5% 106%); }
+  55% { clip-path: polygon(-5% -20%, 105% -20%, 105% 8%, -5% 8%, -5% 22%, 105% 22%, 105% 22%, -5% 22%, -5% 36%, 105% 36%, 105% 64%, -5% 64%, -5% 78%, 105% 78%, 105% 78%, -5% 78%, -5% 92%, 105% 92%, 105% 120%, -5% 120%); }
+  100% { clip-path: polygon(-5% -20%, 105% -20%, 105% 8%, -5% 8%, -5% 8%, 105% 8%, 105% 36%, -5% 36%, -5% 36%, 105% 36%, 105% 64%, -5% 64%, -5% 64%, 105% 64%, 105% 92%, -5% 92%, -5% 92%, 105% 92%, 105% 120%, -5% 120%); }
+}
+
+/* Salida del contenido */
+@keyframes Salircontenido {
+  to { opacity: 0; transform: translateY(26px); }
+}
+
+/* Entradas suaves */
+@keyframes Entrar {
+  from { opacity: 0; transform: translateY(22px); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: blur(0); }
+}
+
+/* Retrato en pantalla de inicio */
+@keyframes Retratoentra {
+  from { opacity: 0; transform: translate(-50%, 40px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes Retratosale {
+  to { opacity: 0; transform: translate(-50%, 40px); }
+}
+
+/* Vitrina de proyectos */
+@keyframes Entravitrina {
+  from { opacity: 0; transform: translate(-50%, 48px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes Salevitrina {
+  to { opacity: 0; transform: translate(-50%, 26px); }
+}
+
+/* Barajado de capturas de proyecto */
+@keyframes Barajar {
+  0% { z-index: 4; transform: rotate(-3deg); }
+  45% { z-index: 4; transform: translate(118%, -8%) rotate(16deg); }
+  55% { z-index: 0; }
+  100% { z-index: 1; transform: translate(-34%, 5%) rotate(-11deg) scale(0.84); }
+}
+
+@keyframes Barajarancha {
+  0% { z-index: 4; transform: rotate(-3deg); }
+  45% { z-index: 4; transform: translate(70%, -30%) rotate(9deg); }
+  55% { z-index: 0; }
+  100% { z-index: 1; transform: translate(-7%, -17%) rotate(-5deg) scale(0.9); }
+}
+
+/* Estados de transición entre pantallas */
+.Saliendo .Palabragigante { animation: Rebanarsale 420ms var(--Corte) both; }
+.Saliendo .Salecontenido { animation: Salircontenido 380ms var(--Corte) both; }
+.Saliendo .Eco { animation: Salircontenido 300ms var(--Corte) both; }
+.Saliendo .Retrato { animation: Retratosale 400ms var(--Corte) both; }
+.Saliendo .Vitrina { animation: Salevitrina 360ms var(--Corte) both; }
+
+.Llegando .Titulogigante .Palabragigante,
+.Llegando .Gigante .Palabragigante,
+.Llegando .Destinovuelo {
+  opacity: 0;
+}
+
+.Llegada:not(.Saliendo) .Retrato { animation-delay: 1000ms; }
+.Llegada:not(.Saliendo) .Vitrina { animation-delay: 1200ms; }
+
+.Entra {
+  animation: Entrar 680ms var(--Facil) both;
+  animation-delay: calc(640ms + var(--Orden, 0) * 90ms);
+}
+
+/* Capa de la palabra que viaja entre pantallas */
+.Capapalabra {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.Palabraflotante {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  opacity: 0;
+  will-change: transform;
+}
+
+.Palabraflotante.Lista {
+  opacity: 1;
+}
+
+.Palabraflotante.Lista .Palabragigante {
+  animation: Rebanarentra 460ms var(--Facil) 160ms both;
+}
+
+.Palabraflotante.Crece {
+  transition: transform 700ms cubic-bezier(0.7, 0, 0.18, 1);
+}
+
+/* Tarjeta que vuela del abanico al proyecto */
+.Vuelo {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 85;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.Vuelo.Viaja {
+  transition: left 700ms cubic-bezier(0.7, 0, 0.18, 1),
+              top 700ms cubic-bezier(0.7, 0, 0.18, 1),
+              width 700ms cubic-bezier(0.7, 0, 0.18, 1),
+              height 700ms cubic-bezier(0.7, 0, 0.18, 1),
+              transform 700ms cubic-bezier(0.7, 0, 0.18, 1);
+}
+
+.Vueloimagen {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 24%;
+  background-color: var(--Colorpapelclaro);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 4px var(--Colorpapelclaro), 5px 8px 0 4px rgba(13, 13, 13, 0.2);
+}
+
+.Vuelo .Iconomoderador {
+  --Lado: 100%;
+  border-radius: 24%;
+  box-shadow: 0 0 0 4px var(--Colorpapelclaro), 5px 8px 0 4px rgba(13, 13, 13, 0.2);
+}
+
+.Vuelo .Marcamoderador {
+  font-size: 1.6em;
+}

@@ -1,0 +1,1189 @@
+/* ==========================================================================
+   Estilos de vistas y pantallas interiores
+   ========================================================================== */
+
+/* Escenario de inicio */
+.Escenario {
+  --Ladocartel: clamp(68px, 6.8vw, 90px);
+  --Lado: var(--Ladocartel);
+  --Altogigante: 17%;
+  --Altomayusculas: calc(var(--Tamanonombre) * 0.704 * var(--Estiramiento));
+  position: relative;
+  height: calc(100vh - var(--Altocabecera));
+  min-height: 460px;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.Gigante {
+  position: absolute;
+  left: 50%;
+  top: var(--Altogigante);
+  z-index: 0;
+  margin: 0;
+  transform: translateX(-50%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.Reflejo {
+  display: none;
+}
+
+.Reflejo .Palabragigante {
+  transition: opacity 500ms var(--Facil);
+}
+
+.Retrato {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 1;
+  height: 96%;
+  width: auto;
+  max-width: none;
+  transform: translateX(-50%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 76%, transparent 99%);
+  mask-image: linear-gradient(to bottom, #000 76%, transparent 99%);
+  user-select: none;
+  -webkit-user-drag: none;
+  animation: Retratoentra 1000ms var(--Facil) 120ms both;
+}
+
+.Saludo {
+  position: absolute;
+  left: var(--Margenlateral);
+  top: clamp(16px, 2.5vh, 28px);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.Titulosaludo {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-weight: 400;
+}
+
+.Hola {
+  font-family: var(--Tiposerif);
+  font-style: italic;
+  font-size: clamp(42px, min(4.9vw, 8.6vh), 84px);
+  line-height: 0.92;
+  color: var(--Colortintasuave);
+}
+
+.Soy {
+  font-family: var(--Tipogigante);
+  font-size: clamp(36px, min(4.3vw, 7.6vh), 72px);
+  font-weight: 800;
+  font-stretch: 118%;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.Rolinicio {
+  position: absolute;
+  right: var(--Margenlateral);
+  bottom: clamp(22px, 3.6vh, 36px);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  text-align: right;
+}
+
+.Datosaludo {
+  display: none;
+}
+
+.Rol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0;
+}
+
+.Rolgrande {
+  font-family: var(--Tipogigante);
+  font-size: clamp(26px, min(2.8vw, 5.4vh), 48px);
+  font-weight: 800;
+  font-stretch: 100%;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.Rolfila {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25em;
+}
+
+.Rolcursiva {
+  font-family: var(--Tiposerif);
+  font-style: italic;
+  font-size: clamp(30px, min(3.2vw, 6.2vh), 56px);
+  line-height: 1.05;
+}
+
+.Rolestrecha {
+  font-family: var(--Tipogigante);
+  font-size: clamp(26px, min(2.7vw, 5.2vh), 46px);
+  font-weight: 700;
+  font-stretch: 62%;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.Ubicacion {
+  position: absolute;
+  left: var(--Margenlateral);
+  bottom: 6%;
+  z-index: 2;
+}
+
+/* Icono Moderador */
+.Iconomoderador {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6%;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(60, 211, 198, 0.4);
+  border-radius: 22%;
+  background: #0E1116;
+}
+
+.Marcamoderador {
+  font-family: var(--Tipogigante);
+  font-size: calc(var(--Lado) * 0.19);
+  font-weight: 800;
+  font-stretch: 100%;
+  line-height: 1;
+  color: var(--Colorturquesa);
+}
+
+.Submoderador {
+  font-family: var(--Tipomono);
+  font-size: calc(var(--Lado) * 0.072);
+  line-height: 1;
+  letter-spacing: 0.12em;
+  color: #9DB0B4;
+}
+
+/* Vitrina de proyectos */
+.Vitrina {
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  z-index: 3;
+  width: min(480px, 88vw);
+  transform: translateX(-50%);
+  animation: Entravitrina 760ms var(--Facil) 360ms both;
+}
+
+.Carteles {
+  position: relative;
+  height: var(--Ladocartel);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  perspective: 900px;
+}
+
+.Cartel {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: var(--Ladocartel);
+  height: var(--Ladocartel);
+  margin-left: calc(var(--Ladocartel) / -2);
+  transition: transform 520ms var(--Facil), opacity 520ms var(--Facil);
+}
+
+.Cartelboton {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 22%;
+  background: none;
+  cursor: pointer;
+}
+
+.Cartelboton:focus-visible {
+  outline: 2px solid var(--Coloracento);
+  outline-offset: 6px;
+}
+
+.Cartelimagen {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 22%;
+  box-shadow: 0 0 0 3px var(--Colorpapelclaro), 0 0 0 4px rgba(176, 38, 26, 0.55), 0 20px 34px -16px rgba(13, 13, 13, 0.5);
+}
+
+.Cartel .Iconomoderador {
+  border-radius: 22%;
+  box-shadow: 0 0 0 3px var(--Colorpapelclaro), 0 0 0 4px rgba(176, 38, 26, 0.55), 0 20px 34px -16px rgba(13, 13, 13, 0.5);
+}
+
+.Cartelpie {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 6px 8px;
+  border-radius: 11px;
+  background: rgba(10, 10, 10, 0.66);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 340ms ease-out;
+  pointer-events: none;
+}
+
+.Cartel.Activo .Cartelpie {
+  opacity: 1;
+}
+
+.Carteltitulo {
+  font-family: var(--Tipogigante);
+  font-size: calc(var(--Ladocartel) * 0.105);
+  font-weight: 700;
+  font-stretch: 100%;
+  line-height: 1.15;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.Carteltipo {
+  font-family: var(--Tiposerif);
+  font-style: italic;
+  font-size: calc(var(--Ladocartel) * 0.092);
+  line-height: 1.15;
+  color: #CFCFCB;
+  white-space: nowrap;
+}
+
+.Mandovitrina {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.Flechacartel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--Colorlineafuerte);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--Colortinta);
+  cursor: pointer;
+  transition: background-color var(--Transicion), color var(--Transicion), border-color var(--Transicion);
+}
+
+.Flechacartel:hover {
+  background: var(--Colortinta);
+  color: var(--Colorpapel);
+  border-color: var(--Colortinta);
+}
+
+.Cuentavitrina {
+  min-width: 88px;
+  margin: 0;
+  font-family: var(--Tipomono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--Colortintasuave);
+  text-align: center;
+}
+
+/* Pantallas interiores */
+.Contenedor {
+  width: 100%;
+  max-width: calc(1360px + 2 * var(--Margenlateral));
+  margin: 0 auto;
+  padding: calc(14px + var(--Tamano, 0px) * var(--Escalatitulo, 1) * 0.095) var(--Margenlateral) 112px;
+}
+
+.Subtitulo {
+  margin: 0;
+  max-width: 30em;
+  font-family: var(--Tiposerif);
+  font-style: italic;
+  font-size: clamp(26px, 2.4vw, 40px);
+  line-height: 1.15;
+  color: var(--Colortinta);
+  text-wrap: balance;
+}
+
+.Introseccion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin: clamp(28px, 4vw, 56px) auto clamp(48px, 6vw, 88px);
+  text-align: center;
+}
+
+/* Habilidades */
+.Gruposhabilidad {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr));
+  gap: 56px clamp(32px, 5vw, 96px);
+}
+
+.Grupohabilidad {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.Titulogrupo {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 0 0 10px;
+  font-family: var(--Tiposerif);
+  font-style: italic;
+  font-size: clamp(30px, 2.6vw, 42px);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.Listahabilidad {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--Colorlineafuerte);
+}
+
+.Habilidad {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 84px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--Colorlineafuerte);
+  transition: padding-left 240ms var(--Facil);
+}
+
+.Habilidad img {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  filter: grayscale(1) contrast(1.1);
+  transition: filter var(--Transicion);
+}
+
+.Nombrehabilidad {
+  font-family: var(--Tipogigante);
+  font-size: clamp(36px, 3.6vw, 60px);
+  font-weight: 800;
+  font-stretch: 62%;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: color var(--Transicion);
+}
+
+.Habilidad:hover {
+  padding-left: 14px;
+}
+
+.Habilidad:hover img {
+  filter: none;
+}
+
+.Habilidad:hover .Nombrehabilidad {
+  color: var(--Coloracento);
+}
+
+/* Experiencia */
+.Columnasexperiencia {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 56px clamp(32px, 5vw, 96px);
+}
+
+.Grupoexperiencia {
+  display: flex;
+  flex-direction: column;
+}
+
+.Listahitos {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--Colorlineafuerte);
+}
+
+.Hito {
+  display: grid;
+  grid-template-columns: 168px minmax(0, 1fr);
+  gap: 6px 28px;
+  padding: 26px 0 28px;
+  border-bottom: 1px solid var(--Colorlineafuerte);
+}
+
+.Periodo {
+  grid-row: 1 / span 3;
+  margin: 0;
+  padding-top: 8px;
+  font-family: var(--Tipomono);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  color: var(--Colortintasuave);
+}
+
+.Hito.Actual .Periodo {
+  color: var(--Coloracento);
+}
+
+.Cargo {
+  margin: 0;
+  font-family: var(--Tipogigante);
+  font-size: clamp(26px, 2.3vw, 36px);
+  font-weight: 750;
+  font-stretch: 88%;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+.Lugar {
+  margin: 0;
+  font-family: var(--Tiposerif);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.3;
+  color: var(--Colortintasuave);
+}
+
+.Detalle {
+  margin: 10px 0 0;
+  max-width: 60ch;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--Colortintasuave);
+  text-wrap: pretty;
+}
+
+/* Conóceme */
+.Conocemerejilla {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(32px, 5vw, 96px);
+  align-items: center;
+}
+
+.Composicion {
+  position: relative;
+  width: min(100%, 500px);
+  aspect-ratio: 1 / 1.04;
+  margin: 0 auto;
+}
+
+.Circulorojo {
+  position: absolute;
+  left: 27%;
+  top: 25%;
+  width: 70%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--Coloracento);
+}
+
+.Arcos {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.Retratocirculo {
+  position: absolute;
+  left: 15%;
+  top: 14%;
+  z-index: 1;
+  width: 70%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--Colortinta);
+  box-shadow: var(--Sombrapapel);
+}
+
+.Retratocirculo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.Firma {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
+  max-width: min(65%, 280px);
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(233, 233, 230, 0.94);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--Colorlineafuerte);
+  box-shadow: var(--Sombrapapel), 0 8px 20px -6px rgba(13, 13, 13, 0.2);
+}
+
+.Nombrefirma {
+  font-family: var(--Tipogigante);
+  font-size: clamp(20px, 1.9vw, 28px);
+  font-weight: 800;
+  font-stretch: 100%;
+  line-height: 1.05;
+  color: var(--Coloracento);
+}
+
+.Rolfirma {
+  font-family: var(--Tiposerif);
+  font-style: italic;
+  font-size: clamp(17px, 1.5vw, 22px);
+  line-height: 1.15;
+  color: var(--Colortinta);
+}
+
+.Flechafirma {
+  position: absolute;
+  left: 20%;
+  top: 24%;
+  z-index: 2;
+  width: 14%;
+  height: auto;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.Textoconoceme {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.Lead {
+  margin: 0;
+  font-family: var(--Tipocuerpo);
+  font-size: clamp(21px, 1.7vw, 27px);
+  font-weight: 400;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+.Ficha {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 32px;
+  margin: 8px 0 0;
+}
+
+.Fichacelda {
+  min-width: 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--Colorlineafuerte);
+}
+
+.Fichacelda dd {
+  margin: 6px 0 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.Acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* Detalle de Proyecto */
+.Cabeceraproyecto {
+  position: relative;
+}
+
+.Iconoproyecto {
+  position: absolute;
+  right: 5%;
+  bottom: -8%;
+  z-index: 2;
+  width: clamp(104px, 12vw, 184px);
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 24%;
+  background: var(--Colorpapelclaro);
+  box-shadow: 0 0 0 4px var(--Colorpapelclaro), 5px 8px 0 4px rgba(13, 13, 13, 0.2);
+  transform: rotate(-8deg);
+  filter: none;
+}
+
+.Iconoproyecto.Iconomoderador {
+  --Lado: clamp(104px, 12vw, 184px);
+  width: var(--Lado);
+  height: var(--Lado);
+  background: #0E1116;
+}
+
+.Proyectorejilla {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: clamp(32px, 5vw, 88px);
+  align-items: start;
+  margin-top: clamp(28px, 4vw, 56px);
+}
+
+.Textoproyecto {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.Puntos {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.Puntos li {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 6px;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.Numeropunto {
+  padding-top: 3px;
+  font-family: var(--Tipomono);
+  font-size: 12px;
+  color: var(--Coloracento);
+}
+
+.Fichaproyecto {
+  margin: 0;
+  border-top: 1px solid var(--Colorlineafuerte);
+}
+
+.Fichaproyecto div {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr);
+  gap: 12px;
+  align-items: baseline;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--Colorlinea);
+}
+
+.Fichaproyecto dt {
+  font-family: var(--Tipomono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--Colortintatenue);
+}
+
+.Fichaproyecto dd {
+  margin: 0;
+  font-size: 15.5px;
+  overflow-wrap: anywhere;
+}
+
+.Pasoproyectos {
+  grid-column: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 24px;
+  margin-top: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--Colorlinea);
+}
+
+.Botonpaso {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-height: 48px;
+  padding: 6px 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.Botonpaso.Derecha {
+  justify-self: end;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.Nombrepaso {
+  font-family: var(--Tipogigante);
+  font-size: 24px;
+  font-weight: 800;
+  font-stretch: 75%;
+  line-height: 1.1;
+  transition: color var(--Transicion);
+}
+
+.Botonpaso:hover .Nombrepaso {
+  color: var(--Coloracento);
+}
+
+/* Mesa de capturas (pila de tarjetas y portátil) */
+.Mesa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding-top: 12px;
+}
+
+.Pila {
+  position: relative;
+  width: min(250px, 22vw);
+  aspect-ratio: 400 / 845;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.Pila.Ancha {
+  width: min(560px, 40vw);
+  aspect-ratio: 1200 / 522;
+  margin-top: 56px;
+}
+
+.Pila > li {
+  position: absolute;
+  inset: 0;
+  transition: transform 560ms var(--Facil), opacity 300ms ease-out;
+}
+
+.Figura {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.Captura {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid rgba(13, 13, 13, 0.3);
+  border-radius: var(--Radiotarjeta);
+  background: var(--Colortinta);
+  box-shadow: var(--Sombrapapel);
+}
+
+.Pila.Ancha .Captura {
+  border-radius: var(--Radiofoto);
+}
+
+.Piecaptura {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 14px);
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  font-family: var(--Tipomono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--Colortintasuave);
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.Frente .Piecaptura {
+  opacity: 1;
+  transition-delay: 320ms;
+}
+
+.Pila .Frente {
+  z-index: 3;
+  transform: rotate(-3deg);
+}
+
+.Pila .Medio {
+  z-index: 2;
+  transform: translate(34%, 3%) rotate(7deg) scale(0.9);
+}
+
+.Pila .Fondo {
+  z-index: 1;
+  transform: translate(-34%, 5%) rotate(-11deg) scale(0.84);
+}
+
+.Pila.Ancha .Fondo {
+  transform: translate(-7%, -17%) rotate(-5deg) scale(0.9);
+}
+
+.Pila .Fondo.Recien {
+  animation: Barajar 640ms var(--Facil);
+}
+
+.Pila.Ancha .Fondo.Recien {
+  animation: Barajarancha 640ms var(--Facil);
+}
+
+.Botonbarajar {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-top: 36px;
+  padding: 0 16px;
+  border: 1px solid var(--Colorlineafuerte);
+  border-radius: var(--Radiocontrol);
+  background: var(--Colorpapelclaro);
+  font-family: var(--Tipomono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color var(--Transicion);
+}
+
+.Botonbarajar:hover {
+  border-color: var(--Colortinta);
+}
+
+.Botonbarajar:hover .Icono {
+  transform: rotate(90deg);
+}
+
+/* Carrusel de capturas móvil */
+.Carrusel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 540ms var(--Corte);
+}
+
+.Diapo {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.Diapo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.Navmovil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.Flechamovil {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--Colorlineafuerte);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--Colortinta);
+  cursor: pointer;
+  transition: background-color var(--Transicion), color var(--Transicion), border-color var(--Transicion);
+}
+
+.Flechamovil:hover {
+  background: var(--Colortinta);
+  color: var(--Colorpapel);
+  border-color: var(--Colortinta);
+}
+
+.Flechamovil .Icono {
+  transition: transform var(--Transicion);
+}
+
+.Flechamovil.Anterior:hover .Icono {
+  transform: translateX(-2px);
+}
+
+.Flechamovil.Siguiente:hover .Icono {
+  transform: translateX(2px);
+}
+
+.Puntosmovil {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 16px;
+}
+
+.Puntomovil {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--Colorlineafuerte);
+  transition: background-color var(--Transicion), transform var(--Transicion);
+}
+
+.Puntomovil.Activo {
+  background: var(--Coloracento);
+  transform: scale(1.25);
+}
+
+.Contadormovil {
+  margin: 0;
+  min-width: 100px;
+  font-family: var(--Tipomono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--Colortintasuave);
+  text-align: center;
+}
+
+@media (min-width: 901px) {
+  .Mesa.Conmano {
+    display: block;
+    width: 100%;
+  }
+  .Mesa.Conmano .Pila,
+  .Mesa.Conmano .Botonbarajar {
+    display: none;
+  }
+}
+
+/* Marco del móvil */
+.Marcomovil {
+  display: block;
+}
+
+.Marcofoto {
+  position: relative;
+  width: min(228px, 58vw);
+  aspect-ratio: 1066 / 2153;
+  margin: 0 auto;
+  filter: drop-shadow(14px 20px 26px rgba(13, 13, 13, 0.26));
+}
+
+.Marcopantalla {
+  position: absolute;
+  left: 5.253%;
+  top: 2.090%;
+  z-index: 1;
+  width: 89.493%;
+  height: 95.680%;
+  overflow: hidden;
+  background: #000;
+}
+
+.Marcocapa {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@media (min-width: 901px) {
+  .Marcofoto {
+    width: min(268px, 92%);
+  }
+}
+
+/* Portátil de Sónica Moderador */
+.Portatil {
+  width: min(460px, 100%);
+  margin: 0 auto;
+  perspective: 1200px;
+}
+
+.Abretapa {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.Portatil.Abierto .Abretapa {
+  cursor: default;
+}
+
+.Abretapa:focus-visible {
+  outline: 2px solid var(--Coloracento);
+  outline-offset: 6px;
+  border-radius: 8px;
+}
+
+.Pistaportatil {
+  display: block;
+  margin-top: 14px;
+  font-family: var(--Tipomono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--Colortintasuave);
+  transition: opacity 300ms ease-out;
+}
+
+.Portatil.Abierto .Pistaportatil {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.Abretapa:hover .Pistaportatil {
+  color: var(--Coloracento);
+}
+
+.Tapaportatil {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 352 / 204;
+  transform-origin: center bottom;
+  transform: rotateX(-84deg);
+  transition: transform 1050ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.Portatil.Abierto .Tapaportatil {
+  transform: rotateX(0deg);
+}
+
+.Pantallaportatil {
+  position: absolute;
+  left: 6.818%;
+  top: 3.922%;
+  z-index: 1;
+  width: 86.648%;
+  height: 95.098%;
+  overflow: hidden;
+  background: #0a0a0a;
+  opacity: 0;
+  transition: opacity 420ms ease-out 620ms;
+}
+
+.Portatil.Abierto .Pantallaportatil {
+  opacity: 1;
+}
+
+.Capatapa {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.Baseportatil {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.Carruselweb {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 560ms var(--Corte);
+}
+
+.Diapoweb {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.Diapoweb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center top;
+}
+
+.Portatil .Navmovil,
+.Portatil .Puntosmovil,
+.Portatil .Piecarrusel {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 500ms ease-out 760ms;
+}
+
+.Portatil.Abierto .Navmovil,
+.Portatil.Abierto .Puntosmovil,
+.Portatil.Abierto .Piecarrusel {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.Piecarrusel {
+  margin: 12px 0 0;
+  font-family: var(--Tiposerif);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.3;
+  color: var(--Colortintasuave);
+  text-align: center;
+  text-wrap: balance;
+}
+
+.Mesa.Conportal {
+  display: block;
+  width: 100%;
+}

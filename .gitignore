@@ -1,0 +1,10 @@
+# Privado
+Directivas Oficiales/
+Directivas*
+LEEME.md
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+*.tmp
+*.log

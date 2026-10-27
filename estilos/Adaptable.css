@@ -1,0 +1,74 @@
+/* ==========================================================================
+   Ajustes adaptativos y responsive
+   Se carga al final para que prevalezca sobre Vistas.css y Contacto.css
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .Escenario { --Ladocartel: clamp(74px, 9vw, 102px); }
+  .Rolinicio .Dato { max-width: 21ch; }
+  .Conocemerejilla, .Proyectorejilla { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .Columnasexperiencia, .Conocemerejilla, .Proyectorejilla { grid-template-columns: minmax(0, 1fr); }
+  .Pila { width: min(240px, 52vw); }
+  .Pila.Ancha { width: min(560px, 82vw); }
+  .Composicion { width: min(100%, 460px); }
+  .Bloquellamada { left: var(--Margenlateral); right: 76px; top: 92px; width: auto; max-width: 30em; }
+}
+
+@media (max-width: 760px) {
+  .Raiz { --Altocabecera: 64px; }
+  .Listanav, .Listaredes, .Divisor { display: none; }
+  .Botonmenu { display: inline-flex; }
+  .Aro { width: 44px; height: 44px; }
+  .Escenario { --Ladocartel: clamp(70px, 18vw, 92px); }
+  .Hito { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .Periodo { grid-row: auto; padding-top: 0; }
+  .Ficha { grid-template-columns: minmax(0, 1fr); }
+  .Firma { max-width: 78%; padding: 8px 12px; }
+  .Rolfirma { display: block; font-size: 15px; }
+  .Nombrefirma { font-size: 19px; }
+  .Flechafirma { display: none; }
+  .Retratocirculo { left: 14%; top: 14%; width: 72%; }
+  .Gracias { top: 96px; font-size: clamp(32px, 6vh, 50px); transform: none; }
+  .Piellamada { display: none; }
+  .Anios { left: auto; right: 72px; transform: none; font-size: 18px; }
+  .Cabeceraproyecto { --Escalatitulo: 0.78; }
+  .Iconoproyecto { bottom: -26%; right: 0; width: clamp(72px, 21vw, 94px); }
+}
+
+@media (max-width: 760px), (max-width: 1100px) and (max-aspect-ratio: 4/5) {
+  .Escenario { min-height: 640px; }
+  .Saludo { top: 18px; bottom: auto; gap: 6px; }
+  .Hola { font-size: 40px; }
+  .Soy { font-size: 36px; }
+  .Rolinicio { left: var(--Margenlateral); right: auto; top: calc(var(--Altogigante) + var(--Altomayusculas) + 42px); bottom: auto; align-items: flex-start; gap: 6px; text-align: left; }
+  .Rol { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 0 0.3em; }
+  .Rolgrande { font-size: 22px; }
+  .Rolcursiva { font-size: 26px; }
+  .Rolestrecha { font-size: 22px; }
+  .Escenario { --Altogigante: 120px; --Altoreflejo: calc(var(--Altogigante) + var(--Altomayusculas) + 104px); }
+  .Retrato { height: calc(100% - var(--Altogigante) - var(--Altomayusculas) - 94px); }
+  .Reflejo { display: block; top: var(--Altoreflejo); opacity: 0.2; }
+  .Datosaludo { display: block; }
+  .Rolinicio .Dato { max-width: none; }
+  .Ubicacion { display: none; }
+}
+
+@media (max-aspect-ratio: 4/5) {
+  .Piellamada { display: none; }
+}
+
+@media (max-width: 400px) {
+  .Escenario { --Ladocartel: 84px; }
+  .Textocontacto { font-size: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .Raiz *, .Raiz *::before, .Raiz *::after {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 1ms !important;
+  }
+}

@@ -25,7 +25,7 @@
   .Hito { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   .Periodo { grid-row: auto; padding-top: 0; }
   .Ficha { grid-template-columns: minmax(0, 1fr); }
-  .Firma { max-width: 78%; padding: 8px 12px; }
+  .Firma { left: 0; top: 0; max-width: 78%; padding: 8px 12px; }
   .Rolfirma { display: block; font-size: 15px; }
   .Nombrefirma { font-size: 19px; }
   .Flechafirma { display: none; }

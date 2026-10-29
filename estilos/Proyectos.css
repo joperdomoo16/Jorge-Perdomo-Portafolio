@@ -1,0 +1,137 @@
+/* ==========================================================================
+   Estilos de Detalle de Proyectos (Cabeceras, Puntos, Ficha y Pasos)
+   ========================================================================== */
+
+.Cabeceraproyecto {
+  position: relative;
+}
+
+.Iconoproyecto {
+  position: absolute;
+  right: 5%;
+  bottom: -8%;
+  z-index: 2;
+  width: clamp(104px, 12vw, 184px);
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 24%;
+  background: var(--Colorpapelclaro);
+  box-shadow: 0 0 0 4px var(--Colorpapelclaro), 5px 8px 0 4px rgba(13, 13, 13, 0.2);
+  transform: rotate(-8deg);
+  filter: none;
+}
+
+.Iconoproyecto.Iconomoderador {
+  --Lado: clamp(104px, 12vw, 184px);
+  width: var(--Lado);
+  height: var(--Lado);
+  background: #0E1116;
+}
+
+.Proyectorejilla {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: clamp(32px, 5vw, 88px);
+  align-items: start;
+  margin-top: clamp(28px, 4vw, 56px);
+}
+
+.Textoproyecto {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.Puntos {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.Puntos li {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 6px;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.Numeropunto {
+  padding-top: 3px;
+  font-family: var(--Tipomono);
+  font-size: 12px;
+  color: var(--Coloracento);
+}
+
+.Fichaproyecto {
+  margin: 0;
+  border-top: 1px solid var(--Colorlineafuerte);
+}
+
+.Fichaproyecto div {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr);
+  gap: 12px;
+  align-items: baseline;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--Colorlinea);
+}
+
+.Fichaproyecto dt {
+  font-family: var(--Tipomono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--Colortintatenue);
+}
+
+.Fichaproyecto dd {
+  margin: 0;
+  font-size: 15.5px;
+  overflow-wrap: anywhere;
+}
+
+.Pasoproyectos {
+  grid-column: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 24px;
+  margin-top: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--Colorlinea);
+}
+
+.Botonpaso {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-height: 48px;
+  padding: 6px 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.Botonpaso.Derecha {
+  justify-self: end;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.Nombrepaso {
+  font-family: var(--Tipogigante);
+  font-size: 24px;
+  font-weight: 800;
+  font-stretch: 75%;
+  line-height: 1.1;
+  transition: color var(--Transicion);
+}
+
+.Botonpaso:hover .Nombrepaso {
+  color: var(--Coloracento);
+}
+

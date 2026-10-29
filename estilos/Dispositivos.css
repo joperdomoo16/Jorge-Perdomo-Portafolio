@@ -1,0 +1,455 @@
+/* ==========================================================================
+   Estilos de Dispositivos: Teléfono Móvil y Portátil 3D
+   ========================================================================== */
+
+/* Mesa de capturas (pila de tarjetas y portátil) */
+.Mesa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding-top: 12px;
+}
+
+.Pila {
+  position: relative;
+  width: min(250px, 22vw);
+  aspect-ratio: 400 / 845;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.Pila.Ancha {
+  width: min(560px, 40vw);
+  aspect-ratio: 1200 / 522;
+  margin-top: 56px;
+}
+
+.Pila > li {
+  position: absolute;
+  inset: 0;
+  transition: transform 560ms var(--Facil), opacity 300ms ease-out;
+}
+
+.Figura {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.Captura {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid rgba(13, 13, 13, 0.3);
+  border-radius: var(--Radiotarjeta);
+  background: var(--Colortinta);
+  box-shadow: var(--Sombrapapel);
+}
+
+.Pila.Ancha .Captura {
+  border-radius: var(--Radiofoto);
+}
+
+.Piecaptura {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 14px);
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  font-family: var(--Tipomono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--Colortintasuave);
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.Frente .Piecaptura {
+  opacity: 1;
+  transition-delay: 320ms;
+}
+
+.Pila .Frente {
+  z-index: 3;
+  transform: rotate(-3deg);
+}
+
+.Pila .Medio {
+  z-index: 2;
+  transform: translate(34%, 3%) rotate(7deg) scale(0.9);
+}
+
+.Pila .Fondo {
+  z-index: 1;
+  transform: translate(-34%, 5%) rotate(-11deg) scale(0.84);
+}
+
+.Pila.Ancha .Fondo {
+  transform: translate(-7%, -17%) rotate(-5deg) scale(0.9);
+}
+
+.Pila .Fondo.Recien {
+  animation: Barajar 640ms var(--Facil);
+}
+
+.Pila.Ancha .Fondo.Recien {
+  animation: Barajarancha 640ms var(--Facil);
+}
+
+.Botonbarajar {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-top: 36px;
+  padding: 0 16px;
+  border: 1px solid var(--Colorlineafuerte);
+  border-radius: var(--Radiocontrol);
+  background: var(--Colorpapelclaro);
+  font-family: var(--Tipomono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color var(--Transicion);
+}
+
+.Botonbarajar:hover {
+  border-color: var(--Colortinta);
+}
+
+.Botonbarajar:hover .Icono {
+  transform: rotate(90deg);
+}
+
+/* Carrusel de capturas móvil */
+.Carrusel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 540ms var(--Corte);
+}
+
+.Diapo {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.Diapo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.Navmovil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.Flechamovil {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--Colorlineafuerte);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--Colortinta);
+  cursor: pointer;
+  transition: background-color var(--Transicion), color var(--Transicion), border-color var(--Transicion);
+}
+
+.Flechamovil:hover {
+  background: var(--Colortinta);
+  color: var(--Colorpapel);
+  border-color: var(--Colortinta);
+}
+
+.Flechamovil .Icono {
+  transition: transform var(--Transicion);
+}
+
+.Flechamovil.Anterior:hover .Icono {
+  transform: translateX(-2px);
+}
+
+.Flechamovil.Siguiente:hover .Icono {
+  transform: translateX(2px);
+}
+
+.Puntosmovil {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 16px;
+}
+
+.Puntomovil {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--Colorlineafuerte);
+  transition: background-color var(--Transicion), transform var(--Transicion);
+}
+
+.Puntomovil.Activo {
+  background: var(--Coloracento);
+  transform: scale(1.25);
+}
+
+.Contadormovil {
+  margin: 0;
+  min-width: 100px;
+  font-family: var(--Tipomono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--Colortintasuave);
+  text-align: center;
+}
+
+@media (min-width: 901px) {
+  .Mesa.Conmano {
+    display: block;
+    width: 100%;
+  }
+  .Mesa.Conmano .Pila,
+  .Mesa.Conmano .Botonbarajar {
+    display: none;
+  }
+}
+
+/* Marco del móvil */
+.Marcomovil {
+  display: block;
+}
+
+.Marcofoto {
+  position: relative;
+  width: min(228px, 58vw);
+  aspect-ratio: 1066 / 2153;
+  margin: 0 auto;
+  filter: drop-shadow(14px 20px 26px rgba(13, 13, 13, 0.26));
+}
+
+.Marcopantalla {
+  position: absolute;
+  left: 5.253%;
+  top: 2.090%;
+  z-index: 1;
+  width: 89.493%;
+  height: 95.680%;
+  overflow: hidden;
+  background: #000;
+}
+
+.Marcocapa {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@media (min-width: 901px) {
+  .Marcofoto {
+    width: min(268px, 92%);
+  }
+}
+
+/* Portátil de Sónica Moderador */
+.Portatil {
+  width: min(460px, 100%);
+  margin: 0 auto;
+}
+
+/* La perspectiva debe estar en el padre directo de la tapa para que el giro sea 3D */
+.Abretapa {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  perspective: 3000px;
+  perspective-origin: 50% 40%;
+}
+
+.Portatil.Abierto .Abretapa {
+  cursor: default;
+}
+
+.Abretapa:focus-visible {
+  outline: 2px solid var(--Coloracento);
+  outline-offset: 6px;
+  border-radius: 8px;
+}
+
+.Pistaportatil {
+  display: block;
+  margin-top: 14px;
+  font-family: var(--Tipomono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--Colortintasuave);
+  transition: opacity 300ms ease-out;
+}
+
+.Portatil.Abierto .Pistaportatil {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.Abretapa:hover .Pistaportatil {
+  color: var(--Coloracento);
+}
+
+.Tapaportatil {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 352 / 204;
+  transform-origin: center bottom;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--Tapacerrada, -130deg));
+  transition: transform 1100ms cubic-bezier(0.5, 0, 0.15, 1);
+  will-change: transform;
+}
+
+.Portatil.Abierto .Tapaportatil {
+  transform: rotateX(0deg);
+}
+
+/* Cara trasera de la tapa: visible mientras está cerrada sobre el teclado */
+.Tapaportatil::after {
+  content: '';
+  position: absolute;
+  inset: 0 3.2% 0 3.2%;
+  border-radius: 14px 14px 3px 3px;
+  background:
+    radial-gradient(ellipse at 50% 55%, rgba(255, 255, 255, 0.35), transparent 60%),
+    linear-gradient(180deg, #b9bbbf 0%, #d6d8db 45%, #a9abaf 100%);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18);
+  transform: rotateX(180deg) translateZ(1px);
+  backface-visibility: hidden;
+  pointer-events: none;
+}
+
+.Pantallaportatil {
+  position: absolute;
+  left: 6.818%;
+  top: 3.922%;
+  z-index: 1;
+  width: 86.648%;
+  height: 95.098%;
+  overflow: hidden;
+  background: #0a0a0a;
+  backface-visibility: hidden;
+}
+
+.Pantallaportatil .Carruselweb {
+  opacity: 0;
+  transition: opacity 180ms ease-in, transform 560ms var(--Corte);
+}
+
+.Portatil.Abierto .Pantallaportatil .Carruselweb {
+  opacity: 1;
+  transition: opacity 420ms ease-out 620ms, transform 560ms var(--Corte);
+}
+
+.Capatapa {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  backface-visibility: hidden;
+}
+
+.Baseportatil {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.Carruselweb {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 560ms var(--Corte);
+}
+
+.Diapoweb {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.Diapoweb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center top;
+}
+
+.Portatil .Navmovil,
+.Portatil .Puntosmovil,
+.Portatil .Piecarrusel {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease-in;
+}
+
+.Portatil.Abierto .Navmovil,
+.Portatil.Abierto .Puntosmovil,
+.Portatil.Abierto .Piecarrusel {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 500ms ease-out 760ms;
+}
+
+.Piecarrusel {
+  margin: 12px 0 0;
+  font-family: var(--Tiposerif);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.3;
+  color: var(--Colortintasuave);
+  text-align: center;
+  text-wrap: balance;
+}
+
+.Mesa.Conportal {
+  display: block;
+  width: 100%;
+}
+

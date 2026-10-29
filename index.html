@@ -11,7 +11,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&amp;family=DM+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="estilos.css">
 <link rel="stylesheet" href="estilos/Animaciones.css">
-<link rel="stylesheet" href="estilos/Vistas.css">
+<link rel="stylesheet" href="estilos/Inicio.css">
+<link rel="stylesheet" href="estilos/Secciones.css">
+<link rel="stylesheet" href="estilos/Proyectos.css">
+<link rel="stylesheet" href="estilos/Dispositivos.css">
 <link rel="stylesheet" href="estilos/Contacto.css">
 <link rel="stylesheet" href="estilos/Adaptable.css">
 <noscript><style>body.Cargando { visibility: visible; }</style></noscript>
@@ -48,7 +51,7 @@
 <template data-si="Menu.Abierto">
 <div id="Menumovil" class="Menumovil">
 <ul class="Listamovil">
-<li><button class="Enlacemovil" type="button" data-ev-click="Nav.Inicio.Ir">Inicio</button></li>
+<li><button class="Enlacemovil" type="button" data-ev-click="Nav.Inicio.Ir">INICIO</button></li>
 <li><button class="Enlacemovil" type="button" data-ev-click="Nav.Habilidades.Ir">HABILIDADES</button></li>
 <li><button class="Enlacemovil" type="button" data-ev-click="Nav.Experiencia.Ir">EXPERIENCIA</button></li>
 <li><button class="Enlacemovil" type="button" data-ev-click="Nav.Conoceme.Ir">CONÓCEME</button></li>
@@ -66,7 +69,7 @@
 <div class="Escenario">
 <p class="Gigante" aria-hidden="true"><span class="Palabragigante Rojo" data-ref="Titulo.Inicio">DEVELOPER</span></p>
 <p class="Gigante Reflejo" aria-hidden="true"><span class="Palabragigante Rojo">DEVELOPER</span></p>
-<img class="Retrato" src="imagenes/retrato-inicio.webp" alt="Retrato en blanco y negro de Jorge David Perdomo, con lentes y camiseta negra, de brazos cruzados" width="1100" height="1552" itemprop="image" draggable="false">
+<img class="Retrato" src="imagenes/retrato-inicio.webp" alt="Retrato en blanco y negro de Jorge David Perdomo, con lentes y camiseta negra, de brazos cruzados" width="650" height="976" itemprop="image" draggable="false">
 <div class="Saludo">
 <h1 id="Tituloinicio" class="Titulosaludo"><span class="Hola Entra" style="--Orden: 0">Hola,</span><span class="Soy Entra" style="--Orden: 1">soy <span itemprop="givenName">Jorge</span></span><span class="Ocultovisual"> David Perdomo</span></h1>
 <p class="Dato Datosaludo Entra" style="--Orden: 2">Bogotá, Colombia</p>
@@ -76,15 +79,15 @@
 <p class="Dato Entra" style="--Orden: 3">+3 años en soporte técnico y QA</p>
 </div>
 <div class="Vitrina">
-<ul class="Carteles" aria-label="Proyectos">
+<ul class="Carteles" aria-label="Proyectos" data-ev-pointerdown="Cartel.Empezar" data-ev-pointermove="Cartel.Mover" data-ev-pointerup="Cartel.Soltar" data-ev-pointercancel="Cartel.Soltar" data-ev-pointerleave="Cartel.Salir">
 <li data-at-class="[[Cartel.Uno.Clase]]" data-at-style="[[Cartel.Uno.Estilo]]">
-<button class="Cartelboton" type="button" data-ref="Cartel.Uno.Fijar" data-ev-click="Cartel.Uno.Pulsar" data-ev-keydown="Cartel.Teclas" data-at-aria-label="[[Cartel.Uno.Etiqueta]]"><img class="Cartelimagen" src="imagenes/icono-neon.webp" alt="" width="256" height="256" draggable="false"><span class="Cartelpie"><span class="Carteltitulo">Neon Jump</span><span class="Carteltipo">Juego móvil</span></span></button>
+<button class="Cartelboton" type="button" data-ref="Cartel.Uno.Fijar" data-ev-click="Cartel.Uno.Pulsar" data-ev-keydown="Cartel.Teclas" data-ev-pointermove="Cartel.Uno.Inclinar" data-ev-pointerleave="Cartel.Uno.Reposo" data-at-aria-label="[[Cartel.Uno.Etiqueta]]"><img class="Cartelimagen" src="imagenes/icono-neon.webp" alt="" width="256" height="256" draggable="false"><span class="Cartelpie"><span class="Carteltitulo">Neon Jump</span><span class="Carteltipo">Juego móvil</span></span></button>
 </li>
 <li data-at-class="[[Cartel.Dos.Clase]]" data-at-style="[[Cartel.Dos.Estilo]]">
-<button class="Cartelboton" type="button" data-ref="Cartel.Dos.Fijar" data-ev-click="Cartel.Dos.Pulsar" data-ev-keydown="Cartel.Teclas" data-at-aria-label="[[Cartel.Dos.Etiqueta]]"><img class="Cartelimagen" src="imagenes/icono-sonica.webp" alt="" width="256" height="252" draggable="false"><span class="Cartelpie"><span class="Carteltitulo">Sónica</span><span class="Carteltipo">App de podcasts</span></span></button>
+<button class="Cartelboton" type="button" data-ref="Cartel.Dos.Fijar" data-ev-click="Cartel.Dos.Pulsar" data-ev-keydown="Cartel.Teclas" data-ev-pointermove="Cartel.Dos.Inclinar" data-ev-pointerleave="Cartel.Dos.Reposo" data-at-aria-label="[[Cartel.Dos.Etiqueta]]"><img class="Cartelimagen" src="imagenes/icono-sonica.webp" alt="" width="256" height="252" draggable="false"><span class="Cartelpie"><span class="Carteltitulo">Sónica</span><span class="Carteltipo">App de podcasts</span></span></button>
 </li>
 <li data-at-class="[[Cartel.Tres.Clase]]" data-at-style="[[Cartel.Tres.Estilo]]">
-<button class="Cartelboton" type="button" data-ref="Cartel.Tres.Fijar" data-ev-click="Cartel.Tres.Pulsar" data-ev-keydown="Cartel.Teclas" data-at-aria-label="[[Cartel.Tres.Etiqueta]]"><span class="Iconomoderador" aria-hidden="true"><span class="Marcamoderador">Sónica</span><span class="Submoderador">MODERACIÓN</span></span><span class="Cartelpie"><span class="Carteltitulo">Moderador</span><span class="Carteltipo">BackOffice</span></span></button>
+<button class="Cartelboton" type="button" data-ref="Cartel.Tres.Fijar" data-ev-click="Cartel.Tres.Pulsar" data-ev-keydown="Cartel.Teclas" data-ev-pointermove="Cartel.Tres.Inclinar" data-ev-pointerleave="Cartel.Tres.Reposo" data-at-aria-label="[[Cartel.Tres.Etiqueta]]"><span class="Iconomoderador" aria-hidden="true"><span class="Marcamoderador">Sónica</span><span class="Submoderador">MODERACIÓN</span></span><span class="Cartelpie"><span class="Carteltitulo">Moderador</span><span class="Carteltipo">BackOffice</span></span></button>
 </li>
 </ul>
 <div class="Mandovitrina">
@@ -203,7 +206,7 @@
 <figure class="Composicion Entra">
 <span class="Circulorojo" aria-hidden="true"></span>
 <svg class="Arcos" viewBox="0 0 560 605" preserveAspectRatio="none" aria-hidden="true"><path d="M70 600 A 330 330 0 0 1 560 196" fill="none" stroke="var(--Coloracento)" stroke-width="1"></path><path d="M30 600 A 380 380 0 0 1 560 150" fill="none" stroke="var(--Coloracento)" stroke-width="1" stroke-opacity=".7"></path><path d="M-6 600 A 430 430 0 0 1 560 104" fill="none" stroke="var(--Coloracento)" stroke-width="1" stroke-opacity=".45"></path></svg>
-<div class="Retratocirculo"><img src="imagenes/retrato-conoceme.webp" alt="Jorge David Perdomo, retrato en blanco y negro" width="1000" height="1000" draggable="false"></div>
+<div class="Retratocirculo"><img src="imagenes/retrato-conoceme.webp" alt="Retrato de Jorge David Perdomo con lentes y camisa oscura" width="1000" height="1000" draggable="false"></div>
 <figcaption class="Firma"><span class="Nombrefirma">Jorge David Perdomo</span><span class="Rolfirma">Desarrollador Full Stack &amp; Support</span></figcaption>
 <svg class="Flechafirma" viewBox="0 0 140 120" aria-hidden="true"><path d="M22 4 C 8 40, 18 86, 132 112" fill="none" stroke="var(--Coloracento)" stroke-width="1.6" stroke-linecap="round"></path><path d="M120 104 L 133 112 L 119 118" fill="none" stroke="var(--Coloracento)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 </figure>
@@ -430,6 +433,9 @@
 <script src="logica/Geometria.js"></script>
 <script src="logica/Utilidades.js"></script>
 <script src="logica/Motorreactivo.js"></script>
+<script src="logica/Transiciones.js"></script>
+<script src="logica/Vitrina.js"></script>
+<script src="logica/Llamada.js"></script>
 <script src="guion.js"></script>
 </body>
 </html>

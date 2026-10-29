@@ -1,0 +1,402 @@
+/* ==========================================================================
+   Estilos de Inicio y Vitrina de Proyectos 3D
+   ========================================================================== */
+
+/* Escenario de inicio */
+.Escenario {
+  --Ladocartel: clamp(68px, 6.8vw, 90px);
+  --Lado: var(--Ladocartel);
+  --Altogigante: 17%;
+  --Altomayusculas: calc(var(--Tamanonombre) * 0.704 * var(--Estiramiento));
+  position: relative;
+  height: calc(100vh - var(--Altocabecera));
+  min-height: 460px;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.Gigante {
+  position: absolute;
+  left: 50%;
+  top: var(--Altogigante);
+  z-index: 0;
+  margin: 0;
+  transform: translateX(-50%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.Reflejo {
+  display: none;
+}
+
+.Reflejo .Palabragigante {
+  transition: opacity 500ms var(--Facil);
+}
+
+.Retrato {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 1;
+  height: 96%;
+  width: auto;
+  max-width: none;
+  transform: translateX(-50%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 76%, transparent 99%);
+  mask-image: linear-gradient(to bottom, #000 76%, transparent 99%);
+  user-select: none;
+  -webkit-user-drag: none;
+  animation: Retratoentra 1000ms var(--Facil) 120ms both;
+}
+
+.Saludo {
+  position: absolute;
+  left: var(--Margenlateral);
+  top: clamp(16px, 2.5vh, 28px);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.Titulosaludo {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-weight: 400;
+}
+
+.Hola {
+  font-family: var(--Tiposerif);
+  font-style: italic;
+  font-size: clamp(42px, min(4.9vw, 8.6vh), 84px);
+  line-height: 0.92;
+  color: var(--Colortintasuave);
+}
+
+.Soy {
+  font-family: var(--Tipogigante);
+  font-size: clamp(36px, min(4.3vw, 7.6vh), 72px);
+  font-weight: 800;
+  font-stretch: 118%;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.Rolinicio {
+  position: absolute;
+  right: var(--Margenlateral);
+  bottom: clamp(22px, 3.6vh, 36px);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  text-align: right;
+}
+
+.Datosaludo {
+  display: none;
+}
+
+.Rol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0;
+}
+
+.Rolgrande {
+  font-family: var(--Tipogigante);
+  font-size: clamp(26px, min(2.8vw, 5.4vh), 48px);
+  font-weight: 800;
+  font-stretch: 100%;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.Rolfila {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25em;
+}
+
+.Rolcursiva {
+  font-family: var(--Tiposerif);
+  font-style: italic;
+  font-size: clamp(30px, min(3.2vw, 6.2vh), 56px);
+  line-height: 1.05;
+}
+
+.Rolestrecha {
+  font-family: var(--Tipogigante);
+  font-size: clamp(26px, min(2.7vw, 5.2vh), 46px);
+  font-weight: 700;
+  font-stretch: 62%;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.Ubicacion {
+  position: absolute;
+  left: var(--Margenlateral);
+  bottom: 6%;
+  z-index: 2;
+}
+
+/* Icono Moderador genérico */
+.Iconomoderador {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6%;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(60, 211, 198, 0.4);
+  border-radius: 22%;
+  background: #0E1116;
+}
+
+.Marcamoderador {
+  font-family: var(--Tipogigante);
+  font-size: calc(var(--Lado) * 0.19);
+  font-weight: 800;
+  font-stretch: 100%;
+  line-height: 1;
+  color: var(--Colorturquesa);
+}
+
+.Submoderador {
+  font-family: var(--Tipomono);
+  font-size: calc(var(--Lado) * 0.072);
+  line-height: 1;
+  letter-spacing: 0.12em;
+  color: #9DB0B4;
+}
+
+/* Vitrina de proyectos */
+.Vitrina {
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  z-index: 3;
+  width: min(480px, 88vw);
+  transform: translateX(-50%);
+  animation: Entravitrina 760ms var(--Facil) 360ms both;
+}
+
+.Carteles {
+  position: relative;
+  height: var(--Ladocartel);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  perspective: 900px;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.Cartel {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: var(--Ladocartel);
+  height: var(--Ladocartel);
+  margin-left: calc(var(--Ladocartel) / -2);
+  transition: transform 640ms cubic-bezier(0.22, 1.28, 0.36, 1), opacity 420ms var(--Facil), filter 420ms var(--Facil);
+  will-change: transform, opacity;
+}
+
+.Cartel.Lateral {
+  filter: saturate(0.82) brightness(0.94);
+}
+
+.Cartel.Lateral:hover {
+  filter: saturate(1) brightness(1.03);
+}
+
+.Cartelboton {
+  --Inclinax: 0deg;
+  --Inclinay: 0deg;
+  --Desplazax: 0px;
+  --Desplazay: 0px;
+  --Brillox: 50%;
+  --Brilloy: 25%;
+  --Brillo: 0;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 22%;
+  background: none;
+  cursor: pointer;
+  transform: perspective(600px) translate3d(var(--Desplazax), var(--Desplazay), 0) rotateX(var(--Inclinax)) rotateY(var(--Inclinay));
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.Cartel.Activo .Cartelboton {
+  animation: Flotarcartel 3.8s ease-in-out infinite;
+}
+
+.Cartel.Activo .Cartelboton:hover {
+  animation-play-state: paused;
+  transform: perspective(600px) translate3d(var(--Desplazax), var(--Desplazay), 0) rotateX(var(--Inclinax)) rotateY(var(--Inclinay)) scale(1.07);
+}
+
+.Cartel.Lateral .Cartelboton:hover {
+  transform: perspective(600px) translate3d(var(--Desplazax), calc(var(--Desplazay) - 4px), 0) rotateX(var(--Inclinax)) rotateY(var(--Inclinay)) scale(1.09);
+}
+
+.Cartelboton:active {
+  transform: perspective(600px) scale(0.95) !important;
+  transition-duration: 90ms;
+}
+
+.Cartelboton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 22%;
+  background: radial-gradient(circle at var(--Brillox) var(--Brilloy), rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.08) 42%, transparent 68%);
+  opacity: var(--Brillo);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  transition: opacity 260ms ease-out;
+}
+
+.Cartelboton:focus-visible {
+  outline: 2px solid var(--Coloracento);
+  outline-offset: 6px;
+}
+
+.Cartelimagen {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 22%;
+  box-shadow: 0 0 0 3px var(--Colorpapelclaro), 0 0 0 4px rgba(176, 38, 26, 0.45), 0 18px 28px -16px rgba(13, 13, 13, 0.46);
+  transition: box-shadow 420ms var(--Facil);
+}
+
+.Cartel .Iconomoderador {
+  border-radius: 22%;
+  box-shadow: 0 0 0 3px var(--Colorpapelclaro), 0 0 0 4px rgba(176, 38, 26, 0.45), 0 18px 28px -16px rgba(13, 13, 13, 0.46);
+  transition: box-shadow 420ms var(--Facil);
+}
+
+.Cartel.Activo .Cartelimagen,
+.Cartel.Activo .Iconomoderador {
+  box-shadow: 0 0 0 3px var(--Colorpapelclaro), 0 0 0 4.5px var(--Coloracento), 0 24px 38px -12px rgba(13, 13, 13, 0.58), 0 0 26px -4px rgba(176, 38, 26, 0.38);
+}
+
+.Cartelboton:hover .Cartelimagen,
+.Cartelboton:hover .Iconomoderador {
+  box-shadow: 0 0 0 3px var(--Colorpapelclaro), 0 0 0 4.5px var(--Coloracento), 0 28px 42px -12px rgba(13, 13, 13, 0.65), 0 0 30px -2px rgba(176, 38, 26, 0.48);
+}
+
+.Cartelpie {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 6px 8px;
+  border-radius: 11px;
+  background: rgba(10, 10, 10, 0.68);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transform: translateY(8px) scale(0.94);
+  transition: opacity 340ms ease-out, transform 420ms cubic-bezier(0.22, 1.28, 0.36, 1);
+  pointer-events: none;
+}
+
+.Cartel.Activo .Cartelpie {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.Cartel.Lateral .Cartelboton:hover .Cartelpie {
+  opacity: 0.92;
+  transform: translateY(0) scale(0.96);
+}
+
+.Carteltitulo {
+  font-family: var(--Tipogigante);
+  font-size: calc(var(--Ladocartel) * 0.105);
+  font-weight: 700;
+  font-stretch: 100%;
+  line-height: 1.15;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.Carteltipo {
+  font-family: var(--Tiposerif);
+  font-style: italic;
+  font-size: calc(var(--Ladocartel) * 0.092);
+  line-height: 1.15;
+  color: #CFCFCB;
+  white-space: nowrap;
+}
+
+.Mandovitrina {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.Flechacartel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--Colorlineafuerte);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--Colortinta);
+  cursor: pointer;
+  transition: transform 220ms cubic-bezier(0.22, 1.4, 0.36, 1), background-color var(--Transicion), color var(--Transicion), border-color var(--Transicion);
+}
+
+.Flechacartel:hover {
+  background: var(--Colortinta);
+  color: var(--Colorpapel);
+  border-color: var(--Colortinta);
+  transform: scale(1.1);
+}
+
+.Flechacartel:first-child:hover .Icono {
+  transform: translateX(-2px);
+}
+
+.Flechacartel:last-child:hover .Icono {
+  transform: translateX(2px);
+}
+
+.Flechacartel:active {
+  transform: scale(0.92);
+}
+
+.Cuentavitrina {
+  min-width: 88px;
+  margin: 0;
+  font-family: var(--Tipomono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--Colortintasuave);
+  text-align: center;
+}
+

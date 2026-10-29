@@ -68,6 +68,11 @@
   to { opacity: 0; transform: translate(-50%, 26px); }
 }
 
+@keyframes Flotarcartel {
+  0%, 100% { transform: perspective(600px) translateY(0); }
+  50% { transform: perspective(600px) translateY(-5px); }
+}
+
 /* Barajado de capturas de proyecto */
 @keyframes Barajar {
   0% { z-index: 4; transform: rotate(-3deg); }
@@ -87,6 +92,7 @@
 .Saliendo .Palabragigante { animation: Rebanarsale 420ms var(--Corte) both; }
 .Saliendo .Salecontenido { animation: Salircontenido 380ms var(--Corte) both; }
 .Saliendo .Eco { animation: Salircontenido 300ms var(--Corte) both; }
+.Saliendo .Destinovuelo { animation: Salircontenido 320ms var(--Corte) both; }
 .Saliendo .Retrato { animation: Retratosale 400ms var(--Corte) both; }
 .Saliendo .Vitrina { animation: Salevitrina 360ms var(--Corte) both; }
 
@@ -96,8 +102,9 @@
   opacity: 0;
 }
 
-.Llegada:not(.Saliendo) .Retrato { animation-delay: 1000ms; }
-.Llegada:not(.Saliendo) .Vitrina { animation-delay: 1200ms; }
+.Llegada:not(.Saliendo) .Retrato { animation-delay: 820ms; }
+.Llegada:not(.Saliendo) .Vitrina { animation-delay: 920ms; }
+.Llegando .Cartel.Activo { opacity: 0 !important; }
 
 .Entra {
   animation: Entrar 680ms var(--Facil) both;
@@ -149,7 +156,8 @@
               top 700ms cubic-bezier(0.7, 0, 0.18, 1),
               width 700ms cubic-bezier(0.7, 0, 0.18, 1),
               height 700ms cubic-bezier(0.7, 0, 0.18, 1),
-              transform 700ms cubic-bezier(0.7, 0, 0.18, 1);
+              transform 700ms cubic-bezier(0.7, 0, 0.18, 1),
+              opacity 480ms var(--Facil);
 }
 
 .Vueloimagen {

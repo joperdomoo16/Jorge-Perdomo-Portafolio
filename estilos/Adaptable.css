@@ -25,11 +25,10 @@
   .Hito { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   .Periodo { grid-row: auto; padding-top: 0; }
   .Ficha { grid-template-columns: minmax(0, 1fr); }
-  .Firma { left: 0; top: 0; max-width: 78%; padding: 8px 12px; }
-  .Rolfirma { display: block; font-size: 15px; }
+  .Composicion { width: min(100%, 340px); aspect-ratio: 1 / 1.1; margin: 0 auto 20px auto; }
+  .Firma { margin-bottom: -6px; padding: 8px 18px; max-width: 95%; }
+  .Rolfirma { font-size: 14px; }
   .Nombrefirma { font-size: 19px; }
-  .Flechafirma { display: none; }
-  .Retratocirculo { left: 14%; top: 14%; width: 72%; }
   .Gracias { top: 96px; font-size: clamp(32px, 6vh, 50px); transform: none; }
   .Piellamada { display: none; }
   .Anios { left: auto; right: 72px; transform: none; font-size: 18px; }

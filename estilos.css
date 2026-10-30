@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    Tokens globales, normalización, tipografía y componentes base
    ========================================================================== */
 
@@ -116,12 +116,12 @@ button { font: inherit; color: inherit; }
 .Enlacemovil.Secundario { font-family: var(--Tipomono); font-size: 13px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; }
 
 /* Palabras gigantes */
-.Palabragigante { display: inline-block; padding-top: 0.17em; text-transform: uppercase; font-family: var(--Tipogigante); font-size: calc(var(--Tamano) * var(--Escalatitulo, 1)); font-weight: 820; font-stretch: 100%; line-height: 0.8; letter-spacing: -0.04em; white-space: nowrap; color: var(--Colortinta); }
-.Palabragigante.Rojo { font-size: var(--Tamanonombre); font-weight: 900; font-stretch: 62%; line-height: 0.74; letter-spacing: 0; transform: scaleY(var(--Estiramiento)); transform-origin: 50% 0; background: var(--Granotinta) 0 0 / 256px 256px repeat, linear-gradient(180deg, var(--Coloracento) 18%, var(--Colorrojohondo) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.Palabragigante { display: inline-block; padding-top: 0.17em; text-transform: uppercase; font-family: var(--Tipogigante); font-size: calc(var(--Tamano) * var(--Escalatitulo, 1)); font-weight: 820; font-stretch: 100%; line-height: 0.8; letter-spacing: -0.04em; white-space: nowrap; color: var(--Colortinta); text-rendering: geometricPrecision; transform: translateZ(0); }
+.Palabragigante.Rojo { font-size: var(--Tamanonombre); font-weight: 900; font-stretch: 62%; line-height: 0.74; letter-spacing: 0; transform: translateZ(0) scaleY(var(--Estiramiento)); transform-origin: 50% 0; background: var(--Granotinta) 0 0 / 256px 256px repeat, linear-gradient(180deg, var(--Coloracento) 18%, var(--Colorrojohondo) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .Palabragigante.Tinta { background: var(--Granotinta) 0 0 / 256px 256px repeat, linear-gradient(180deg, var(--Colortinta) 46%, var(--Colorrojohondo) 78%, var(--Coloracento) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
-.Titulogigante { position: relative; z-index: 1; margin: calc(var(--Tamano, 0px) * var(--Escalatitulo, 1) * -0.17) 0 0; text-align: center; }
+.Titulogigante { position: relative; z-index: 1; display: grid; justify-items: center; margin: calc(var(--Tamano, 0px) * var(--Escalatitulo, 1) * -0.17) 0 0; text-align: center; }
 .Eco { display: grid; justify-items: center; margin-top: calc(var(--Tamano) * var(--Escalatitulo, 1) * -0.02); pointer-events: none; user-select: none; }
-.Eco > span { display: block; text-transform: uppercase; height: calc(var(--Tamano) * var(--Escalatitulo, 1) * 0.36); overflow: hidden; font-family: var(--Tipogigante); font-size: calc(var(--Tamano) * var(--Escalatitulo, 1)); font-weight: 820; font-stretch: 100%; line-height: 0.8; letter-spacing: -0.04em; white-space: nowrap; color: transparent; -webkit-text-stroke: 1.2px var(--Colortinta); animation: Eco 760ms var(--Facil) both; }
+.Eco > span { display: block; text-transform: uppercase; height: calc(var(--Tamano) * var(--Escalatitulo, 1) * 0.36); overflow: hidden; font-family: var(--Tipogigante); font-size: calc(var(--Tamano) * var(--Escalatitulo, 1)); font-weight: 820; font-stretch: 100%; line-height: 0.8; letter-spacing: -0.04em; white-space: nowrap; color: transparent; -webkit-text-stroke: 1.2px var(--Colortinta); text-rendering: geometricPrecision; transform: translateZ(0); animation: Eco 760ms var(--Facil) both; }
 .Eco > span:nth-child(1) { opacity: 0.38; animation-delay: 980ms; }
 .Eco > span:nth-child(2) { opacity: 0.14; animation-delay: 1080ms; }
 

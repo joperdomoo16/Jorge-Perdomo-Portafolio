@@ -8,3 +8,4 @@ LEEME.md
 Thumbs.db
 *.tmp
 *.log
+.agents/

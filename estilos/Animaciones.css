@@ -19,8 +19,8 @@
 
 /* Eco de títulos gigantes */
 @keyframes Eco {
-  from { transform: translateY(-40%); clip-path: inset(0 0 100% 0); }
-  to { transform: none; clip-path: inset(0 0 0 0); }
+  from { transform: translate3d(0, -40%, 0); clip-path: inset(0 0 100% 0); }
+  to { transform: translate3d(0, 0, 0); clip-path: inset(0 0 0 0); }
 }
 
 /* Rebanado horizontal al salir */

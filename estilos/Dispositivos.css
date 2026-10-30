@@ -284,7 +284,10 @@
 
 /* La perspectiva debe estar en el padre directo de la tapa para que el giro sea 3D */
 .Abretapa {
-  display: block;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   padding: 0;
   border: 0;
@@ -292,10 +295,16 @@
   cursor: pointer;
   perspective: 3000px;
   perspective-origin: 50% 40%;
+  filter: drop-shadow(0 22px 28px rgba(13, 13, 13, 0.25));
+  transition: filter 350ms var(--Facil);
+}
+
+.Portatil:not(.Abierto) .Abretapa:hover {
+  filter: drop-shadow(0 28px 36px rgba(176, 38, 26, 0.28));
 }
 
 .Portatil.Abierto .Abretapa {
-  cursor: default;
+  cursor: pointer;
 }
 
 .Abretapa:focus-visible {
@@ -305,25 +314,61 @@
 }
 
 .Pistaportatil {
-  display: block;
-  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-top: 18px;
+  padding: 0 20px;
+  border: 1.5px solid var(--Coloracento);
+  border-radius: 999px;
+  background: var(--Coloracento);
+  color: var(--Colorsobreacento);
   font-family: var(--Tipomono);
-  font-size: 11.5px;
-  letter-spacing: 0.1em;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--Colortintasuave);
-  transition: opacity 300ms ease-out;
+  box-shadow: var(--Sombrapapel), 0 12px 24px -6px rgba(176, 38, 26, 0.45);
+  animation: Flotarpista 2400ms ease-in-out infinite;
+  transition: background-color 220ms var(--Facil), border-color 220ms var(--Facil), transform 220ms var(--Facil), opacity 300ms ease-out, box-shadow 220ms var(--Facil);
+}
+
+.Puntopista {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--Colorsobreacento);
+  animation: Pulsopista 1800ms ease-out infinite;
+}
+
+.Iconopista {
+  flex: none;
+  transition: transform 240ms var(--Facil);
 }
 
 .Portatil.Abierto .Pistaportatil {
   opacity: 0;
   height: 0;
+  min-height: 0;
   margin: 0;
+  padding: 0;
+  border-width: 0;
   overflow: hidden;
+  pointer-events: none;
+  animation: none;
 }
 
 .Abretapa:hover .Pistaportatil {
-  color: var(--Coloracento);
+  background: var(--Colortinta);
+  border-color: var(--Colortinta);
+  color: var(--Colorsobreacento);
+  box-shadow: var(--Sombrapapel), 0 14px 28px -6px rgba(13, 13, 13, 0.4);
+}
+
+.Abretapa:hover .Iconopista {
+  transform: translateY(-3px);
 }
 
 .Tapaportatil {
@@ -331,14 +376,28 @@
   z-index: 1;
   width: 100%;
   aspect-ratio: 352 / 204;
+  margin-top: -38%;
   transform-origin: center bottom;
   transform-style: preserve-3d;
-  transform: rotateX(var(--Tapacerrada, -130deg));
-  transition: transform 1100ms cubic-bezier(0.5, 0, 0.15, 1);
+  transform: rotateX(var(--Tapacerrada, -114deg));
+  transition: transform 1100ms cubic-bezier(0.5, 0, 0.15, 1), margin-top 900ms cubic-bezier(0.5, 0, 0.15, 1);
   will-change: transform;
 }
 
+.Portatil:not(.Abierto) .Tapaportatil {
+  animation: Respirartapa 3000ms ease-in-out 1000ms infinite;
+}
+
+.Portatil:not(.Abierto) .Abretapa:hover .Tapaportatil,
+.Portatil:not(.Abierto) .Abretapa:focus-visible .Tapaportatil {
+  animation: none;
+  transform: rotateX(-94deg);
+  transition: transform 420ms var(--Facil), margin-top 900ms cubic-bezier(0.5, 0, 0.15, 1);
+}
+
 .Portatil.Abierto .Tapaportatil {
+  animation: none;
+  margin-top: 0;
   transform: rotateX(0deg);
 }
 
@@ -349,9 +408,9 @@
   inset: 0 3.2% 0 3.2%;
   border-radius: 14px 14px 3px 3px;
   background:
-    radial-gradient(ellipse at 50% 55%, rgba(255, 255, 255, 0.35), transparent 60%),
-    linear-gradient(180deg, #b9bbbf 0%, #d6d8db 45%, #a9abaf 100%);
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18);
+    radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.45), transparent 62%),
+    linear-gradient(180deg, #9da1a8 0%, #cfd2d6 46%, #888c94 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 0 0 1.5px rgba(13, 13, 13, 0.28);
   transform: rotateX(180deg) translateZ(1px);
   backface-visibility: hidden;
   pointer-events: none;

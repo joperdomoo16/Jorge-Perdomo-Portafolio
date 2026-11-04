@@ -56,11 +56,13 @@
         this.Fijaricono[Id] = (Nodo) => { this.Nodosicono[Id] = Nodo; };
       });
 
-      this.Nodostarjeta = [null, null, null];
-      this.Fijarcartel = [0, 1, 2].map((Indice) => (Nodo) => { this.Nodostarjeta[Indice] = Nodo; });
-      this.Pulsarcarteles = [0, 1, 2].map((Indice) => () => this.Pulsarcartel(Indice));
-      this.Inclinarcarteles = [0, 1, 2].map((Indice) => (Evento) => this.Inclinarcartel(Indice, Evento));
-      this.Reposocarteles = [0, 1, 2].map((Indice) => () => this.Reposocartel(Indice));
+      const Totalcarteles = this.Tarjetas.length;
+      this.Nodostarjeta = new Array(Totalcarteles).fill(null);
+      const Indices = this.Tarjetas.map((_, I) => I);
+      this.Fijarcartel = Indices.map((Indice) => (Nodo) => { this.Nodostarjeta[Indice] = Nodo; });
+      this.Pulsarcarteles = Indices.map((Indice) => () => this.Pulsarcartel(Indice));
+      this.Inclinarcarteles = Indices.map((Indice) => (Evento) => this.Inclinarcartel(Indice, Evento));
+      this.Reposocarteles = Indices.map((Indice) => () => this.Reposocartel(Indice));
       this.Cartelanterior = () => this.Girarcartel(-1);
       this.Cartelsiguiente = () => this.Girarcartel(1);
       this.Teclascarteles = (Evento) => this.Teclascartel(Evento);
@@ -148,14 +150,17 @@
       const Activo = Estado.Proyecto || 0;
       const Totalcarteles = this.Tarjetas.length;
       const Cartelinfo = (Indice) => {
-        const Puesto = ((((Indice - Activo + 1) % Totalcarteles) + Totalcarteles) % Totalcarteles) - 1;
+        let Puesto = Indice - Activo;
+        while (Puesto > Totalcarteles / 2) Puesto -= Totalcarteles;
+        while (Puesto < -Totalcarteles / 2) Puesto += Totalcarteles;
         const Escentro = Puesto === 0;
         const Datos = this.Tarjetas[Indice];
         const Giro = Escentro ? 0 : (Puesto < 0 ? 28 : -28);
-        const Inclinacion = Escentro ? 0 : Puesto * 4;
+        const Inclinacion = Escentro ? 0 : Math.sign(Puesto) * 4;
+        const Visible = Math.abs(Puesto) <= 1;
         return {
-          Clase: 'Cartel' + (Escentro ? ' Activo' : ' Lateral'),
-          Estilo: 'transform: translate3d(' + (Puesto * 98) + '%, ' + (Escentro ? -4 : 5) + 'px, 0) scale(' + (Escentro ? 1 : 0.78) + ') rotateY(' + Giro + 'deg) rotateZ(' + Inclinacion + 'deg); z-index: ' + (Escentro ? 5 : 3) + '; opacity: ' + (Escentro ? 1 : 0.86),
+          Clase: 'Cartel' + (Escentro ? ' Activo' : ' Lateral') + (Visible ? '' : ' Oculto'),
+          Estilo: 'transform: translate3d(' + (Puesto * 98) + '%, ' + (Escentro ? -4 : 5) + 'px, 0) scale(' + (Escentro ? 1 : 0.78) + ') rotateY(' + Giro + 'deg) rotateZ(' + Inclinacion + 'deg); z-index: ' + (Escentro ? 5 : (Visible ? 3 : 1)) + '; opacity: ' + (Escentro ? 1 : (Visible ? 0.86 : 0)) + '; pointer-events: ' + (Visible ? 'auto' : 'none'),
           Pulsar: this.Pulsarcarteles[Indice],
           Fijar: this.Fijarcartel[Indice],
           Inclinar: this.Inclinarcarteles[Indice],
@@ -188,6 +193,7 @@
           Habilidades: Pantalla === 'Habilidades',
           Experiencia: Pantalla === 'Experiencia',
           Conoceme: Pantalla === 'Conoceme',
+          Nissi: Pantalla === 'Nissi',
           Sonica: Pantalla === 'Sonica',
           Neon: Pantalla === 'Neon',
           Moderador: Pantalla === 'Moderador'
@@ -205,6 +211,7 @@
           Uno: Cartelinfo(0),
           Dos: Cartelinfo(1),
           Tres: Cartelinfo(2),
+          Cuatro: Cartelinfo(3),
           Cuenta: String(Activo + 1).padStart(2, '0') + ' / ' + String(Totalcarteles).padStart(2, '0'),
           Teclas: this.Teclascarteles,
           Anterior: this.Cartelanterior,
@@ -214,7 +221,7 @@
           Soltar: this.Soltararrastre,
           Salir: this.Salirarrastre
         },
-        Proyectos: { Sonica: this.Ira.Sonica, Neon: this.Ira.Neon, Moderador: this.Ira.Moderador },
+        Proyectos: { Nissi: this.Ira.Nissi, Sonica: this.Ira.Sonica, Neon: this.Ira.Neon, Moderador: this.Ira.Moderador },
         Pila: {
           Uno: Clasepila(0),
           Dos: Clasepila(1),
@@ -222,19 +229,16 @@
           Contador: (Activa + 1) + ' / ' + Total,
           Barajar: this.Barajar
         },
-        Carrusel: {
+        Carrusel: Object.assign({
           Estilo: 'transform: translateX(-' + (Activa * 100) + '%)',
           Etiqueta: String(Activa + 1).padStart(2, '0') + ' / ' + String(Total).padStart(2, '0'),
           Puntouno: 'Puntomovil' + (Activa === 0 ? ' Activo' : ''),
           Puntodos: 'Puntomovil' + (Activa === 1 ? ' Activo' : ''),
           Puntotres: 'Puntomovil' + (Activa === 2 ? ' Activo' : ''),
-          Punto1: 'Puntomovil' + (Activa === 0 ? ' Activo' : ''),
-          Punto2: 'Puntomovil' + (Activa === 1 ? ' Activo' : ''),
-          Punto3: 'Puntomovil' + (Activa === 2 ? ' Activo' : ''),
           Pie: (this.Pies[Pantalla] || [])[Activa] || '',
           Anterior: this.Capturaanterior,
           Siguiente: this.Capturasiguiente
-        },
+        }, ...Array.from({ length: 8 }, (_, i) => ({ ['Punto' + (i + 1)]: 'Puntomovil' + (Activa === i ? ' Activo' : '') }))),
         Portal: {
           Clase: 'Portatil' + (Tapaabierta ? ' Abierto' : ''),
           Alternar: this.Alternartapa,

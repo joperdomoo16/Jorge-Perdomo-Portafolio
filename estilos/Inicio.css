@@ -176,8 +176,11 @@
   color: #9DB0B4;
 }
 
-/* Vitrina de proyectos */
+/* Vitrina de proyectos: rueda giratoria
+   Las tarjetas orbitan un eje oculto bajo el escenario (radio = 2.3 lados, ver Vitrina.js)
+   y el dial graduado comparte ese mismo centro. */
 .Vitrina {
+  --Altodial: clamp(92px, calc(var(--Ladocartel) * 1.1), 110px);
   position: absolute;
   left: 50%;
   bottom: -4px;
@@ -187,30 +190,98 @@
   animation: Entravitrina 760ms var(--Facil) 360ms both;
 }
 
+/* Dial: asoma bajo las tarjetas con radio 1.45·Lado (algo menor que la rueda, que usa 2.3·Lado) */
+.Esfera {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--Ladocartel) * 1.12);
+  width: calc(var(--Ladocartel) * 2.9);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0) 58%),
+    var(--Texturapapel) 0 0 / 1024px 1024px,
+    var(--Colorpapelclaro);
+  box-shadow:
+    0 0 0 1px var(--Colorlinea),
+    0 0 0 7px rgba(233, 233, 230, 0.5),
+    0 0 0 8px var(--Colorlinea),
+    0 -18px 40px -20px rgba(13, 13, 13, 0.5);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.Esferasvg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.Marcasmenores {
+  fill: none;
+  stroke: var(--Colorlineafuerte);
+  stroke-width: 7;
+  stroke-dasharray: 0.5 5.125;
+  stroke-dashoffset: 0.25;
+}
+
+.Marcasmayores {
+  fill: none;
+  stroke: var(--Colortinta);
+  stroke-width: 13;
+  stroke-dasharray: 1 21.5;
+  stroke-dashoffset: 0.5;
+}
+
+.Esferaaro {
+  fill: none;
+  stroke: var(--Colorlinea);
+  stroke-width: 1;
+}
+
+.Esferatitulo {
+  font-family: var(--Tipocuerpo);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  fill: var(--Colortinta);
+}
+
+.Esferaaguja {
+  fill: none;
+  stroke: var(--Coloracento);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+}
+
 .Carteles {
   position: relative;
-  height: var(--Ladocartel);
+  height: calc(var(--Ladocartel) + var(--Altodial));
   margin: 0;
   padding: 0;
   list-style: none;
-  perspective: 900px;
   touch-action: pan-y;
   user-select: none;
+  cursor: grab;
+}
+
+.Carteles.Girando,
+.Carteles.Girando .Cartelboton {
+  cursor: grabbing;
 }
 
 .Cartel {
+  --Cercania: 1;
   position: absolute;
   left: 50%;
   top: 0;
   width: var(--Ladocartel);
   height: var(--Ladocartel);
   margin-left: calc(var(--Ladocartel) / -2);
-  transition: transform 640ms cubic-bezier(0.22, 1.28, 0.36, 1), opacity 420ms var(--Facil), filter 420ms var(--Facil);
+  transform-origin: 50% 50%;
+  filter: saturate(calc(0.8 + 0.2 * var(--Cercania))) brightness(calc(0.93 + 0.07 * var(--Cercania)));
   will-change: transform, opacity;
-}
-
-.Cartel.Lateral {
-  filter: saturate(0.82) brightness(0.94);
 }
 
 .Cartel.Lateral:hover {
@@ -244,11 +315,12 @@
 
 .Cartel.Activo .Cartelboton:hover {
   animation-play-state: paused;
-  transform: perspective(600px) translate3d(var(--Desplazax), var(--Desplazay), 0) rotateX(var(--Inclinax)) rotateY(var(--Inclinay)) scale(1.07);
+  transform: perspective(600px) translate3d(var(--Desplazax), var(--Desplazay), 0) rotateX(var(--Inclinax)) rotateY(var(--Inclinay)) scale(1.03);
 }
 
+/* El imán del cursor (Vitrina.js) ya agranda la tarjeta: el hover solo suma un toque */
 .Cartel.Lateral .Cartelboton:hover {
-  transform: perspective(600px) translate3d(var(--Desplazax), calc(var(--Desplazay) - 4px), 0) rotateX(var(--Inclinax)) rotateY(var(--Inclinay)) scale(1.09);
+  transform: perspective(600px) translate3d(var(--Desplazax), calc(var(--Desplazay) - 2px), 0) rotateX(var(--Inclinax)) rotateY(var(--Inclinay)) scale(1.03);
 }
 
 .Cartelboton:active {
@@ -341,11 +413,15 @@
 }
 
 .Mandovitrina {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  z-index: 30;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-top: 8px;
+  gap: 6px;
+  transform: translateX(-50%);
 }
 
 .Flechacartel {
@@ -383,7 +459,7 @@
 }
 
 .Cuentavitrina {
-  min-width: 88px;
+  min-width: 72px;
   margin: 0;
   font-family: var(--Tipomono);
   font-size: 11.5px;

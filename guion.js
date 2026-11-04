@@ -66,10 +66,8 @@
       this.Cartelanterior = () => this.Girarcartel(-1);
       this.Cartelsiguiente = () => this.Girarcartel(1);
       this.Teclascarteles = (Evento) => this.Teclascartel(Evento);
-      this.Empezararrastre = (Evento) => this.Empezarcartel(Evento);
-      this.Moverarrastre = (Evento) => this.Movercartel(Evento);
-      this.Soltararrastre = (Evento) => this.Soltarcartel(Evento);
-      this.Salirarrastre = () => this.Cancelarcartel();
+      this.Fijarrueda = (Nodo) => this.Montarrueda(Nodo);
+      this.Fijaresfera = (Nodo) => this.Montaresfera(Nodo);
 
       this.Ira = {};
       Object.keys(this.Titulos).forEach((Id) => { this.Ira[Id] = () => this.Ir(Id); });
@@ -117,6 +115,7 @@
       };
 
       this.Alredimensionar = () => {
+        if (this.Nodorueda) this.Colocarrueda();
         if (this.Estado && this.Estado.Contacto && this.Llamada) this.Iniciarllamada(true);
       };
     }
@@ -131,6 +130,8 @@
       this.Temporizadores.forEach((Id) => clearTimeout(Id));
       this.Cuadros.forEach((Id) => cancelAnimationFrame(Id));
       if (this.Cuadro) cancelAnimationFrame(this.Cuadro);
+      if (this.Cuadrorueda) cancelAnimationFrame(this.Cuadrorueda);
+      clearTimeout(this.Esperarueda);
       if (this.Cuadrollamada) cancelAnimationFrame(this.Cuadrollamada);
     }
 
@@ -155,12 +156,10 @@
         while (Puesto < -Totalcarteles / 2) Puesto += Totalcarteles;
         const Escentro = Puesto === 0;
         const Datos = this.Tarjetas[Indice];
-        const Giro = Escentro ? 0 : (Puesto < 0 ? 28 : -28);
-        const Inclinacion = Escentro ? 0 : Math.sign(Puesto) * 4;
         const Visible = Math.abs(Puesto) <= 1;
+        // La posición, giro y escala de cada tarjeta los dibuja la rueda (Vitrina.js) cuadro a cuadro
         return {
           Clase: 'Cartel' + (Escentro ? ' Activo' : ' Lateral') + (Visible ? '' : ' Oculto'),
-          Estilo: 'transform: translate3d(' + (Puesto * 98) + '%, ' + (Escentro ? -4 : 5) + 'px, 0) scale(' + (Escentro ? 1 : 0.78) + ') rotateY(' + Giro + 'deg) rotateZ(' + Inclinacion + 'deg); z-index: ' + (Escentro ? 5 : (Visible ? 3 : 1)) + '; opacity: ' + (Escentro ? 1 : (Visible ? 0.86 : 0)) + '; pointer-events: ' + (Visible ? 'auto' : 'none'),
           Pulsar: this.Pulsarcarteles[Indice],
           Fijar: this.Fijarcartel[Indice],
           Inclinar: this.Inclinarcarteles[Indice],
@@ -216,10 +215,8 @@
           Teclas: this.Teclascarteles,
           Anterior: this.Cartelanterior,
           Siguiente: this.Cartelsiguiente,
-          Empezar: this.Empezararrastre,
-          Mover: this.Moverarrastre,
-          Soltar: this.Soltararrastre,
-          Salir: this.Salirarrastre
+          Rueda: this.Fijarrueda,
+          Esfera: this.Fijaresfera
         },
         Proyectos: { Nissi: this.Ira.Nissi, Sonica: this.Ira.Sonica, Neon: this.Ira.Neon, Moderador: this.Ira.Moderador },
         Pila: {

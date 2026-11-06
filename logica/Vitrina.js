@@ -128,7 +128,7 @@
         const Cercania = 1 - Math.min(Distancia, 1);
         let X = Radio * Math.sin(Radianes);
         let Y = Radio * (1 - Math.cos(Radianes)) - 4 * Cercania;
-        const Opacidad = Limitar((Mitad - Distancia) / 0.6, 0, 1);
+        const Opacidad = Limitar((Math.min(Mitad, 2) - Distancia) / 0.6, 0, 1);
 
         // Imán: la tarjeta cercana al cursor se acerca a él, sale hacia fuera de la rueda y se agranda
         let Objetivoiman = 0;

@@ -33,7 +33,7 @@
 /* Habilidades */
 .Gruposhabilidad {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
   gap: 56px clamp(32px, 5vw, 96px);
 }
 

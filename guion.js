@@ -193,6 +193,7 @@
           Experiencia: Pantalla === 'Experiencia',
           Conoceme: Pantalla === 'Conoceme',
           Nissi: Pantalla === 'Nissi',
+          Mitecho: Pantalla === 'Mitecho',
           Sonica: Pantalla === 'Sonica',
           Neon: Pantalla === 'Neon',
           Moderador: Pantalla === 'Moderador'
@@ -211,6 +212,7 @@
           Dos: Cartelinfo(1),
           Tres: Cartelinfo(2),
           Cuatro: Cartelinfo(3),
+          Cinco: Cartelinfo(4),
           Cuenta: String(Activo + 1).padStart(2, '0') + ' / ' + String(Totalcarteles).padStart(2, '0'),
           Teclas: this.Teclascarteles,
           Anterior: this.Cartelanterior,
@@ -218,7 +220,7 @@
           Rueda: this.Fijarrueda,
           Esfera: this.Fijaresfera
         },
-        Proyectos: { Nissi: this.Ira.Nissi, Sonica: this.Ira.Sonica, Neon: this.Ira.Neon, Moderador: this.Ira.Moderador },
+        Proyectos: { Nissi: this.Ira.Nissi, Mitecho: this.Ira.Mitecho, Sonica: this.Ira.Sonica, Neon: this.Ira.Neon, Moderador: this.Ira.Moderador },
         Pila: {
           Uno: Clasepila(0),
           Dos: Clasepila(1),

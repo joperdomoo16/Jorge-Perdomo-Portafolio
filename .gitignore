@@ -1,6 +1,11 @@
-# Archivos del sistema
+# Archivos del sistema y entorno local
 .DS_Store
 Thumbs.db
 *.tmp
 *.log
+.env
+.env.*
+*.pem
+*.key
+.vscode/
 

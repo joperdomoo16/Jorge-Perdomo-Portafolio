@@ -101,9 +101,9 @@
     return Texto;
   }
 
-  window.Geometria = {
+  window.Geometria = window.Validaciones.Congelar({
     Curva: Curva,
     Bezier: Bezier,
     Espiral: Espiral
-  };
+  });
 })();

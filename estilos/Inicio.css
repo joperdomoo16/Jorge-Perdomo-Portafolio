@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Estilos de Inicio y Vitrina de Proyectos 3D
+   Estilos de Inicio (Escenario, Retrato, Saludos y Coreografía)
    ========================================================================== */
 
 /* Escenario de inicio */
@@ -43,11 +43,12 @@
   width: auto;
   max-width: none;
   transform: translateX(-50%);
+  transform-origin: 50% 100%;
   -webkit-mask-image: linear-gradient(to bottom, #000 76%, transparent 99%);
   mask-image: linear-gradient(to bottom, #000 76%, transparent 99%);
   user-select: none;
   -webkit-user-drag: none;
-  animation: Retratoentra 1000ms var(--Facil) 120ms both;
+  animation: Retratoentra 840ms var(--Entrada) 180ms both;
 }
 
 .Saludo {
@@ -176,296 +177,29 @@
   color: #9DB0B4;
 }
 
-/* Vitrina de proyectos: rueda giratoria
-   Las tarjetas orbitan un eje oculto bajo el escenario (radio = 2.3 lados, ver Vitrina.js)
-   y el dial graduado comparte ese mismo centro. */
-.Vitrina {
-  --Altodial: clamp(92px, calc(var(--Ladocartel) * 1.1), 110px);
-  position: absolute;
-  left: 50%;
-  bottom: -4px;
-  z-index: 3;
-  width: min(480px, 88vw);
-  transform: translateX(-50%);
-  animation: Entravitrina 760ms var(--Facil) 360ms both;
+/* ==========================================================================
+   Coreografía visual de Inicio (carga inicial y regresos entre pantallas)
+   Orden de lectura: 1) DEVELOPER -> 2) Retrato -> 3) Saludo y Rol
+   ========================================================================== */
+.Pantalla:not(.Llegada):not(.Saliendo) .Gigante:not(.Reflejo) {
+  animation: Entragigante 720ms var(--Entrada) 40ms both;
 }
 
-/* Dial: asoma bajo las tarjetas con radio 1.45·Lado (algo menor que la rueda, que usa 2.3·Lado) */
-.Esfera {
-  position: absolute;
-  left: 50%;
-  top: calc(var(--Ladocartel) * 1.12);
-  width: calc(var(--Ladocartel) * 2.9);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0) 58%),
-    var(--Texturapapel) 0 0 / 1024px 1024px,
-    var(--Colorpapelclaro);
-  box-shadow:
-    0 0 0 1px var(--Colorlinea),
-    0 0 0 7px rgba(233, 233, 230, 0.5),
-    0 0 0 8px var(--Colorlinea),
-    0 -18px 40px -20px rgba(13, 13, 13, 0.5);
-  transform: translateX(-50%);
-  pointer-events: none;
+.Pantalla:not(.Llegada):not(.Saliendo) .Reflejo {
+  animation: Entrareflejo 640ms var(--Entrada) 180ms both;
 }
 
-.Esferasvg {
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
+.Escenario .Entra {
+  animation: Entrainicio 640ms var(--Entrada) both;
+  animation-delay: calc(350ms + var(--Orden, 0) * 85ms);
 }
 
-.Marcasmenores {
-  fill: none;
-  stroke: var(--Colorlineafuerte);
-  stroke-width: 7;
-  stroke-dasharray: 0.5 5.125;
-  stroke-dashoffset: 0.25;
+/* Al regresar al inicio desde otra sección, espera a que aterrice DEVELOPER (~980ms) */
+.Llegada:not(.Saliendo) .Retrato {
+  animation-duration: 780ms;
+  animation-delay: 980ms;
 }
 
-.Marcasmayores {
-  fill: none;
-  stroke: var(--Colortinta);
-  stroke-width: 13;
-  stroke-dasharray: 1 21.5;
-  stroke-dashoffset: 0.5;
+.Llegada:not(.Saliendo) .Escenario .Entra {
+  animation-delay: calc(1090ms + var(--Orden, 0) * 65ms);
 }
-
-.Esferaaro {
-  fill: none;
-  stroke: var(--Colorlinea);
-  stroke-width: 1;
-}
-
-.Esferatitulo {
-  font-family: var(--Tipocuerpo);
-  font-size: 21px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  fill: var(--Colortinta);
-}
-
-.Esferaaguja {
-  fill: none;
-  stroke: var(--Coloracento);
-  stroke-width: 3.2;
-  stroke-linecap: round;
-}
-
-.Carteles {
-  position: relative;
-  height: calc(var(--Ladocartel) + var(--Altodial));
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  touch-action: pan-y;
-  user-select: none;
-  cursor: grab;
-}
-
-.Carteles.Girando,
-.Carteles.Girando .Cartelboton {
-  cursor: grabbing;
-}
-
-.Cartel {
-  --Cercania: 1;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: var(--Ladocartel);
-  height: var(--Ladocartel);
-  margin-left: calc(var(--Ladocartel) / -2);
-  transform-origin: 50% 50%;
-  filter: saturate(calc(0.8 + 0.2 * var(--Cercania))) brightness(calc(0.93 + 0.07 * var(--Cercania)));
-  will-change: transform, opacity;
-}
-
-.Cartel.Lateral:hover {
-  filter: saturate(1) brightness(1.03);
-}
-
-.Cartelboton {
-  --Inclinax: 0deg;
-  --Inclinay: 0deg;
-  --Desplazax: 0px;
-  --Desplazay: 0px;
-  --Brillox: 50%;
-  --Brilloy: 25%;
-  --Brillo: 0;
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  border: 0;
-  border-radius: 22%;
-  background: none;
-  cursor: pointer;
-  transform: perspective(600px) translate3d(var(--Desplazax), var(--Desplazay), 0) rotateX(var(--Inclinax)) rotateY(var(--Inclinay));
-  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.Cartel.Activo .Cartelboton {
-  animation: Flotarcartel 3.8s ease-in-out infinite;
-}
-
-.Cartel.Activo .Cartelboton:hover {
-  animation-play-state: paused;
-  transform: perspective(600px) translate3d(var(--Desplazax), var(--Desplazay), 0) rotateX(var(--Inclinax)) rotateY(var(--Inclinay)) scale(1.03);
-}
-
-/* El imán del cursor (Vitrina.js) ya agranda la tarjeta: el hover solo suma un toque */
-.Cartel.Lateral .Cartelboton:hover {
-  transform: perspective(600px) translate3d(var(--Desplazax), calc(var(--Desplazay) - 2px), 0) rotateX(var(--Inclinax)) rotateY(var(--Inclinay)) scale(1.03);
-}
-
-.Cartelboton:active {
-  transform: perspective(600px) scale(0.95) !important;
-  transition-duration: 90ms;
-}
-
-.Cartelboton::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 22%;
-  background: radial-gradient(circle at var(--Brillox) var(--Brilloy), rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.08) 42%, transparent 68%);
-  opacity: var(--Brillo);
-  mix-blend-mode: screen;
-  pointer-events: none;
-  transition: opacity 260ms ease-out;
-}
-
-.Cartelboton:focus-visible {
-  outline: 2px solid var(--Coloracento);
-  outline-offset: 6px;
-}
-
-.Cartelimagen {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 22%;
-  box-shadow: 0 0 0 3px var(--Colorpapelclaro), 0 0 0 4px rgba(176, 38, 26, 0.45), 0 18px 28px -16px rgba(13, 13, 13, 0.46);
-  transition: box-shadow 420ms var(--Facil);
-}
-
-.Cartel .Iconomoderador {
-  border-radius: 22%;
-  box-shadow: 0 0 0 3px var(--Colorpapelclaro), 0 0 0 4px rgba(176, 38, 26, 0.45), 0 18px 28px -16px rgba(13, 13, 13, 0.46);
-  transition: box-shadow 420ms var(--Facil);
-}
-
-.Cartel.Activo .Cartelimagen,
-.Cartel.Activo .Iconomoderador {
-  box-shadow: 0 0 0 3px var(--Colorpapelclaro), 0 0 0 4.5px var(--Coloracento), 0 24px 38px -12px rgba(13, 13, 13, 0.58), 0 0 26px -4px rgba(176, 38, 26, 0.38);
-}
-
-.Cartelboton:hover .Cartelimagen,
-.Cartelboton:hover .Iconomoderador {
-  box-shadow: 0 0 0 3px var(--Colorpapelclaro), 0 0 0 4.5px var(--Coloracento), 0 28px 42px -12px rgba(13, 13, 13, 0.65), 0 0 30px -2px rgba(176, 38, 26, 0.48);
-}
-
-.Cartelpie {
-  position: absolute;
-  left: 50%;
-  bottom: 6%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 92%;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(12, 12, 12, 0.78);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-  opacity: 0;
-  transform: translate(-50%, 6px) scale(0.92);
-  transition: opacity 320ms ease-out, transform 400ms cubic-bezier(0.22, 1.28, 0.36, 1);
-  pointer-events: none;
-  white-space: nowrap;
-}
-
-.Cartel.Activo .Cartelpie {
-  opacity: 1;
-  transform: translate(-50%, 0) scale(1);
-}
-
-.Cartel.Lateral .Cartelboton:hover .Cartelpie {
-  opacity: 0.95;
-  transform: translate(-50%, 0) scale(0.96);
-}
-
-.Carteltitulo {
-  font-family: var(--Tipogigante);
-  font-size: clamp(11px, calc(var(--Ladocartel) * 0.128), 13px);
-  font-weight: 700;
-  letter-spacing: 0.025em;
-  line-height: 1.15;
-  color: #FFFFFF;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-}
-
-.Mandovitrina {
-  position: absolute;
-  left: 50%;
-  bottom: 12px;
-  z-index: 30;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  transform: translateX(-50%);
-}
-
-.Flechacartel {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  border: 1px solid var(--Colorlineafuerte);
-  border-radius: 50%;
-  background: transparent;
-  color: var(--Colortinta);
-  cursor: pointer;
-  transition: transform 220ms cubic-bezier(0.22, 1.4, 0.36, 1), background-color var(--Transicion), color var(--Transicion), border-color var(--Transicion);
-}
-
-.Flechacartel:hover {
-  background: var(--Colortinta);
-  color: var(--Colorpapel);
-  border-color: var(--Colortinta);
-  transform: scale(1.1);
-}
-
-.Flechacartel:first-child:hover .Icono {
-  transform: translateX(-2px);
-}
-
-.Flechacartel:last-child:hover .Icono {
-  transform: translateX(2px);
-}
-
-.Flechacartel:active {
-  transform: scale(0.92);
-}
-
-.Cuentavitrina {
-  min-width: 72px;
-  margin: 0;
-  font-family: var(--Tipomono);
-  font-size: 11.5px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--Colortintasuave);
-  text-align: center;
-}
-

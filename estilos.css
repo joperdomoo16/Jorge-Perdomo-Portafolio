@@ -37,6 +37,7 @@ button { font: inherit; color: inherit; }
   --Tamanonombre: min(22.5vw, 37vh);
   --Estiramiento: 1.60;
   --Facil: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --Entrada: cubic-bezier(0.16, 1, 0.3, 1);
   --Corte: cubic-bezier(0.7, 0, 0.2, 1);
   --Transicion: 150ms ease-out;
 }

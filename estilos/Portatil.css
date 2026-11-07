@@ -1,0 +1,194 @@
+/* ==========================================================================
+   Estilos del Computador Portátil 3D Interactivo
+   ========================================================================== */
+
+/* Portátil de Sónica Moderador y Hotel Nissi */
+.Portatil {
+  width: min(460px, 100%);
+  margin: 0 auto;
+}
+
+/* La perspectiva debe estar en el padre directo de la tapa para que el giro sea 3D */
+.Abretapa {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  perspective: 3000px;
+  perspective-origin: 50% 40%;
+  filter: drop-shadow(0 22px 28px rgba(13, 13, 13, 0.25));
+  transition: filter 350ms var(--Facil);
+}
+
+.Portatil:not(.Abierto) .Abretapa:hover {
+  filter: drop-shadow(0 28px 36px rgba(176, 38, 26, 0.28));
+}
+
+.Portatil.Abierto .Abretapa {
+  cursor: pointer;
+}
+
+.Abretapa:focus-visible {
+  outline: 2px solid var(--Coloracento);
+  outline-offset: 6px;
+  border-radius: 8px;
+}
+
+.Pistaportatil {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-top: 18px;
+  padding: 0 20px;
+  border: 1.5px solid var(--Coloracento);
+  border-radius: 999px;
+  background: var(--Coloracento);
+  color: var(--Colorsobreacento);
+  font-family: var(--Tipomono);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
+  box-shadow: 0 8px 18px -4px rgba(176, 38, 26, 0.45);
+  animation: Flotarpista 2.6s ease-in-out infinite;
+  transition: opacity 300ms ease-out, transform 300ms var(--Facil);
+}
+
+.Puntopista {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--Colorsobreacento);
+  animation: Pulsopista 1.8s ease-out infinite;
+}
+
+.Iconopista {
+  transition: transform 260ms var(--Facil);
+}
+
+.Abretapa:hover .Pistaportatil {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px -4px rgba(176, 38, 26, 0.6);
+}
+
+.Abretapa:hover .Iconopista {
+  transform: translateY(-2px);
+}
+
+.Portatil.Abierto .Pistaportatil {
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  animation: none;
+}
+
+.Tapaportatil {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 352 / 204;
+  transform-origin: 50% 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(-110deg);
+  transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.Portatil:not(.Abierto) .Tapaportatil {
+  animation: Respirartapa 3.2s ease-in-out infinite;
+}
+
+.Portatil:not(.Abierto) .Abretapa:hover .Tapaportatil {
+  animation-play-state: paused;
+  transform: rotateX(-94deg);
+}
+
+.Portatil.Abierto .Tapaportatil {
+  animation: none;
+  transform: rotateX(0deg);
+}
+
+.Pantallaportatil {
+  position: absolute;
+  left: 6.818%;
+  top: 7.843%;
+  z-index: 1;
+  width: 86.364%;
+  height: 84.314%;
+  overflow: hidden;
+  background: #0E1116;
+}
+
+.Capatapa {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.Baseportatil {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 352 / 146;
+  margin-top: -3.5%;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.Carruselweb {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 540ms var(--Corte);
+}
+
+.Diapoweb {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  background: #0E1116;
+}
+
+.Diapoweb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.Portatil .Navmovil,
+.Portatil .Puntosmovil,
+.Portatil .Piecarrusel {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease-in;
+}
+
+.Portatil.Abierto .Navmovil,
+.Portatil.Abierto .Puntosmovil,
+.Portatil.Abierto .Piecarrusel {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 500ms ease-out 760ms;
+}
+
+.Mesa.Conportal {
+  display: block;
+  width: 100%;
+}
+

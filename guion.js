@@ -1,18 +1,20 @@
 /* Portafolio de Jorge David Perdomo
-   Controlador principal y orquestador del portafolio (Vanilla JS sin frameworks)
+   Controlador principal y orquestador del portafolio en JavaScript puro
 */
 (function () {
   'use strict';
+
+  var Validaciones = window.Validaciones;
+  var Ordinales = ['uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho'];
 
   class Portafolio {
     constructor(Raiz) {
       this.Raiz = Raiz;
       this.Vista = {};
-      this.Nodosref = {};
+      this.Nodosref = Object.create(null);
       this.Trozos = new Map();
-      this.Estado = Object.assign({}, window.Datosportafolio.Estadobase);
-      this.state = this.Estado;
       this.Preparar();
+      this.Estado = Validaciones.Sanearestado(window.Datosportafolio.Estadobase, this.Titulos, this.Tarjetas.length);
     }
 
     Movimientoreducido() {
@@ -20,10 +22,11 @@
     }
 
     Esperar(Milisegundos, Accion) {
+      const Demora = Validaciones.Numeroacotado(Milisegundos, 0, 60000, 0);
       const Id = setTimeout(() => {
         this.Temporizadores = this.Temporizadores.filter((Otro) => Otro !== Id);
         Accion();
-      }, Milisegundos);
+      }, Demora);
       this.Temporizadores.push(Id);
     }
 
@@ -45,9 +48,10 @@
       this.Tarjetas = window.Datosportafolio.Tarjetas;
       this.Capturas = window.Datosportafolio.Capturas;
       this.Pies = window.Datosportafolio.Pies;
+      this.Detalles = window.Datosportafolio.Detalles;
 
-      this.Nodostitulo = {};
-      this.Nodosicono = {};
+      this.Nodostitulo = Object.create(null);
+      this.Nodosicono = Object.create(null);
       this.Fijartitulo = {};
       this.Fijaricono = {};
 
@@ -56,9 +60,18 @@
         this.Fijaricono[Id] = (Nodo) => { this.Nodosicono[Id] = Nodo; };
       });
 
+      this.Fijartituloproyecto = (Nodo) => {
+        const Pantalla = this.Estado && this.Estado.Pantalla;
+        if (Pantalla && Validaciones.Espropio(this.Fijartitulo, Pantalla)) this.Fijartitulo[Pantalla](Nodo);
+      };
+      this.Fijariconoproyecto = (Nodo) => {
+        const Pantalla = this.Estado && this.Estado.Pantalla;
+        if (Pantalla && Validaciones.Espropio(this.Fijaricono, Pantalla)) this.Fijaricono[Pantalla](Nodo);
+      };
+
       const Totalcarteles = this.Tarjetas.length;
       this.Nodostarjeta = new Array(Totalcarteles).fill(null);
-      const Indices = this.Tarjetas.map((_, I) => I);
+      const Indices = this.Tarjetas.map((_, Indice) => Indice);
       this.Fijarcartel = Indices.map((Indice) => (Nodo) => { this.Nodostarjeta[Indice] = Nodo; });
       this.Pulsarcarteles = Indices.map((Indice) => () => this.Pulsarcartel(Indice));
       this.Inclinarcarteles = Indices.map((Indice) => (Evento) => this.Inclinarcartel(Indice, Evento));
@@ -76,7 +89,6 @@
       this.Fijarpalabra = (Nodo) => { this.Nodopalabra = Nodo; if (Nodo) this.Colocarpalabra(); };
       this.Fijarvuelo = (Nodo) => { this.Nodovuelo = Nodo; if (Nodo) this.Colocarvuelo(); };
 
-      // Contacto
       this.Abrircontacto = (Evento) => this.Mostrarcontacto(Evento);
       this.Cerrarcontacto = () => this.Ocultarcontacto();
       this.Teclascontacto = (Evento) => {
@@ -88,7 +100,7 @@
         try { Nodo.focus({ preventScroll: true }); } catch (Error) {}
       };
 
-      this.Nodosllamada = {};
+      this.Nodosllamada = Object.create(null);
       this.Fijarllamada = {};
       this.Alternartapa = () => this.Fijarestado((Previo) => ({ Portatilabierto: !Previo.Portatilabierto }));
 
@@ -138,9 +150,7 @@
     Calcular() {
       this.Preparar();
       const Estado = this.Estado || {};
-      const Pantalla = Estado.Pantalla || 'Inicio';
-      const Acentos = { 'Rojo bermellón': '', 'Rojo profundo': ' Acentoprofundo', 'Tinta': ' Acentotinta' };
-      const Claseacento = Acentos['Rojo bermellón'] || '';
+      const Pantalla = Validaciones.Espropio(this.Titulos, Estado.Pantalla) ? Estado.Pantalla : 'Inicio';
       const Nav = { Mostrarinicio: Pantalla !== 'Inicio' };
 
       Object.keys(this.Titulos).forEach((Id) => {
@@ -148,16 +158,14 @@
         Nav[Id] = { Clase: 'Enlacenav Conrodillo' + (Activo ? ' Activo' : ''), Actual: Activo ? 'page' : 'false', Ir: this.Ira[Id] };
       });
 
-      const Activo = Estado.Proyecto || 0;
       const Totalcarteles = this.Tarjetas.length;
+      const Activo = Validaciones.Enteromodulo(Estado.Proyecto, Totalcarteles);
+      const Mitad = Math.floor(Totalcarteles / 2);
       const Cartelinfo = (Indice) => {
-        let Puesto = Indice - Activo;
-        while (Puesto > Totalcarteles / 2) Puesto -= Totalcarteles;
-        while (Puesto < -Totalcarteles / 2) Puesto += Totalcarteles;
+        const Puesto = Validaciones.Enteromodulo(Indice - Activo + Mitad, Totalcarteles) - Mitad;
         const Escentro = Puesto === 0;
         const Datos = this.Tarjetas[Indice];
         const Visible = Math.abs(Puesto) <= 1;
-        // La posición, giro y escala de cada tarjeta los dibuja la rueda (Vitrina.js) cuadro a cuadro
         return {
           Clase: 'Cartel' + (Escentro ? ' Activo' : ' Lateral') + (Visible ? '' : ' Oculto'),
           Pulsar: this.Pulsarcarteles[Indice],
@@ -168,36 +176,111 @@
         };
       };
 
-      const Total = this.Capturas[Pantalla] || 3;
-      const Activa = (((Estado.Pila || 0) % Total) + Total) % Total;
+      const Total = Validaciones.Espropio(this.Capturas, Pantalla) ? this.Capturas[Pantalla] : 3;
+      const Pilasegura = Number.isFinite(Estado.Pila) ? Math.trunc(Estado.Pila) : 0;
+      const Activa = Validaciones.Enteromodulo(Pilasegura, Total);
       const Posiciones = Total === 2 ? ['Frente', 'Fondo'] : ['Frente', 'Medio', 'Fondo'];
       const Clasepila = (Orden) => {
         if (Orden >= Total) return '';
-        const Lugar = Posiciones[(Orden - Activa + Total) % Total];
-        const Recien = (Estado.Pila || 0) > 0 && Orden === (Activa - 1 + Total) % Total;
+        const Lugar = Posiciones[Validaciones.Enteromodulo(Orden - Activa, Total)];
+        const Recien = Pilasegura > 0 && Orden === Validaciones.Enteromodulo(Activa - 1, Total);
         return Lugar + (Recien ? ' Recien' : '');
       };
 
       const Tapaabierta = !!Estado.Portatilabierto;
       const Palabra = Estado.Palabra;
       const Vuelo = Estado.Vuelo;
-      const Contacto = Estado.Contacto || '';
+      const Fasecontacto = Validaciones.Validarfasecontacto(Estado.Contacto);
+      const Esunproyecto = Validaciones.Espropio(this.Detalles, Pantalla);
+      const Detalle = Esunproyecto ? this.Detalles[Pantalla] : null;
+
+      const Proyectovista = {
+        Fijartitulo: this.Fijartituloproyecto,
+        Fijaricono: this.Fijariconoproyecto
+      };
+
+      if (Detalle) {
+        const Puntos = Detalle.Puntos || [];
+        const Ficha = Detalle.Ficha || [];
+        const Capturas = Detalle.Capturas || [];
+        const Totaldiapos = Capturas.length;
+        const Diaposinfo = {};
+
+        Ordinales.forEach((Sufijo, Indice) => {
+          const Cap = Capturas[Indice];
+          Diaposinfo['Diapo' + Sufijo] = {
+            Visible: !!Cap,
+            Src: Cap ? Validaciones.Validarimagen(Cap.Src) : '',
+            Alt: Cap ? Cap.Alt : ''
+          };
+          Diaposinfo['Punto' + Sufijo] = {
+            Visible: Indice < Totaldiapos
+          };
+        });
+
+        Object.assign(Proyectovista, {
+          Id: Detalle.Id,
+          Titulo: Detalle.Titulo,
+          Prefijooculto: Detalle.Prefijo || '',
+          Estilotamano: Validaciones.Validartamano(Detalle.Tamano),
+          Idtitulo: Detalle.Idtitulo,
+          Esimagen: !!Detalle.Esimagen,
+          Esmoderador: !!Detalle.Esmoderador,
+          Imagen: Validaciones.Validarimagen(Detalle.Imagen),
+          Alticono: Detalle.Alticono || '',
+          Metadato: Detalle.Dato,
+          Subtitulo: Detalle.Subtitulo,
+          Etiquetapuntos: Detalle.Etiquetapuntos,
+          Puntounonum: Puntos[0] ? Puntos[0].Num : '',
+          Puntounotexto: Puntos[0] ? Puntos[0].Texto : '',
+          Puntodosnum: Puntos[1] ? Puntos[1].Num : '',
+          Puntodostexto: Puntos[1] ? Puntos[1].Texto : '',
+          Puntotresnum: Puntos[2] ? Puntos[2].Num : '',
+          Puntotrestexto: Puntos[2] ? Puntos[2].Texto : '',
+          Fichaunoclave: Ficha[0] ? Ficha[0].Clave : '',
+          Fichaunovalor: Ficha[0] ? Ficha[0].Valor : '',
+          Fichadosclave: Ficha[1] ? Ficha[1].Clave : '',
+          Fichadosvalor: Ficha[1] ? Ficha[1].Valor : '',
+          Tienefichatres: !!Ficha[2],
+          Fichatresclave: Ficha[2] ? Ficha[2].Clave : '',
+          Fichatresvalor: Ficha[2] ? Ficha[2].Valor : '',
+          Tieneenlace: !!Detalle.Accion,
+          Url: Detalle.Accion ? Validaciones.Validarenlace(Detalle.Accion.Url, 'href') : '#',
+          Textoboton: Detalle.Accion ? Detalle.Accion.Texto : '',
+          Esmovil: Detalle.Dispositivo === 'movil',
+          Esportal: Detalle.Dispositivo === 'portal',
+          Pasoanterior: Detalle.Anterior && Validaciones.Espropio(this.Ira, Detalle.Anterior.Proyecto) ? this.Ira[Detalle.Anterior.Proyecto] : null,
+          Nombreanterior: Detalle.Anterior ? Detalle.Anterior.Nombre : '',
+          Pasosiguiente: Detalle.Siguiente && Validaciones.Espropio(this.Ira, Detalle.Siguiente.Proyecto) ? this.Ira[Detalle.Siguiente.Proyecto] : null,
+          Nombresiguiente: Detalle.Siguiente ? Detalle.Siguiente.Nombre : ''
+        }, Diaposinfo);
+      }
+
+      const Carruselvista = {
+        Estilo: 'transform: translateX(-' + (Activa * 100) + '%)',
+        Etiqueta: String(Activa + 1).padStart(2, '0') + ' / ' + String(Total).padStart(2, '0'),
+        Pie: (Validaciones.Espropio(this.Pies, Pantalla) ? this.Pies[Pantalla][Activa] : '') || '',
+        Anterior: this.Capturaanterior,
+        Siguiente: this.Capturasiguiente
+      };
+      Ordinales.forEach((Sufijo, Indice) => {
+        Carruselvista['Punto' + Sufijo] = 'Puntomovil' + (Activa === Indice ? ' Activo' : '');
+      });
+
+      const Imagenvuelo = Vuelo && Vuelo.Imagen ? Validaciones.Validarimagen(Vuelo.Imagen) : '';
 
       return {
-        Raiz: { Clase: 'Raiz' + Claseacento },
-        Capa: { Fondooculto: Contacto ? 'true' : 'false' },
-        Clases: { Pantalla: 'Pantalla' + (Estado.Saliendo ? ' Saliendo' : '') + (Estado.Llegando ? ' Llegando' : '') + (Estado.Llegada ? ' Llegada' : '') },
+        Raiz: { Clase: 'Raiz' },
+        Capa: { Fondooculto: Fasecontacto ? 'true' : 'false' },
+        Clases: { Pantalla: 'Pantalla' + (Estado.Saliendo ? ' Saliendo' : '') + (Estado.Llegando ? ' Llegando' : '') + (Estado.Llegada ? ' Llegada' : '') + (Estado.Regreso ? ' Regreso' : '') },
         Ver: {
           Inicio: Pantalla === 'Inicio',
           Habilidades: Pantalla === 'Habilidades',
           Experiencia: Pantalla === 'Experiencia',
           Conoceme: Pantalla === 'Conoceme',
-          Nissi: Pantalla === 'Nissi',
-          Mitecho: Pantalla === 'Mitecho',
-          Sonica: Pantalla === 'Sonica',
-          Neon: Pantalla === 'Neon',
-          Moderador: Pantalla === 'Moderador'
+          Proyecto: Esunproyecto
         },
+        Proyecto: Proyectovista,
         Nav: Nav,
         Titulo: this.Fijartitulo,
         Icono: this.Fijaricono,
@@ -228,16 +311,7 @@
           Contador: (Activa + 1) + ' / ' + Total,
           Barajar: this.Barajar
         },
-        Carrusel: Object.assign({
-          Estilo: 'transform: translateX(-' + (Activa * 100) + '%)',
-          Etiqueta: String(Activa + 1).padStart(2, '0') + ' / ' + String(Total).padStart(2, '0'),
-          Puntouno: 'Puntomovil' + (Activa === 0 ? ' Activo' : ''),
-          Puntodos: 'Puntomovil' + (Activa === 1 ? ' Activo' : ''),
-          Puntotres: 'Puntomovil' + (Activa === 2 ? ' Activo' : ''),
-          Pie: (this.Pies[Pantalla] || [])[Activa] || '',
-          Anterior: this.Capturaanterior,
-          Siguiente: this.Capturasiguiente
-        }, ...Array.from({ length: 8 }, (_, i) => ({ ['Punto' + (i + 1)]: 'Puntomovil' + (Activa === i ? ' Activo' : '') }))),
+        Carrusel: Carruselvista,
         Portal: {
           Clase: 'Portatil' + (Tapaabierta ? ' Abierto' : ''),
           Alternar: this.Alternartapa,
@@ -247,23 +321,23 @@
         Palabra: {
           Visible: !!Palabra,
           Texto: Palabra ? Palabra.Texto : '',
-          Clase: Palabra ? Palabra.Clase : 'Palabragigante',
-          Estilo: Palabra && Palabra.Tamano ? '--Tamano: ' + Palabra.Tamano : '',
+          Clase: Palabra ? Validaciones.Validarclasepalabra(Palabra.Clase) : 'Palabragigante',
+          Estilo: Palabra && Palabra.Tamano ? Validaciones.Validartamano(Palabra.Tamano) : '',
           Clasecontenedor: 'Palabraflotante' + (this.Palabracrece ? ' Lista Crece' : (this.Palabralista ? ' Lista' : '')),
           Fijar: this.Fijarpalabra
         },
         Vuelo: {
           Visible: !!Vuelo,
-          Esimagen: !!(Vuelo && !Vuelo.Moderador),
+          Esimagen: !!(Vuelo && !Vuelo.Moderador && Imagenvuelo),
           Esmoderador: !!(Vuelo && Vuelo.Moderador),
-          Estiloimagen: Vuelo && Vuelo.Imagen ? 'background-image: url(' + Vuelo.Imagen + ')' : '',
+          Estiloimagen: Imagenvuelo ? 'background-image: url(' + Imagenvuelo + ')' : '',
           Fijar: this.Fijarvuelo
         },
         Contacto: {
-          Visible: !!Contacto,
-          Clase: 'Contacto ' + Contacto + (Estado.Textosllamada ? ' Textosvisibles' : ''),
-          X: Estado.Origenx || 0,
-          Y: Estado.Origeny || 0,
+          Visible: !!Fasecontacto,
+          Clase: 'Contacto' + (Fasecontacto ? ' ' + Fasecontacto : '') + (Estado.Textosllamada ? ' Textosvisibles' : ''),
+          X: Math.round(Validaciones.Numeroacotado(Estado.Origenx, -10000, 10000, 0)),
+          Y: Math.round(Validaciones.Numeroacotado(Estado.Origeny, -10000, 10000, 0)),
           Abrir: this.Abrircontacto,
           Cerrar: this.Cerrarcontacto,
           Teclas: this.Teclascontacto,
@@ -281,24 +355,21 @@
     }
   }
 
-  // Integrar módulos funcionales al prototipo
   Object.assign(
     Portafolio.prototype,
-    window.MetodosTransiciones,
-    window.MetodosVitrina,
-    window.MetodosLlamada
+    window.Metodostransiciones,
+    window.Metodosvitrina,
+    window.Metodosllamada
   );
 
-  // Conectar el motor reactivo con el prototipo de Portafolio
   window.Motorreactivo.Aplicar(Portafolio.prototype);
 
-  var App = new Portafolio(document.body);
+  var Aplicacion = new Portafolio(document.body);
   try {
-    App.Pintar();
-    App.Escuchar();
-    App.Montar();
+    Aplicacion.Pintar();
+    Aplicacion.Escuchar();
+    Aplicacion.Montar();
   } finally {
     document.body.classList.remove('Cargando');
   }
-  window.Portafoliojorge = App;
 })();

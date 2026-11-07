@@ -42,30 +42,57 @@
   to { opacity: 0; transform: translateY(26px); }
 }
 
-/* Entradas suaves */
+/* Entradas suaves en secciones interiores */
 @keyframes Entrar {
   from { opacity: 0; transform: translateY(22px); filter: blur(6px); }
   to { opacity: 1; transform: none; filter: blur(0); }
 }
 
+/* Coreografía de entrada de la pantalla de inicio
+   Secuencia jerárquica: 1) Palabra gigante -> 2) Retrato -> 3) Saludo y Rol -> 4) Cabecera y Vitrina */
+@keyframes Entracabecera {
+  from { opacity: 0; transform: translate3d(0, -12px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes Entragigante {
+  from { opacity: 0; transform: translate3d(-50%, 24px, 0) scale(0.975); }
+  to { opacity: 1; transform: translate3d(-50%, 0, 0) scale(1); }
+}
+
+@keyframes Entrareflejo {
+  from { opacity: 0; transform: translate3d(-50%, 14px, 0); }
+  to { opacity: 0.2; transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes Entrainicio {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
 /* Retrato en pantalla de inicio */
 @keyframes Retratoentra {
-  from { opacity: 0; transform: translate(-50%, 40px); }
-  to { opacity: 1; transform: translate(-50%, 0); }
+  from { opacity: 0; transform: translate3d(-50%, 34px, 0) scale(0.985); }
+  to { opacity: 1; transform: translate3d(-50%, 0, 0) scale(1); }
 }
 
 @keyframes Retratosale {
-  to { opacity: 0; transform: translate(-50%, 40px); }
+  to { opacity: 0; transform: translate3d(-50%, 36px, 0); }
 }
 
 /* Vitrina de proyectos */
 @keyframes Entravitrina {
-  from { opacity: 0; transform: translate(-50%, 48px); }
-  to { opacity: 1; transform: translate(-50%, 0); }
+  from { opacity: 0; transform: translate3d(-50%, 40px, 0); }
+  to { opacity: 1; transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes Entramando {
+  from { opacity: 0; transform: translate3d(-50%, 8px, 0); }
+  to { opacity: 1; transform: translate3d(-50%, 0, 0); }
 }
 
 @keyframes Salevitrina {
-  to { opacity: 0; transform: translate(-50%, 26px); }
+  to { opacity: 0; transform: translate3d(-50%, 26px, 0); }
 }
 
 @keyframes Flotarcartel {
@@ -104,13 +131,21 @@
   100% { z-index: 1; transform: translate(-7%, -17%) rotate(-5deg) scale(0.9); }
 }
 
+/* Entrada única de la cabecera en la carga inicial */
+.Cabecera {
+  animation: Entracabecera 580ms var(--Entrada) 800ms both;
+}
+
 /* Estados de transición entre pantallas */
 .Saliendo .Palabragigante { animation: Rebanarsale 420ms var(--Corte) both; }
 .Saliendo .Salecontenido { animation: Salircontenido 380ms var(--Corte) both; }
+.Saliendo .Saludo,
+.Saliendo .Rolinicio,
+.Saliendo .Escenario .Ubicacion { animation: Salircontenido 300ms var(--Corte) both; }
 .Saliendo .Eco { animation: Salircontenido 300ms var(--Corte) both; }
 .Saliendo .Destinovuelo { animation: Salircontenido 320ms var(--Corte) both; }
-.Saliendo .Retrato { animation: Retratosale 400ms var(--Corte) both; }
-.Saliendo .Vitrina { animation: Salevitrina 360ms var(--Corte) both; }
+.Saliendo .Retrato { animation: Retratosale 380ms var(--Corte) both; }
+.Saliendo .Vitrina { animation: Salevitrina 340ms var(--Corte) both; }
 
 .Llegando .Titulogigante .Palabragigante,
 .Llegando .Gigante .Palabragigante,
@@ -118,8 +153,6 @@
   opacity: 0;
 }
 
-.Llegada:not(.Saliendo) .Retrato { animation-delay: 820ms; }
-.Llegada:not(.Saliendo) .Vitrina { animation-delay: 920ms; }
 .Llegando .Cartel.Activo { opacity: 0 !important; }
 
 .Entra {

@@ -5,20 +5,21 @@
 (function () {
   'use strict';
 
-  // Geometría de la rueda: cuatro proyectos cada 22.5° en abanico apretado
-  // (el dial repite la secuencia cuatro veces en 360°)
+  var Validaciones = window.Validaciones;
+
+  // Geometría de la rueda: proyectos cada 22.5° en abanico apretado sobre 360°
   const Pasogrados = 22.5;
   const Pasoradianes = Pasogrados * Math.PI / 180;
-  const Factorradio = 2.3;          // Radio de la rueda en múltiplos del lado de la tarjeta (ver .Esfera en Inicio.css)
+  const Factorradio = 2.3;          // Radio de la rueda en múltiplos del lado de la tarjeta
   const Rigidez = 210;              // Resorte del asentamiento
-  const Amortiguacion = 18.5;       // Leve rebote al detenerse, como en la referencia
+  const Amortiguacion = 18.5;       // Leve rebote al detenerse
   const Seguimiento = 0.42;         // Giro máximo (en tarjetas) con el que la rueda sigue al cursor
   const Imanradio = 1.5;            // Alcance del imán del cursor, en lados de tarjeta
   const Modulo = (Numero, Total) => ((Numero % Total) + Total) % Total;
   const Limitar = (Valor, Minimo, Maximo) => Math.max(Minimo, Math.min(Maximo, Valor));
 
-  window.MetodosVitrina = {
-    // ---- Montaje -------------------------------------------------------------
+  window.Metodosvitrina = Validaciones.Congelar({
+    // Montaje de la rueda y oyentes de puntero
     Montarrueda(Nodo) {
       if (this.Nodorueda) {
         const Viejo = this.Nodorueda;
@@ -54,14 +55,11 @@
       Nodo.addEventListener('pointerup', this.Manejadoresrueda.Subir);
       Nodo.addEventListener('pointercancel', this.Manejadoresrueda.Subir);
       Nodo.addEventListener('wheel', this.Manejadoresrueda.Girar, { passive: false });
-      // Todo el escenario de inicio alimenta el seguimiento del cursor
       this.Nodoescenario = Nodo.closest('.Escenario');
       if (this.Nodoescenario) {
         this.Nodoescenario.addEventListener('pointermove', this.Manejadoresrueda.Seguir);
         this.Nodoescenario.addEventListener('pointerleave', this.Manejadoresrueda.Olvidar);
       }
-
-      // Los botones se registran después de la lista: se espera al final del pintado
       Promise.resolve().then(() => { if (this.Nodorueda === Nodo) this.Iniciarrueda(); });
     },
 
@@ -73,28 +71,24 @@
     Iniciarrueda() {
       const Estado = this.Estado || {};
       const Total = this.Tarjetas.length;
-      const Proyecto = Estado.Proyecto || 0;
+      const Proyecto = Validaciones.Enteromodulo(Estado.Proyecto, Total);
       const Previa = this.Rueda;
-      // Conserva las vueltas acumuladas si la rueda ya estaba en el mismo proyecto
-      const Objetivo = Previa && Modulo(Previa.Objetivo, Total) === Proyecto ? Previa.Objetivo : Proyecto;
+      const Objetivo = Previa && Number.isFinite(Previa.Objetivo) && Modulo(Previa.Objetivo, Total) === Proyecto ? Previa.Objetivo : Proyecto;
       this.Rueda = {
         Posicion: Objetivo, Objetivo: Objetivo, Velocidad: 0,
         Arrastre: null, Libre: false, Retenida: false,
-        Cursor: null,                 // Puntero relativo al eje superior de la lista (px)
-        Desvio: 0,                    // Giro extra pedido por el cursor (tarjetas)
-        Iman: this.Tarjetas.map(() => 0)
+        Cursor: null, Desvio: 0, Iman: this.Tarjetas.map(() => 0)
       };
 
       const Regreso = Estado.Vuelo && Estado.Vuelo.Regreso;
       if (!this.Movimientoreducido() && !Regreso) {
-        // Vuelta de entrada: las tarjetas llegan girando sobre la rueda y se asientan con rebote
-        this.Rueda.Posicion = Objetivo - 1.25;
+        this.Rueda.Posicion = Objetivo - 1.1;
         this.Rueda.Retenida = true;
         this.Colocarrueda();
-        this.Esperar(Estado.Llegada ? 900 : 380, () => {
+        this.Esperar(Estado.Llegada ? 1500 : 920, () => {
           if (!this.Rueda) return;
           this.Rueda.Retenida = false;
-          this.Rueda.Velocidad = 1.6;
+          this.Rueda.Velocidad = 1.5;
           this.Animarrueda();
         });
         return;
@@ -102,9 +96,7 @@
       this.Colocarrueda();
     },
 
-    // ---- Dibujo de cada cuadro ----------------------------------------------
-    // Dibuja la rueda. Con Delta (segundos) suaviza el imán del cursor; sin él lo fija al instante.
-    // Devuelve true mientras el imán siga acomodándose.
+    // Dibuja cada cuadro de la rueda y suaviza el imán del cursor
     Colocarrueda(Delta) {
       const Rueda = this.Rueda;
       if (!Rueda) return false;
@@ -130,7 +122,6 @@
         let Y = Radio * (1 - Math.cos(Radianes)) - 4 * Cercania;
         const Opacidad = Limitar((Math.min(Mitad, 2) - Distancia) / 0.6, 0, 1);
 
-        // Imán: la tarjeta cercana al cursor se acerca a él, sale hacia fuera de la rueda y se agranda
         let Objetivoiman = 0;
         let Haciax = 0;
         let Haciay = 0;
@@ -158,30 +149,27 @@
         Cartel.style.setProperty('--Cercania', Math.max(Cercania, Fuerza).toFixed(3));
       });
 
-      // Las marcas del dial giran solidarias con las tarjetas; el título "Proyectos" queda fijo
       if (this.Giroesfera) {
         this.Giroesfera.setAttribute('transform', 'rotate(' + (-Posicion * Pasogrados).toFixed(3) + ' 200 200)');
       }
 
-      // Mientras se arrastra, el proyecto activo sigue al que pasa por la aguja
       if (Rueda.Arrastre || Rueda.Libre) {
-        const Cercano = Modulo(Math.round(Posicion), Total);
+        const Cercano = Validaciones.Enteromodulo(Math.round(Posicion), Total);
         if (Cercano !== ((this.Estado && this.Estado.Proyecto) || 0)) this.Fijarestado({ Proyecto: Cercano });
       }
       return Inquieto;
     },
 
-    // ---- Seguimiento del cursor ---------------------------------------------
+    // Seguimiento magnético del cursor sobre el escenario
     Seguircursor(Evento) {
       const Rueda = this.Rueda;
-      if (!Rueda || !this.Nodorueda || Evento.pointerType === 'touch' || this.Movimientoreducido()) return;
+      if (!Rueda || Rueda.Retenida || !this.Nodorueda || Evento.pointerType === 'touch' || this.Movimientoreducido()) return;
       const Caja = this.Nodorueda.getBoundingClientRect();
       const Referencia = this.Nodostarjeta.find((N) => N);
       const Lado = Referencia ? Referencia.offsetWidth : 90;
       const X = Evento.clientX - (Caja.left + Caja.width / 2);
       const Y = Evento.clientY - Caja.top;
       Rueda.Cursor = { X: X, Y: Y };
-      // La rueda gira hacia el lado del cursor: con fuerza cerca de la vitrina, suave en lo alto del escenario
       const Horizontal = Limitar(X / (Lado * 4.2), -1, 1);
       const Cercania = Limitar(1 - (-Y) / (window.innerHeight * 0.75), 0.3, 1);
       Rueda.Desvio = -Horizontal * Seguimiento * Cercania;
@@ -207,9 +195,7 @@
         const Arrastrando = Rueda.Arrastre && Rueda.Arrastre.Activo;
         let Quieta = Arrastrando || Rueda.Libre || Rueda.Retenida ? false : true;
         if (!Arrastrando && !Rueda.Libre && !Rueda.Retenida) {
-          // El resorte apunta al proyecto elegido más el giro que pide el cursor
           const Meta = Rueda.Objetivo + Rueda.Desvio;
-          // Integración semi-implícita en dos subpasos para un resorte estable
           for (let Paso = 0; Paso < 2; Paso += 1) {
             const Fuerza = -Rigidez * (Rueda.Posicion - Meta) - Amortiguacion * Rueda.Velocidad;
             Rueda.Velocidad += Fuerza * (Delta / 2);
@@ -226,15 +212,16 @@
     },
 
     Fijarobjetivo(Objetivo) {
+      if (!Number.isFinite(Objetivo)) return;
       const Rueda = this.Rueda;
       const Total = this.Tarjetas.length;
-      const Proyecto = Modulo(Objetivo, Total);
+      const Proyecto = Validaciones.Enteromodulo(Objetivo, Total);
       if (!Rueda) { this.Fijarestado({ Proyecto: Proyecto }); return; }
-      Rueda.Objetivo = Objetivo;
+      Rueda.Objetivo = Validaciones.Numeroacotado(Objetivo, -100000, 100000, Proyecto);
       Rueda.Retenida = false;
       if (Proyecto !== ((this.Estado && this.Estado.Proyecto) || 0)) this.Fijarestado({ Proyecto: Proyecto });
       if (this.Movimientoreducido()) {
-        Rueda.Posicion = Objetivo;
+        Rueda.Posicion = Rueda.Objetivo;
         Rueda.Velocidad = 0;
         this.Colocarrueda();
         return;
@@ -245,23 +232,24 @@
     Pixelesporcartel() {
       const Referencia = this.Nodostarjeta.find((N) => N);
       const Lado = Referencia ? Referencia.offsetWidth : 90;
-      // Algo más que el arco real para que el abanico apretado no gire demasiado rápido bajo el dedo
       return Lado * Factorradio * Pasoradianes * 1.25;
     },
 
-    // ---- Navegación ----------------------------------------------------------
+    // Navegación por flechas, clic y teclado
     Girarcartel(Paso) {
+      if (!Number.isFinite(Paso)) return;
       this.Nodostarjeta.forEach((N) => { if (N) this.Limpiarcartel(N); });
       const Rueda = this.Rueda;
       if (!Rueda) {
         const Total = this.Tarjetas.length;
-        this.Fijarestado((Previo) => ({ Proyecto: Modulo((Previo.Proyecto || 0) + Paso, Total) }));
+        this.Fijarestado((Previo) => ({ Proyecto: Validaciones.Enteromodulo((Previo.Proyecto || 0) + Paso, Total) }));
         return;
       }
       this.Fijarobjetivo(Rueda.Objetivo + Paso);
     },
 
     Pulsarcartel(Indice) {
+      if (!Number.isInteger(Indice) || Indice < 0 || Indice >= this.Tarjetas.length) return;
       if (this.Arrastradocartel) return;
       const Estado = this.Estado || {};
       if (Estado.Palabra || Estado.Saliendo) return;
@@ -279,15 +267,16 @@
 
     Teclascartel(Evento) {
       const Teclas = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
-      if (!Teclas[Evento.key]) return;
+      if (!Validaciones.Espropio(Teclas, Evento.key)) return;
       Evento.preventDefault();
       this.Girarcartel(Teclas[Evento.key]);
       const Nuevo = this.Nodostarjeta[(this.Estado && this.Estado.Proyecto) || 0];
       if (Nuevo) { try { Nuevo.focus({ preventScroll: true }); } catch (Error) {} }
     },
 
-    // ---- Inclinación 3D al cursor ------------------------------------------
+    // Inclinación 3D al cursor sobre cada tarjeta
     Inclinarcartel(Indice, Evento) {
+      if (!Number.isInteger(Indice) || Indice < 0 || Indice >= this.Tarjetas.length) return;
       if (this.Movimientoreducido() || Evento.pointerType === 'touch') return;
       if (this.Rueda && this.Rueda.Arrastre && this.Rueda.Arrastre.Activo) return;
       const Nodo = this.Nodostarjeta[Indice];
@@ -312,23 +301,19 @@
     },
 
     Reposocartel(Indice) {
+      if (!Number.isInteger(Indice) || Indice < 0 || Indice >= this.Tarjetas.length) return;
       const Nodo = this.Nodostarjeta[Indice];
       if (Nodo) this.Limpiarcartel(Nodo);
     },
 
-    // ---- Arrastre con inercia -----------------------------------------------
+    // Arrastre con inercia
     Empezarcartel(Evento) {
       if ((Evento.button && Evento.button !== 0) || !this.Rueda) return;
       const Estado = this.Estado || {};
       if (Estado.Palabra || Estado.Saliendo) return;
       this.Rueda.Arrastre = {
-        Id: Evento.pointerId,
-        X: Evento.clientX,
-        Y: Evento.clientY,
-        Inicio: this.Rueda.Posicion,
-        Ultimox: Evento.clientX,
-        Ultimotiempo: Evento.timeStamp,
-        Activo: false
+        Id: Evento.pointerId, X: Evento.clientX, Y: Evento.clientY,
+        Inicio: this.Rueda.Posicion, Ultimox: Evento.clientX, Ultimotiempo: Evento.timeStamp, Activo: false
       };
     },
 
@@ -341,7 +326,6 @@
 
       if (!Arrastre.Activo) {
         if (Math.abs(Dx) > 7 && Math.abs(Dx) > Math.abs(Dy)) {
-          // Arranca el giro: la rueda queda tomada por el puntero
           Arrastre.Activo = true;
           Arrastre.X = Evento.clientX;
           Arrastre.Inicio = Rueda.Posicion;
@@ -375,12 +359,10 @@
 
       this.Nodorueda.classList.remove('Girando');
       try { this.Nodorueda.releasePointerCapture(Evento.pointerId); } catch (Error) {}
-      // Evita que el soltar se interprete como clic sobre una tarjeta
       this.Arrastradocartel = true;
       this.Esperar(80, () => { this.Arrastradocartel = false; });
 
       if (Evento.timeStamp - Arrastre.Ultimotiempo > 90) Rueda.Velocidad = 0;
-      // La inercia proyecta el giro; un lanzamiento recorre como máximo dos proyectos extra
       const Proyeccion = Rueda.Posicion + Limitar(Rueda.Velocidad, -9, 9) * 0.12;
       const Objetivo = Limitar(Math.round(Proyeccion), Math.round(Rueda.Posicion) - 2, Math.round(Rueda.Posicion) + 2);
       this.Fijarobjetivo(Objetivo);
@@ -390,7 +372,7 @@
       if (this.Rueda && this.Rueda.Arrastre && !this.Rueda.Arrastre.Activo) this.Rueda.Arrastre = null;
     },
 
-    // ---- Rueda del ratón / trackpad ------------------------------------------
+    // Rueda del ratón o panel táctil
     Girarconraton(Evento) {
       const Rueda = this.Rueda;
       if (!Rueda || Evento.ctrlKey) return;
@@ -413,5 +395,5 @@
         this.Fijarobjetivo(Math.round(this.Rueda.Posicion));
       }, 140);
     }
-  };
+  });
 })();

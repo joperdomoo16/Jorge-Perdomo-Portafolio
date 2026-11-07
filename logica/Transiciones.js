@@ -4,19 +4,22 @@
 (function () {
   'use strict';
 
-  window.MetodosTransiciones = {
+  var Validaciones = window.Validaciones;
+
+  window.Metodostransiciones = Validaciones.Congelar({
     // Cambio de pantalla: la palabra se rebana, aparece pequeña y crece hasta su lugar
     Ir(Destino, Vuelo) {
+      if (!Validaciones.Espropio(this.Titulos, Destino)) return;
       const Estado = this.Estado || {};
       if (Estado.Palabra || Estado.Saliendo) return;
       if (Destino === Estado.Pantalla) { this.Fijarestado({ Menuabierto: false }); return; }
       if (this.Movimientoreducido()) {
-        this.Fijarestado({ Pantalla: Destino, Menuabierto: false, Pila: 0, Portatilabierto: false, Foco: -1 });
+        this.Fijarestado({ Pantalla: Destino, Regreso: false, Menuabierto: false, Pila: 0, Portatilabierto: false, Foco: -1 });
         this.Subir();
         return;
       }
       const Titulo = this.Titulos[Destino];
-      const Pantallaactual = Estado.Pantalla || 'Inicio';
+      const Pantallaactual = Validaciones.Espropio(this.Titulos, Estado.Pantalla) ? Estado.Pantalla : 'Inicio';
       const Indiceactual = this.Tarjetas.findIndex((T) => T.Proyecto === Pantallaactual);
       const Indicedestino = this.Tarjetas.findIndex((T) => T.Proyecto === Destino);
       let Vuelofinal = Vuelo || null;
@@ -82,7 +85,8 @@
       });
 
       this.Esperar(440, () => {
-        this.Fijarestado({ Pantalla: Destino, Saliendo: false, Llegando: true, Llegada: true, Pila: 0, Portatilabierto: false, Foco: -1 });
+        const Esregreso = !!(this.Estado && this.Estado.Vuelo && this.Estado.Vuelo.Regreso);
+        this.Fijarestado({ Pantalla: Destino, Saliendo: false, Llegando: true, Llegada: true, Regreso: Esregreso, Pila: 0, Portatilabierto: false, Foco: -1 });
         this.Subir();
         if (this.Estado && this.Estado.Vuelo && this.Estado.Vuelo.Despedida) {
           this.Doblecuadro(() => this.Viajarvuelo());
@@ -93,7 +97,7 @@
 
     Subir() {
       try { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); } catch (Error) {
-        try { window.scrollTo(0, 0); } catch (Error2) {}
+        try { window.scrollTo(0, 0); } catch (Erroralterno) {}
       }
     },
 
@@ -137,6 +141,7 @@
     },
 
     Abrirproyecto(Indice) {
+      if (!Number.isInteger(Indice) || Indice < 0 || Indice >= this.Tarjetas.length) return;
       const Estado = this.Estado || {};
       if (Estado.Palabra || Estado.Saliendo) return;
       const Datos = this.Tarjetas[Indice];
@@ -180,9 +185,15 @@
         if (!Destino) return;
         const Caja = Destino.getBoundingClientRect();
         const Lado = Destino.offsetWidth || Caja.width;
+        let Desfasey = 0;
+        const Vitrina = Destino.closest('.Vitrina');
+        const Escenario = Destino.closest('.Escenario');
+        if (Vitrina && Escenario) {
+          Desfasey = Vitrina.getBoundingClientRect().bottom - (Escenario.getBoundingClientRect().bottom + 4);
+        }
         Nodo.classList.add('Viaja');
         Nodo.style.left = (Caja.left + Caja.width / 2 - Lado / 2) + 'px';
-        Nodo.style.top = (Caja.top + Caja.height / 2 - Lado / 2) + 'px';
+        Nodo.style.top = (Caja.top - Desfasey + Caja.height / 2 - Lado / 2) + 'px';
         Nodo.style.width = Lado + 'px';
         Nodo.style.height = Lado + 'px';
         Nodo.style.fontSize = (Lado / 116 * 16) + 'px';
@@ -202,6 +213,6 @@
       Nodo.style.fontSize = (Lado / 116 * 16) + 'px';
       Nodo.style.transform = 'rotate(-8deg)';
     }
-  };
+  });
 })();
 

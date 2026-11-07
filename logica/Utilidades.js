@@ -1,8 +1,8 @@
-/* Modulo de funciones auxiliares y utilidades del sistema */
+/* Módulo de funciones auxiliares y utilidades del sistema */
 (function () {
   'use strict';
 
-  // Verifica si la persona solicito menos movimiento en su dispositivo
+  // Verifica si la persona solicitó menos movimiento en su dispositivo
   function Movimientoreducido() {
     try {
       return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -37,8 +37,8 @@
     }
   }
 
-  window.Utilidades = {
+  window.Utilidades = window.Validaciones.Congelar({
     Movimientoreducido: Movimientoreducido,
     Copiartexto: Copiartexto
-  };
+  });
 })();

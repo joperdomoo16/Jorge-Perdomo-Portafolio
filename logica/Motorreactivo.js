@@ -1,21 +1,26 @@
-/* Motor reactivo nativo para enlace de plantillas y eventos del DOM */
+/* Motor reactivo nativo para enlace seguro de plantillas y eventos del DOM */
 (function () {
   'use strict';
 
+  var Validaciones = window.Validaciones;
+
   function Leer(Objeto, Ruta) {
+    if (typeof Ruta !== 'string' || !Ruta) return undefined;
     var Partes = Ruta.split('.');
     var Valor = Objeto;
     var Indice;
 
     for (Indice = 0; Indice < Partes.length; Indice += 1) {
-      if (Valor === null || Valor === undefined) return undefined;
-      Valor = Valor[Partes[Indice]];
+      var Clave = Partes[Indice];
+      if (!Validaciones.Espropio(Valor, Clave)) return undefined;
+      Valor = Valor[Clave];
     }
 
     return Valor;
   }
 
   function Interpolar(Plantilla, Vista) {
+    if (typeof Plantilla !== 'string') return '';
     return Plantilla.replace(/\[\[\s*([^\]]+?)\s*\]\]/g, function (Coincidencia, Ruta) {
       var Valor = Leer(Vista, Ruta.trim());
       return Valor === null || Valor === undefined ? '' : String(Valor);
@@ -25,16 +30,13 @@
   function Aplicar(Prototipo) {
     Object.assign(Prototipo, {
       Fijarestado: function (Cambio) {
-        var Estadoactual = this.Estado || this.state || {};
+        var Estadoactual = this.Estado || {};
         var Nuevo = typeof Cambio === 'function' ? Cambio(Estadoactual) : Cambio;
-        this.Estado = Object.assign({}, Estadoactual, Nuevo);
-        this.state = this.Estado;
+        if (!Nuevo || typeof Nuevo !== 'object') return;
+        var Combinado = Object.assign({}, Estadoactual, Nuevo);
+        var Total = this.Tarjetas ? this.Tarjetas.length : 1;
+        this.Estado = Validaciones.Sanearestado(Combinado, this.Titulos, Total);
         this.Pintar();
-      },
-
-      // Alias para mantener compatibilidad
-      setState: function (Cambio) {
-        this.Fijarestado(Cambio);
       },
 
       Pintar: function () {
@@ -73,7 +75,7 @@
         return Cambio;
       },
 
-      // Enlaza atributos calculados y contenido de texto
+      // Enlaza atributos validados por lista blanca y contenido de texto seguro
       Enlazar: function () {
         var Vista = this.Vista;
         var Todos = this.Raiz.getElementsByTagName('*');
@@ -97,8 +99,30 @@
           }
 
           for (Atributoindice = 0; Atributoindice < Nombres.length; Atributoindice += 1) {
-            var Destino = Nombres[Atributoindice].slice(8);
+            var Destino = Nombres[Atributoindice].slice(8).toLowerCase();
+            if (!Validaciones.Atributopermitido(Destino)) continue;
+
             var Valortexto = Interpolar(Nodo.getAttribute(Nombres[Atributoindice]), Vista);
+
+            if (Destino === 'href' || Destino === 'src') {
+              Valortexto = Validaciones.Validarenlace(Valortexto, Destino);
+              if (Destino === 'src' && !Valortexto) {
+                if (Nodo.hasAttribute('src')) Nodo.removeAttribute('src');
+                continue;
+              }
+            } else if (Destino === 'style') {
+              Valortexto = Validaciones.Validarestilo(Valortexto);
+              if (!Valortexto) {
+                if (Nodo.hasAttribute('style')) Nodo.removeAttribute('style');
+                continue;
+              }
+            } else if (Destino === 'id') {
+              Valortexto = Validaciones.Validaridentificador(Valortexto);
+              if (!Valortexto) continue;
+            } else if (Destino === 'class') {
+              Valortexto = Validaciones.Validarclases(Valortexto);
+            }
+
             if (Nodo.getAttribute(Destino) !== Valortexto) Nodo.setAttribute(Destino, Valortexto);
           }
         }
@@ -108,12 +132,12 @@
       Refs: function () {
         var Yo = this;
         var Vista = this.Vista;
-        var Vistos = {};
+        var Vistos = Object.create(null);
 
         Array.prototype.forEach.call(this.Raiz.querySelectorAll('[data-ref]'), function (Nodo) {
           var Ruta = Nodo.getAttribute('data-ref');
           Vistos[Ruta] = true;
-          if (Yo.Nodosref[Ruta] !== Nodo) {
+          if (!Validaciones.Espropio(Yo.Nodosref, Ruta) || Yo.Nodosref[Ruta] !== Nodo) {
             Yo.Nodosref[Ruta] = Nodo;
             var Funcion = Leer(Vista, Ruta);
             if (typeof Funcion === 'function') Funcion(Nodo);
@@ -129,7 +153,7 @@
         });
       },
 
-      // Delegacion global de eventos desde la raiz
+      // Delegación global de eventos desde la raíz
       Escuchar: function () {
         var Yo = this;
         var Tipos = ['click', 'keydown', 'pointermove', 'pointerleave', 'pointerdown', 'pointerup', 'pointercancel', 'focus', 'blur'];
@@ -153,9 +177,9 @@
     });
   }
 
-  window.Motorreactivo = {
+  window.Motorreactivo = Validaciones.Congelar({
     Leer: Leer,
     Interpolar: Interpolar,
     Aplicar: Aplicar
-  };
+  });
 })();

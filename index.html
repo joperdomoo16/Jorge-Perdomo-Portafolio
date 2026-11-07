@@ -3,18 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none';">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Jorge David Perdomo — Developer Full Stack &amp; Support</title>
 <meta name="description" content="Portafolio de Jorge David Perdomo, desarrollador Full Stack y soporte técnico en Bogotá, Colombia.">
 <link rel="icon" type="image/svg+xml" href="imagenes/Favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&amp;family=DM+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tipografias/tipografias.css">
 <link rel="stylesheet" href="estilos.css">
 <link rel="stylesheet" href="estilos/Animaciones.css">
 <link rel="stylesheet" href="estilos/Inicio.css">
+<link rel="stylesheet" href="estilos/Vitrina.css">
 <link rel="stylesheet" href="estilos/Secciones.css">
 <link rel="stylesheet" href="estilos/Proyectos.css">
 <link rel="stylesheet" href="estilos/Dispositivos.css">
+<link rel="stylesheet" href="estilos/Portatil.css">
 <link rel="stylesheet" href="estilos/Contacto.css">
 <link rel="stylesheet" href="estilos/Adaptable.css">
 <noscript><style>body.Cargando { visibility: visible; }</style></noscript>
@@ -47,7 +49,6 @@
 <button class="Botoncontacto Conrodillo" type="button" data-ref="Contacto.Fijarboton" data-ev-click="Contacto.Abrir"><span class="Aro" aria-hidden="true"><svg class="Iconotelefono" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.2 3.5h3.1l1.9 4.6-2.4 1.5a11.6 11.6 0 0 0 5.6 5.6l1.5-2.4 4.6 1.9v3.1a2 2 0 0 1-2.2 2A16.2 16.2 0 0 1 3.2 5.7a2 2 0 0 1 2-2.2"></path><path d="M14.6 3.4a6.4 6.4 0 0 1 6 6M14.4 7.1a2.8 2.8 0 0 1 2.5 2.5"></path></svg></span><span class="Rodillo Textocontacto"><span class="Rodillonormal">CONTÁCTAME</span><span class="Rodillocursiva" aria-hidden="true">CONTÁCTAME</span></span></button>
 </div>
 </header>
-
 <template data-si="Menu.Abierto">
 <div id="Menumovil" class="Menumovil">
 <ul class="Listamovil">
@@ -61,43 +62,31 @@
 </ul>
 </div>
 </template>
-
 <main id="Contenido" data-at-aria-hidden="[[Capa.Fondooculto]]">
-
 <template data-si="Ver.Inicio">
 <section data-at-class="[[Clases.Pantalla]]" aria-labelledby="Tituloinicio">
 <div class="Escenario">
 <p class="Gigante" aria-hidden="true"><span class="Palabragigante Rojo" data-ref="Titulo.Inicio">DEVELOPER</span></p>
 <p class="Gigante Reflejo" aria-hidden="true"><span class="Palabragigante Rojo">DEVELOPER</span></p>
-<img class="Retrato" src="imagenes/retrato-inicio.webp" alt="Retrato en blanco y negro de Jorge David Perdomo, con lentes y camiseta negra, de brazos cruzados" width="765" height="1024" itemprop="image" draggable="false">
+<img class="Retrato" src="imagenes/retrato-inicio.webp" alt="Retrato de Jorge David Perdomo sonriendo, con lentes y camiseta rosa, de brazos cruzados" width="765" height="1024" itemprop="image" draggable="false">
 <div class="Saludo">
 <h1 id="Tituloinicio" class="Titulosaludo"><span class="Hola Entra" style="--Orden: 0">Hola,</span><span class="Soy Entra" style="--Orden: 1">soy <span itemprop="givenName">Jorge</span></span><span class="Ocultovisual"> David Perdomo</span></h1>
 <p class="Dato Datosaludo Entra" style="--Orden: 2">Bogotá, Colombia</p>
 </div>
 <div class="Rolinicio">
-<p class="Rol Entra" style="--Orden: 2" itemprop="jobTitle"><span class="Ocultovisual">Developer </span><span class="Rolfila"><span class="Rolcursiva">Full Stack</span> <span class="Rolestrecha">&amp; Support</span></span></p>
-<p class="Dato Entra" style="--Orden: 3">+3 años en soporte técnico y QA</p>
+<p class="Rol Entra" style="--Orden: 3" itemprop="jobTitle"><span class="Ocultovisual">Developer </span><span class="Rolfila"><span class="Rolcursiva">Full Stack</span> <span class="Rolestrecha">&amp; Support</span></span></p>
+<p class="Dato Entra" style="--Orden: 4">+3 años en soporte técnico y QA</p>
 </div>
 <div class="Vitrina">
 <div class="Esfera" data-ref="Cartel.Esfera" aria-hidden="true">
 <svg class="Esferasvg" viewBox="0 0 400 400" focusable="false"><defs><path id="Rielesfera" d="M200,360 A160,160 0 1,1 200,40 A160,160 0 1,1 200,360"></path></defs><g class="Esferagiro"><circle class="Marcasmenores" cx="200" cy="200" r="192" pathLength="360" transform="rotate(-90 200 200)"></circle><circle class="Marcasmayores" cx="200" cy="200" r="190" pathLength="360" transform="rotate(-90 200 200)"></circle><circle class="Esferaaro" cx="200" cy="200" r="136"></circle></g><text class="Esferatitulo"><textPath href="#Rielesfera" startOffset="50%" text-anchor="middle">Proyectos</textPath></text><path class="Esferaaguja" d="M200,1V21"></path></svg>
 </div>
 <ul class="Carteles" aria-label="Proyectos" aria-roledescription="rueda de proyectos" data-ref="Cartel.Rueda">
-<li data-at-class="[[Cartel.Uno.Clase]]">
-<button class="Cartelboton" type="button" data-ref="Cartel.Uno.Fijar" data-ev-click="Cartel.Uno.Pulsar" data-ev-keydown="Cartel.Teclas" data-ev-pointermove="Cartel.Uno.Inclinar" data-ev-pointerleave="Cartel.Uno.Reposo" data-at-aria-label="[[Cartel.Uno.Etiqueta]]"><img class="Cartelimagen" src="imagenes/icono-nissi.webp" alt="" width="256" height="256" draggable="false"><span class="Cartelpie"><span class="Carteltitulo">Hotel Nissi</span></span></button>
-</li>
-<li data-at-class="[[Cartel.Dos.Clase]]">
-<button class="Cartelboton" type="button" data-ref="Cartel.Dos.Fijar" data-ev-click="Cartel.Dos.Pulsar" data-ev-keydown="Cartel.Teclas" data-ev-pointermove="Cartel.Dos.Inclinar" data-ev-pointerleave="Cartel.Dos.Reposo" data-at-aria-label="[[Cartel.Dos.Etiqueta]]"><img class="Cartelimagen" src="imagenes/icono-mitecho.webp" alt="" width="256" height="256" draggable="false"><span class="Cartelpie"><span class="Carteltitulo">MiTecho</span></span></button>
-</li>
-<li data-at-class="[[Cartel.Tres.Clase]]">
-<button class="Cartelboton" type="button" data-ref="Cartel.Tres.Fijar" data-ev-click="Cartel.Tres.Pulsar" data-ev-keydown="Cartel.Teclas" data-ev-pointermove="Cartel.Tres.Inclinar" data-ev-pointerleave="Cartel.Tres.Reposo" data-at-aria-label="[[Cartel.Tres.Etiqueta]]"><img class="Cartelimagen" src="imagenes/icono-neon.webp" alt="" width="256" height="256" draggable="false"><span class="Cartelpie"><span class="Carteltitulo">Neon Jump</span></span></button>
-</li>
-<li data-at-class="[[Cartel.Cuatro.Clase]]">
-<button class="Cartelboton" type="button" data-ref="Cartel.Cuatro.Fijar" data-ev-click="Cartel.Cuatro.Pulsar" data-ev-keydown="Cartel.Teclas" data-ev-pointermove="Cartel.Cuatro.Inclinar" data-ev-pointerleave="Cartel.Cuatro.Reposo" data-at-aria-label="[[Cartel.Cuatro.Etiqueta]]"><img class="Cartelimagen" src="imagenes/icono-sonica.webp" alt="" width="256" height="252" draggable="false"><span class="Cartelpie"><span class="Carteltitulo">Sónica</span></span></button>
-</li>
-<li data-at-class="[[Cartel.Cinco.Clase]]">
-<button class="Cartelboton" type="button" data-ref="Cartel.Cinco.Fijar" data-ev-click="Cartel.Cinco.Pulsar" data-ev-keydown="Cartel.Teclas" data-ev-pointermove="Cartel.Cinco.Inclinar" data-ev-pointerleave="Cartel.Cinco.Reposo" data-at-aria-label="[[Cartel.Cinco.Etiqueta]]"><span class="Iconomoderador" aria-hidden="true"><span class="Marcamoderador">Sónica</span><span class="Submoderador">MODERACIÓN</span></span><span class="Cartelpie"><span class="Carteltitulo">Moderador</span></span></button>
-</li>
+<li data-at-class="[[Cartel.Uno.Clase]]"><button class="Cartelboton" type="button" data-ref="Cartel.Uno.Fijar" data-ev-click="Cartel.Uno.Pulsar" data-ev-keydown="Cartel.Teclas" data-ev-pointermove="Cartel.Uno.Inclinar" data-ev-pointerleave="Cartel.Uno.Reposo" data-at-aria-label="[[Cartel.Uno.Etiqueta]]"><img class="Cartelimagen" src="imagenes/icono-nissi.webp" alt="" width="256" height="256" draggable="false"><span class="Cartelpie"><span class="Carteltitulo">Hotel Nissi</span></span></button></li>
+<li data-at-class="[[Cartel.Dos.Clase]]"><button class="Cartelboton" type="button" data-ref="Cartel.Dos.Fijar" data-ev-click="Cartel.Dos.Pulsar" data-ev-keydown="Cartel.Teclas" data-ev-pointermove="Cartel.Dos.Inclinar" data-ev-pointerleave="Cartel.Dos.Reposo" data-at-aria-label="[[Cartel.Dos.Etiqueta]]"><img class="Cartelimagen" src="imagenes/icono-mitecho.webp" alt="" width="256" height="256" draggable="false"><span class="Cartelpie"><span class="Carteltitulo">MiTecho</span></span></button></li>
+<li data-at-class="[[Cartel.Tres.Clase]]"><button class="Cartelboton" type="button" data-ref="Cartel.Tres.Fijar" data-ev-click="Cartel.Tres.Pulsar" data-ev-keydown="Cartel.Teclas" data-ev-pointermove="Cartel.Tres.Inclinar" data-ev-pointerleave="Cartel.Tres.Reposo" data-at-aria-label="[[Cartel.Tres.Etiqueta]]"><img class="Cartelimagen" src="imagenes/icono-neon.webp" alt="" width="256" height="256" draggable="false"><span class="Cartelpie"><span class="Carteltitulo">Neon Jump</span></span></button></li>
+<li data-at-class="[[Cartel.Cuatro.Clase]]"><button class="Cartelboton" type="button" data-ref="Cartel.Cuatro.Fijar" data-ev-click="Cartel.Cuatro.Pulsar" data-ev-keydown="Cartel.Teclas" data-ev-pointermove="Cartel.Cuatro.Inclinar" data-ev-pointerleave="Cartel.Cuatro.Reposo" data-at-aria-label="[[Cartel.Cuatro.Etiqueta]]"><img class="Cartelimagen" src="imagenes/icono-sonica.webp" alt="" width="256" height="252" draggable="false"><span class="Cartelpie"><span class="Carteltitulo">Sónica</span></span></button></li>
+<li data-at-class="[[Cartel.Cinco.Clase]]"><button class="Cartelboton" type="button" data-ref="Cartel.Cinco.Fijar" data-ev-click="Cartel.Cinco.Pulsar" data-ev-keydown="Cartel.Teclas" data-ev-pointermove="Cartel.Cinco.Inclinar" data-ev-pointerleave="Cartel.Cinco.Reposo" data-at-aria-label="[[Cartel.Cinco.Etiqueta]]"><span class="Iconomoderador" aria-hidden="true"><span class="Marcamoderador">Sónica</span><span class="Submoderador">MODERACIÓN</span></span><span class="Cartelpie"><span class="Carteltitulo">Moderador</span></span></button></li>
 </ul>
 <div class="Mandovitrina">
 <button class="Flechacartel" type="button" data-ev-click="Cartel.Anterior" aria-label="Proyecto anterior"><svg class="Icono" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"></path></svg></button>
@@ -105,7 +94,7 @@
 <button class="Flechacartel" type="button" data-ev-click="Cartel.Siguiente" aria-label="Proyecto siguiente"><svg class="Icono" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"></path></svg></button>
 </div>
 </div>
-<p class="Dato Ubicacion Entra" style="--Orden: 4">Bogotá, Colombia</p>
+<p class="Dato Ubicacion Entra" style="--Orden: 5">Bogotá, Colombia</p>
 </div>
 </section>
 </template>
@@ -249,34 +238,43 @@
 </section>
 </template>
 
-<template data-si="Ver.Sonica">
-<section data-at-class="[[Clases.Pantalla]]" style="--Tamano: min(21.2vw, 240px)" aria-labelledby="Titulosonica">
+<template data-si="Ver.Proyecto">
+<section data-at-class="[[Clases.Pantalla]]" data-at-style="[[Proyecto.Estilotamano]]" data-at-aria-labelledby="[[Proyecto.Idtitulo]]">
 <div class="Contenedor">
 <div class="Cabeceraproyecto">
-<h2 id="Titulosonica" class="Titulogigante"><span class="Palabragigante Tinta" data-ref="Titulo.Sonica">Sónica</span></h2>
-<div class="Eco" aria-hidden="true"><span>Sónica</span><span>Sónica</span></div>
-<img class="Iconoproyecto Destinovuelo" data-ref="Icono.Sonica" src="imagenes/icono-sonica.webp" alt="Ícono de la app Sónica" width="256" height="252">
+<h2 data-at-id="[[Proyecto.Idtitulo]]" class="Titulogigante"><span class="Ocultovisual" data-tx="Proyecto.Prefijooculto"></span><span class="Palabragigante Tinta" data-ref="Proyecto.Fijartitulo" data-tx="Proyecto.Titulo"></span></h2>
+<div class="Eco" aria-hidden="true"><span data-tx="Proyecto.Titulo"></span><span data-tx="Proyecto.Titulo"></span></div>
+<template data-si="Proyecto.Esimagen"><img class="Iconoproyecto Destinovuelo" data-ref="Proyecto.Fijaricono" data-at-src="[[Proyecto.Imagen]]" data-at-alt="[[Proyecto.Alticono]]" width="256" height="256"></template>
+<template data-si="Proyecto.Esmoderador"><span class="Iconoproyecto Iconomoderador Destinovuelo" data-ref="Proyecto.Fijaricono" aria-hidden="true"><span class="Marcamoderador">Sónica</span><span class="Submoderador">MODERACIÓN</span></span></template>
 </div>
 <div class="Salecontenido Proyectorejilla">
 <div class="Textoproyecto">
-<div class="Entra" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px"><button class="Botonvolver" type="button" data-ev-click="Nav.Inicio.Ir"><svg class="Icono" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M13.5 8h-10M7 4L3 8l4 4"></path></svg>Proyectos</button><p class="Dato">Proyecto 04 / 05 · App móvil · Podcasts con IA</p></div>
-<p class="Subtitulo Entra" style="--Orden: 1">Aplicación para escuchar y crear podcasts que genera diálogos realistas, efectos de sonido e imitación de emociones en las voces.</p>
-<ol class="Puntos Entra" style="--Orden: 2" aria-label="Puntos clave de Sónica">
-<li><span class="Numeropunto">4.1</span><span>Generación de diálogos realistas.</span></li>
-<li><span class="Numeropunto">4.2</span><span>Uso de WebAudio API para control de sonido inmersivo.</span></li>
-<li><span class="Numeropunto">4.3</span><span>Sistema de usuarios y gestión de contenido interactivo.</span></li>
+<div class="Entra" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px"><button class="Botonvolver" type="button" data-ev-click="Nav.Inicio.Ir"><svg class="Icono" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M13.5 8h-10M7 4L3 8l4 4"></path></svg>Proyectos</button><p class="Dato" data-tx="Proyecto.Metadato"></p></div>
+<p class="Subtitulo Entra" style="--Orden: 1" data-tx="Proyecto.Subtitulo"></p>
+<ol class="Puntos Entra" style="--Orden: 2" data-at-aria-label="[[Proyecto.Etiquetapuntos]]">
+<li><span class="Numeropunto" data-tx="Proyecto.Puntounonum"></span><span data-tx="Proyecto.Puntounotexto"></span></li>
+<li><span class="Numeropunto" data-tx="Proyecto.Puntodosnum"></span><span data-tx="Proyecto.Puntodostexto"></span></li>
+<li><span class="Numeropunto" data-tx="Proyecto.Puntotresnum"></span><span data-tx="Proyecto.Puntotrestexto"></span></li>
 </ol>
 <dl class="Fichaproyecto Entra" style="--Orden: 3">
-<div><dt>Tipo</dt><dd>App móvil · Podcasts con IA</dd></div>
-<div><dt>Stack</dt><dd>JavaScript · Audio · WebAudio</dd></div>
-<div><dt>Sitio</dt><dd>sónica.com</dd></div>
+<div><dt data-tx="Proyecto.Fichaunoclave"></dt><dd data-tx="Proyecto.Fichaunovalor"></dd></div>
+<div><dt data-tx="Proyecto.Fichadosclave"></dt><dd data-tx="Proyecto.Fichadosvalor"></dd></div>
+<template data-si="Proyecto.Tienefichatres"><div><dt data-tx="Proyecto.Fichatresclave"></dt><dd data-tx="Proyecto.Fichatresvalor"></dd></div></template>
 </dl>
-<div class="Acciones Entra" style="--Orden: 4"><a class="Boton Botonprincipal" href="https://sónica.com" target="_blank" rel="noopener noreferrer">Ir a Sónica<svg class="Icono Iconodiagonal" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"></path></svg></a></div>
+<template data-si="Proyecto.Tieneenlace"><div class="Acciones Entra" style="--Orden: 4"><a class="Boton Botonprincipal" data-at-href="[[Proyecto.Url]]" target="_blank" rel="noopener noreferrer"><span data-tx="Proyecto.Textoboton"></span><svg class="Icono Iconodiagonal" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"></path></svg></a></div></template>
 </div>
+<template data-si="Proyecto.Esmovil">
 <div class="Mesa Conmano Entra" style="--Orden: 3">
 <div class="Marcomovil">
 <div class="Marcofoto">
-<div class="Marcopantalla"><div class="Carrusel" data-at-style="[[Carrusel.Estilo]]"><div class="Diapo"><img src="imagenes/sonica-1.webp" alt="Pantalla de inicio de Sónica con la serie destacada y episodios para seguir escuchando" width="400" height="845" draggable="false"></div><div class="Diapo"><img src="imagenes/sonica-2.webp" alt="Reproductor de Sónica con la forma de onda del episodio y los controles" width="400" height="845" draggable="false"></div><div class="Diapo"><img src="imagenes/sonica-3.webp" alt="Categorías populares en la sección Explorar de Sónica" width="400" height="845" draggable="false"></div></div></div>
+<div class="Marcopantalla"><div class="Carrusel" data-at-style="[[Carrusel.Estilo]]">
+<template data-si="Proyecto.Diapouno.Visible"><div class="Diapo"><img data-at-src="[[Proyecto.Diapouno.Src]]" data-at-alt="[[Proyecto.Diapouno.Alt]]" width="400" height="845" draggable="false"></div></template>
+<template data-si="Proyecto.Diapodos.Visible"><div class="Diapo"><img data-at-src="[[Proyecto.Diapodos.Src]]" data-at-alt="[[Proyecto.Diapodos.Alt]]" width="400" height="845" draggable="false"></div></template>
+<template data-si="Proyecto.Diapotres.Visible"><div class="Diapo"><img data-at-src="[[Proyecto.Diapotres.Src]]" data-at-alt="[[Proyecto.Diapotres.Alt]]" width="400" height="845" draggable="false"></div></template>
+<template data-si="Proyecto.Diapocuatro.Visible"><div class="Diapo"><img data-at-src="[[Proyecto.Diapocuatro.Src]]" data-at-alt="[[Proyecto.Diapocuatro.Alt]]" width="400" height="845" draggable="false"></div></template>
+<template data-si="Proyecto.Diapocinco.Visible"><div class="Diapo"><img data-at-src="[[Proyecto.Diapocinco.Src]]" data-at-alt="[[Proyecto.Diapocinco.Alt]]" width="400" height="845" draggable="false"></div></template>
+<template data-si="Proyecto.Diaposeis.Visible"><div class="Diapo"><img data-at-src="[[Proyecto.Diaposeis.Src]]" data-at-alt="[[Proyecto.Diaposeis.Alt]]" width="400" height="845" draggable="false"></div></template>
+</div></div>
 <img class="Marcocapa" src="imagenes/marco-movil.webp" alt="" width="1066" height="2153" draggable="false">
 </div>
 <div class="Navmovil">
@@ -284,97 +282,33 @@
 <p class="Contadormovil">Captura <span data-tx="Carrusel.Etiqueta"></span></p>
 <button class="Flechamovil Siguiente" type="button" data-ev-click="Carrusel.Siguiente" aria-label="Captura siguiente"><svg class="Icono" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"></path></svg></button>
 </div>
-<div class="Puntosmovil" aria-hidden="true"><span data-at-class="[[Carrusel.Puntouno]]"></span><span data-at-class="[[Carrusel.Puntodos]]"></span><span data-at-class="[[Carrusel.Puntotres]]"></span></div>
+<div class="Puntosmovil" aria-hidden="true">
+<template data-si="Proyecto.Puntouno.Visible"><span data-at-class="[[Carrusel.Puntouno]]"></span></template>
+<template data-si="Proyecto.Puntodos.Visible"><span data-at-class="[[Carrusel.Puntodos]]"></span></template>
+<template data-si="Proyecto.Puntotres.Visible"><span data-at-class="[[Carrusel.Puntotres]]"></span></template>
+<template data-si="Proyecto.Puntocuatro.Visible"><span data-at-class="[[Carrusel.Puntocuatro]]"></span></template>
+<template data-si="Proyecto.Puntocinco.Visible"><span data-at-class="[[Carrusel.Puntocinco]]"></span></template>
+<template data-si="Proyecto.Puntoseis.Visible"><span data-at-class="[[Carrusel.Puntoseis]]"></span></template>
+</div>
 <p class="Piecarrusel"><span data-tx="Carrusel.Pie"></span></p>
 </div>
 </div>
-<nav class="Pasoproyectos Entra" style="--Orden: 5" aria-label="Otros proyectos">
-<button class="Botonpaso" type="button" data-ev-click="Proyectos.Neon"><span class="Dato">Anterior</span><span class="Nombrepaso">Neon Jump</span></button>
-<button class="Botonpaso Derecha" type="button" data-ev-click="Proyectos.Moderador"><span class="Dato">Siguiente</span><span class="Nombrepaso">Sónica Moderador</span></button>
-</nav>
-
-</div>
-</div>
-</section>
 </template>
-
-<template data-si="Ver.Neon">
-<section data-at-class="[[Clases.Pantalla]]" style="--Tamano: min(14.1vw, 216px)" aria-labelledby="Tituloneon">
-<div class="Contenedor">
-<div class="Cabeceraproyecto">
-<h2 id="Tituloneon" class="Titulogigante"><span class="Palabragigante Tinta" data-ref="Titulo.Neon">Neon Jump</span></h2>
-<div class="Eco" aria-hidden="true"><span>Neon Jump</span><span>Neon Jump</span></div>
-<img class="Iconoproyecto Destinovuelo" data-ref="Icono.Neon" src="imagenes/icono-neon.webp" alt="Ícono del juego Neon Jump" width="256" height="256">
-</div>
-<div class="Salecontenido Proyectorejilla">
-<div class="Textoproyecto">
-<div class="Entra" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px"><button class="Botonvolver" type="button" data-ev-click="Nav.Inicio.Ir"><svg class="Icono" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M13.5 8h-10M7 4L3 8l4 4"></path></svg>Proyectos</button><p class="Dato">Proyecto 03 / 05 · Videojuego móvil · Google Play</p></div>
-<p class="Subtitulo Entra" style="--Orden: 1">Videojuego de estilo casual y estética neón, disponible en la tienda Google Play.</p>
-<ol class="Puntos Entra" style="--Orden: 2" aria-label="Puntos clave de Neon Jump">
-<li><span class="Numeropunto">3.1</span><span>Físicas de salto y generación procedural de niveles.</span></li>
-<li><span class="Numeropunto">3.2</span><span>Integración con servicios de monetización.</span></li>
-<li><span class="Numeropunto">3.3</span><span>Optimización de rendimiento para dispositivos de gama baja.</span></li>
-</ol>
-<dl class="Fichaproyecto Entra" style="--Orden: 3">
-<div><dt>Tipo</dt><dd>Videojuego móvil · Google Play</dd></div>
-<div><dt>Stack</dt><dd>Mobile · Google Play · GameDev</dd></div>
-<div><dt>Tienda</dt><dd>Google Play</dd></div>
-</dl>
-<div class="Acciones Entra" style="--Orden: 4"><a class="Boton Botonprincipal" href="https://play.google.com/store/apps/details?id=com.tustudio.neon%5Fjump" target="_blank" rel="noopener noreferrer">Ver en Google Play<svg class="Icono Iconodiagonal" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"></path></svg></a></div>
-</div>
-<div class="Mesa Conmano Entra" style="--Orden: 3">
-<div class="Marcomovil">
-<div class="Marcofoto">
-<div class="Marcopantalla"><div class="Carrusel" data-at-style="[[Carrusel.Estilo]]"><div class="Diapo"><img src="imagenes/neon-1.webp" alt="Menú principal de Neon Jump" width="400" height="845" draggable="false"></div><div class="Diapo"><img src="imagenes/neon-2.webp" alt="Partida en curso de Neon Jump" width="400" height="845" draggable="false"></div><div class="Diapo"><img src="imagenes/neon-3.webp" alt="Ranking global de Neon Jump" width="400" height="845" draggable="false"></div></div></div>
-<img class="Marcocapa" src="imagenes/marco-movil.webp" alt="" width="1066" height="2153" draggable="false">
-</div>
-<div class="Navmovil">
-<button class="Flechamovil Anterior" type="button" data-ev-click="Carrusel.Anterior" aria-label="Captura anterior"><svg class="Icono" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"></path></svg></button>
-<p class="Contadormovil">Captura <span data-tx="Carrusel.Etiqueta"></span></p>
-<button class="Flechamovil Siguiente" type="button" data-ev-click="Carrusel.Siguiente" aria-label="Captura siguiente"><svg class="Icono" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"></path></svg></button>
-</div>
-<div class="Puntosmovil" aria-hidden="true"><span data-at-class="[[Carrusel.Puntouno]]"></span><span data-at-class="[[Carrusel.Puntodos]]"></span><span data-at-class="[[Carrusel.Puntotres]]"></span></div>
-<p class="Piecarrusel"><span data-tx="Carrusel.Pie"></span></p>
-</div>
-</div>
-<nav class="Pasoproyectos Entra" style="--Orden: 5" aria-label="Otros proyectos">
-<button class="Botonpaso" type="button" data-ev-click="Proyectos.Mitecho"><span class="Dato">Anterior</span><span class="Nombrepaso">MiTecho</span></button>
-<button class="Botonpaso Derecha" type="button" data-ev-click="Proyectos.Sonica"><span class="Dato">Siguiente</span><span class="Nombrepaso">Sónica App de Podcasts</span></button>
-</nav>
-
-</div>
-</div>
-</section>
-</template>
-
-<template data-si="Ver.Moderador">
-<section data-at-class="[[Clases.Pantalla]]" style="--Tamano: min(12.8vw, 195px)" aria-labelledby="Titulomoderador">
-<div class="Contenedor">
-<div class="Cabeceraproyecto">
-<h2 id="Titulomoderador" class="Titulogigante"><span class="Ocultovisual">Sónica </span><span class="Palabragigante Tinta" data-ref="Titulo.Moderador">Moderador</span></h2>
-<div class="Eco" aria-hidden="true"><span>Moderador</span><span>Moderador</span></div>
-<span class="Iconoproyecto Iconomoderador Destinovuelo" data-ref="Icono.Moderador" aria-hidden="true"><span class="Marcamoderador">Sónica</span><span class="Submoderador">MODERACIÓN</span></span>
-</div>
-<div class="Salecontenido Proyectorejilla">
-<div class="Textoproyecto">
-<div class="Entra" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px"><button class="Botonvolver" type="button" data-ev-click="Nav.Inicio.Ir"><svg class="Icono" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M13.5 8h-10M7 4L3 8l4 4"></path></svg>Proyectos</button><p class="Dato">Proyecto 05 / 05 · Panel web · Back office</p></div>
-<p class="Subtitulo Entra" style="--Orden: 1">Panel de control Backoffice utilizado para la moderación del ecosistema Sónica.</p>
-<ol class="Puntos Entra" style="--Orden: 2" aria-label="Puntos clave de Sónica Moderador">
-<li><span class="Numeropunto">5.1</span><span>Desarrollado con JavaScript y conexión directa a Firebase.</span></li>
-<li><span class="Numeropunto">5.2</span><span>Gestión en tiempo real de reportes y aprobaciones.</span></li>
-<li><span class="Numeropunto">5.3</span><span>Dashboard analítico para administradores.</span></li>
-</ol>
-<dl class="Fichaproyecto Entra" style="--Orden: 3">
-<div><dt>Tipo</dt><dd>Panel web · Back office</dd></div>
-<div><dt>Stack</dt><dd>JavaScript · Firebase · Backoffice</dd></div>
-</dl>
-<div class="Acciones Entra" style="--Orden: 4"><a class="Boton Botonprincipal" href="https://sonica-moderador-client.web.app/#/login" target="_blank" rel="noopener noreferrer">Ir a Sónica Moderador<svg class="Icono Iconodiagonal" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"></path></svg></a></div>
-</div>
+<template data-si="Proyecto.Esportal">
 <div class="Mesa Conportal Entra" style="--Orden: 3">
 <div data-at-class="[[Portal.Clase]]">
 <button class="Abretapa" type="button" data-ev-click="Portal.Alternar" data-at-aria-expanded="[[Portal.Abierta]]" data-at-aria-label="[[Portal.Etiqueta]]">
 <div class="Tapaportatil">
-<div class="Pantallaportatil"><div class="Carruselweb" data-at-style="[[Carrusel.Estilo]]"><div class="Diapoweb"><img src="imagenes/moderador-1.webp" alt="Panel principal de Sónica Moderador con métricas de moderación" width="1200" height="522" draggable="false"></div><div class="Diapoweb"><img src="imagenes/moderador-2.webp" alt="Sección Series publicadas del panel Sónica Moderador" width="1200" height="522" draggable="false"></div></div></div>
+<div class="Pantallaportatil"><div class="Carruselweb" data-at-style="[[Carrusel.Estilo]]">
+<template data-si="Proyecto.Diapouno.Visible"><div class="Diapoweb"><img data-at-src="[[Proyecto.Diapouno.Src]]" data-at-alt="[[Proyecto.Diapouno.Alt]]" width="1200" height="762" draggable="false"></div></template>
+<template data-si="Proyecto.Diapodos.Visible"><div class="Diapoweb"><img data-at-src="[[Proyecto.Diapodos.Src]]" data-at-alt="[[Proyecto.Diapodos.Alt]]" width="1200" height="762" draggable="false"></div></template>
+<template data-si="Proyecto.Diapotres.Visible"><div class="Diapoweb"><img data-at-src="[[Proyecto.Diapotres.Src]]" data-at-alt="[[Proyecto.Diapotres.Alt]]" width="1200" height="762" draggable="false"></div></template>
+<template data-si="Proyecto.Diapocuatro.Visible"><div class="Diapoweb"><img data-at-src="[[Proyecto.Diapocuatro.Src]]" data-at-alt="[[Proyecto.Diapocuatro.Alt]]" width="1200" height="762" draggable="false"></div></template>
+<template data-si="Proyecto.Diapocinco.Visible"><div class="Diapoweb"><img data-at-src="[[Proyecto.Diapocinco.Src]]" data-at-alt="[[Proyecto.Diapocinco.Alt]]" width="1200" height="762" draggable="false"></div></template>
+<template data-si="Proyecto.Diaposeis.Visible"><div class="Diapoweb"><img data-at-src="[[Proyecto.Diaposeis.Src]]" data-at-alt="[[Proyecto.Diaposeis.Alt]]" width="1200" height="762" draggable="false"></div></template>
+<template data-si="Proyecto.Diaposiete.Visible"><div class="Diapoweb"><img data-at-src="[[Proyecto.Diaposiete.Src]]" data-at-alt="[[Proyecto.Diaposiete.Alt]]" width="1200" height="762" draggable="false"></div></template>
+<template data-si="Proyecto.Diapoocho.Visible"><div class="Diapoweb"><img data-at-src="[[Proyecto.Diapoocho.Src]]" data-at-alt="[[Proyecto.Diapoocho.Alt]]" width="1200" height="762" draggable="false"></div></template>
+</div></div>
 <img class="Capatapa" src="imagenes/portatil-tapa.webp" alt="" width="352" height="204" draggable="false">
 </div>
 <img class="Baseportatil" src="imagenes/portatil-base.webp" alt="" width="352" height="146" draggable="false">
@@ -385,134 +319,38 @@
 <p class="Contadormovil">Captura <span data-tx="Carrusel.Etiqueta"></span></p>
 <button class="Flechamovil Siguiente" type="button" data-ev-click="Carrusel.Siguiente" aria-label="Captura siguiente"><svg class="Icono" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"></path></svg></button>
 </div>
-<div class="Puntosmovil" aria-hidden="true"><span data-at-class="[[Carrusel.Puntouno]]"></span><span data-at-class="[[Carrusel.Puntodos]]"></span></div>
+<div class="Puntosmovil" aria-hidden="true">
+<template data-si="Proyecto.Puntouno.Visible"><span data-at-class="[[Carrusel.Puntouno]]"></span></template>
+<template data-si="Proyecto.Puntodos.Visible"><span data-at-class="[[Carrusel.Puntodos]]"></span></template>
+<template data-si="Proyecto.Puntotres.Visible"><span data-at-class="[[Carrusel.Puntotres]]"></span></template>
+<template data-si="Proyecto.Puntocuatro.Visible"><span data-at-class="[[Carrusel.Puntocuatro]]"></span></template>
+<template data-si="Proyecto.Puntocinco.Visible"><span data-at-class="[[Carrusel.Puntocinco]]"></span></template>
+<template data-si="Proyecto.Puntoseis.Visible"><span data-at-class="[[Carrusel.Puntoseis]]"></span></template>
+<template data-si="Proyecto.Puntosiete.Visible"><span data-at-class="[[Carrusel.Puntosiete]]"></span></template>
+<template data-si="Proyecto.Puntoocho.Visible"><span data-at-class="[[Carrusel.Puntoocho]]"></span></template>
+</div>
 <p class="Piecarrusel"><span data-tx="Carrusel.Pie"></span></p>
 </div>
 </div>
+</template>
 <nav class="Pasoproyectos Entra" style="--Orden: 5" aria-label="Otros proyectos">
-<button class="Botonpaso" type="button" data-ev-click="Proyectos.Sonica"><span class="Dato">Anterior</span><span class="Nombrepaso">Sónica App de Podcasts</span></button>
-<button class="Botonpaso Derecha" type="button" data-ev-click="Proyectos.Nissi"><span class="Dato">Siguiente</span><span class="Nombrepaso">Hotel Nissi</span></button>
+<button class="Botonpaso" type="button" data-ev-click="Proyecto.Pasoanterior"><span class="Dato">Anterior</span><span class="Nombrepaso" data-tx="Proyecto.Nombreanterior"></span></button>
+<button class="Botonpaso Derecha" type="button" data-ev-click="Proyecto.Pasosiguiente"><span class="Dato">Siguiente</span><span class="Nombrepaso" data-tx="Proyecto.Nombresiguiente"></span></button>
 </nav>
-
 </div>
 </div>
 </section>
 </template>
-
-<template data-si="Ver.Nissi">
-<section data-at-class="[[Clases.Pantalla]]" style="--Tamano: min(14.8vw, 218px)" aria-labelledby="Titulonissi">
-<div class="Contenedor">
-<div class="Cabeceraproyecto">
-<h2 id="Titulonissi" class="Titulogigante"><span class="Palabragigante Tinta" data-ref="Titulo.Nissi">Hotel Nissi</span></h2>
-<div class="Eco" aria-hidden="true"><span>Hotel Nissi</span><span>Hotel Nissi</span></div>
-<img class="Iconoproyecto Destinovuelo" data-ref="Icono.Nissi" src="imagenes/icono-nissi.webp" alt="Ícono de Hotel Nissi" width="256" height="256">
-</div>
-<div class="Salecontenido Proyectorejilla">
-<div class="Textoproyecto">
-<div class="Entra" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px"><button class="Botonvolver" type="button" data-ev-click="Nav.Inicio.Ir"><svg class="Icono" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M13.5 8h-10M7 4L3 8l4 4"></path></svg>Proyectos</button><p class="Dato">Proyecto 01 / 05 · Web &amp; Cotizador · La Guajira</p></div>
-<p class="Subtitulo Entra" style="--Orden: 1">Sitio web oficial y cotizador de estadías para el Hotel Nissi, situado a orillas de la Troncal del Caribe en Mingueo, La Guajira.</p>
-<ol class="Puntos Entra" style="--Orden: 2" aria-label="Puntos clave de Hotel Nissi">
-<li><span class="Numeropunto">1.1</span><span>Cotizador dinámico de noches y solicitud de reservas con atención vía WhatsApp.</span></li>
-<li><span class="Numeropunto">1.2</span><span>Panel de recepción con PIN para check-in presencial y sincronización en Google Sheets.</span></li>
-<li><span class="Numeropunto">1.3</span><span>Desplegado en Firebase Hosting con datos estructurados Schema.org para SEO.</span></li>
-</ol>
-<dl class="Fichaproyecto Entra" style="--Orden: 3">
-<div><dt>Tipo</dt><dd>Sitio web &amp; Cotizador · La Guajira</dd></div>
-<div><dt>Stack</dt><dd>HTML5 · CSS3 · JavaScript · Firebase</dd></div>
-<div><dt>Sitio</dt><dd>hotel-nissi-mingueo.web.app</dd></div>
-</dl>
-<div class="Acciones Entra" style="--Orden: 4"><a class="Boton Botonprincipal" href="https://hotel-nissi-mingueo.web.app" target="_blank" rel="noopener noreferrer">Ir a Hotel Nissi<svg class="Icono Iconodiagonal" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"></path></svg></a></div>
-</div>
-<div class="Mesa Conportal Entra" style="--Orden: 3">
-<div data-at-class="[[Portal.Clase]]">
-<button class="Abretapa" type="button" data-ev-click="Portal.Alternar" data-at-aria-expanded="[[Portal.Abierta]]" data-at-aria-label="[[Portal.Etiqueta]]">
-<div class="Tapaportatil">
-<div class="Pantallaportatil"><div class="Carruselweb" data-at-style="[[Carrusel.Estilo]]"><div class="Diapoweb"><img src="imagenes/nissi-1.webp" alt="Portada principal de Hotel Nissi con cotizador de noches" width="1200" height="762" draggable="false"></div><div class="Diapoweb"><img src="imagenes/nissi-2.webp" alt="Catálogo y detalle de habitaciones" width="1200" height="762" draggable="false"></div><div class="Diapoweb"><img src="imagenes/nissi-3.webp" alt="Ubicación sobre la Troncal del Caribe" width="1200" height="762" draggable="false"></div><div class="Diapoweb"><img src="imagenes/nissi-4.webp" alt="Infraestructura y servicios de descanso" width="1200" height="762" draggable="false"></div><div class="Diapoweb"><img src="imagenes/nissi-5.webp" alt="Atención y solicitud de reservas por WhatsApp" width="1200" height="762" draggable="false"></div><div class="Diapoweb"><img src="imagenes/nissi-6.webp" alt="Control de acceso con PIN a recepción" width="1200" height="762" draggable="false"></div><div class="Diapoweb"><img src="imagenes/nissi-7.webp" alt="Rack operativo de habitaciones en tiempo real" width="1200" height="762" draggable="false"></div><div class="Diapoweb"><img src="imagenes/nissi-8.webp" alt="Panel gerencial con métricas y rendimiento" width="1200" height="762" draggable="false"></div></div></div>
-<img class="Capatapa" src="imagenes/portatil-tapa.webp" alt="" width="352" height="204" draggable="false">
-</div>
-<img class="Baseportatil" src="imagenes/portatil-base.webp" alt="" width="352" height="146" draggable="false">
-<span class="Pistaportatil" aria-hidden="true"><span class="Puntopista"></span><span>Haz clic para abrir el portátil</span><svg class="Iconopista" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l5-5 5 5"></path></svg></span>
-</button>
-<div class="Navmovil">
-<button class="Flechamovil Anterior" type="button" data-ev-click="Carrusel.Anterior" aria-label="Captura anterior"><svg class="Icono" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"></path></svg></button>
-<p class="Contadormovil">Captura <span data-tx="Carrusel.Etiqueta"></span></p>
-<button class="Flechamovil Siguiente" type="button" data-ev-click="Carrusel.Siguiente" aria-label="Captura siguiente"><svg class="Icono" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"></path></svg></button>
-</div>
-<div class="Puntosmovil" aria-hidden="true"><span data-at-class="[[Carrusel.Punto1]]"></span><span data-at-class="[[Carrusel.Punto2]]"></span><span data-at-class="[[Carrusel.Punto3]]"></span><span data-at-class="[[Carrusel.Punto4]]"></span><span data-at-class="[[Carrusel.Punto5]]"></span><span data-at-class="[[Carrusel.Punto6]]"></span><span data-at-class="[[Carrusel.Punto7]]"></span><span data-at-class="[[Carrusel.Punto8]]"></span></div>
-<p class="Piecarrusel"><span data-tx="Carrusel.Pie"></span></p>
-</div>
-</div>
-<nav class="Pasoproyectos Entra" style="--Orden: 5" aria-label="Otros proyectos">
-<button class="Botonpaso" type="button" data-ev-click="Proyectos.Moderador"><span class="Dato">Anterior</span><span class="Nombrepaso">Sónica Moderador</span></button>
-<button class="Botonpaso Derecha" type="button" data-ev-click="Proyectos.Mitecho"><span class="Dato">Siguiente</span><span class="Nombrepaso">MiTecho</span></button>
-</nav>
-
-</div>
-</div>
-</section>
-</template>
-
-<template data-si="Ver.Mitecho">
-<section data-at-class="[[Clases.Pantalla]]" style="--Tamano: min(17.5vw, 228px)" aria-labelledby="Titulomitecho">
-<div class="Contenedor">
-<div class="Cabeceraproyecto">
-<h2 id="Titulomitecho" class="Titulogigante"><span class="Palabragigante Tinta" data-ref="Titulo.Mitecho">MiTecho</span></h2>
-<div class="Eco" aria-hidden="true"><span>MiTecho</span><span>MiTecho</span></div>
-<img class="Iconoproyecto Destinovuelo" data-ref="Icono.Mitecho" src="imagenes/icono-mitecho.webp" alt="Ícono de la aplicación MiTecho" width="256" height="256">
-</div>
-<div class="Salecontenido Proyectorejilla">
-<div class="Textoproyecto">
-<div class="Entra" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px"><button class="Botonvolver" type="button" data-ev-click="Nav.Inicio.Ir"><svg class="Icono" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M13.5 8h-10M7 4L3 8l4 4"></path></svg>Proyectos</button><p class="Dato">Proyecto 02 / 05 · App móvil · FinTech &amp; Vivienda</p></div>
-<p class="Subtitulo Entra" style="--Orden: 1">Aplicación financiera e inmobiliaria para calcular capacidad de crédito hipotecario (VIS, VIP, No VIS y Leasing), simular subsidios y organizar el ahorro para comprar vivienda en Colombia.</p>
-<ol class="Puntos Entra" style="--Orden: 2" aria-label="Puntos clave de MiTecho">
-<li><span class="Numeropunto">2.1</span><span>Backend estructurado con PostgreSQL, Supabase (Auth JWT y API REST) y Supabase Storage para perfiles financieros, transacciones y certificados.</span></li>
-<li><span class="Numeropunto">2.2</span><span>Simulador hipotecario en Pesos y UVR con cruce de subsidios de Cajas de Compensación, Mi Casa Ya y plan interactivo de liberación de cupo.</span></li>
-<li><span class="Numeropunto">2.3</span><span>Emisión de Certificado de Capacidad Financiera en PDF y catálogo de proyectos inmobiliarios aliados por ciudad.</span></li>
-</ol>
-<dl class="Fichaproyecto Entra" style="--Orden: 3">
-<div><dt>Tipo</dt><dd>App móvil · FinTech &amp; PropTech</dd></div>
-<div><dt>Stack</dt><dd>JavaScript · PostgreSQL · Supabase · Storage</dd></div>
-<div><dt>Alcance</dt><dd>Simulación hipotecaria · Subsidios · PDF</dd></div>
-</dl>
-</div>
-<div class="Mesa Conmano Entra" style="--Orden: 3">
-<div class="Marcomovil">
-<div class="Marcofoto">
-<div class="Marcopantalla"><div class="Carrusel" data-at-style="[[Carrusel.Estilo]]"><div class="Diapo"><img src="imagenes/mitecho-1.webp" alt="Panel principal de MiTecho con cupo de vivienda, subsidio de Caja y progreso de cuota inicial" width="400" height="845" draggable="false"></div><div class="Diapo"><img src="imagenes/mitecho-2.webp" alt="Simulador hipotecario de MiTecho con ingresos, deudas y modalidades de vivienda" width="400" height="845" draggable="false"></div><div class="Diapo"><img src="imagenes/mitecho-3.webp" alt="Resultado de cierre financiero de MiTecho con comparativa Pesos vs. UVR y descarga de certificado PDF" width="400" height="845" draggable="false"></div><div class="Diapo"><img src="imagenes/mitecho-4.webp" alt="Control mensual de ingresos, gastos y flujo bancarizado en MiTecho" width="400" height="845" draggable="false"></div><div class="Diapo"><img src="imagenes/mitecho-5.webp" alt="Plan de liberación de cupo crediticio apagando deudas en MiTecho" width="400" height="845" draggable="false"></div><div class="Diapo"><img src="imagenes/mitecho-6.webp" alt="Catálogo de proyectos inmobiliarios aliados por municipio en MiTecho" width="400" height="845" draggable="false"></div></div></div>
-<img class="Marcocapa" src="imagenes/marco-movil.webp" alt="" width="1066" height="2153" draggable="false">
-</div>
-<div class="Navmovil">
-<button class="Flechamovil Anterior" type="button" data-ev-click="Carrusel.Anterior" aria-label="Captura anterior"><svg class="Icono" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"></path></svg></button>
-<p class="Contadormovil">Captura <span data-tx="Carrusel.Etiqueta"></span></p>
-<button class="Flechamovil Siguiente" type="button" data-ev-click="Carrusel.Siguiente" aria-label="Captura siguiente"><svg class="Icono" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"></path></svg></button>
-</div>
-<div class="Puntosmovil" aria-hidden="true"><span data-at-class="[[Carrusel.Punto1]]"></span><span data-at-class="[[Carrusel.Punto2]]"></span><span data-at-class="[[Carrusel.Punto3]]"></span><span data-at-class="[[Carrusel.Punto4]]"></span><span data-at-class="[[Carrusel.Punto5]]"></span><span data-at-class="[[Carrusel.Punto6]]"></span></div>
-<p class="Piecarrusel"><span data-tx="Carrusel.Pie"></span></p>
-</div>
-</div>
-<nav class="Pasoproyectos Entra" style="--Orden: 5" aria-label="Otros proyectos">
-<button class="Botonpaso" type="button" data-ev-click="Proyectos.Nissi"><span class="Dato">Anterior</span><span class="Nombrepaso">Hotel Nissi</span></button>
-<button class="Botonpaso Derecha" type="button" data-ev-click="Proyectos.Neon"><span class="Dato">Siguiente</span><span class="Nombrepaso">Neon Jump</span></button>
-</nav>
-
-</div>
-</div>
-</section>
-</template>
-
 </main>
-
 <template data-si="Palabra.Visible">
 <div class="Capapalabra" aria-hidden="true"><div data-at-class="[[Palabra.Clasecontenedor]]" data-ref="Palabra.Fijar"><span data-at-class="[[Palabra.Clase]]" data-at-style="[[Palabra.Estilo]]"><span data-tx="Palabra.Texto"></span></span></div></div>
 </template>
-
 <template data-si="Vuelo.Visible">
 <div class="Vuelo" data-ref="Vuelo.Fijar" aria-hidden="true">
 <template data-si="Vuelo.Esimagen"><span class="Vueloimagen" data-at-style="[[Vuelo.Estiloimagen]]"></span></template>
 <template data-si="Vuelo.Esmoderador"><span class="Iconomoderador"><span class="Marcamoderador">Sónica</span><span class="Submoderador">MODERACIÓN</span></span></template>
 </div>
 </template>
-
 <template data-si="Contacto.Visible">
 <div data-at-class="[[Contacto.Clase]]" data-at-style="--Origenx: [[Contacto.X]]px; --Origeny: [[Contacto.Y]]px" role="dialog" aria-modal="true" aria-labelledby="Titulocontacto" data-ev-keydown="Contacto.Teclas">
 <div class="Mundo" data-ref="Llamada.Mundo" aria-hidden="true">
@@ -545,8 +383,8 @@
 </div>
 </div>
 </template>
-
 </div>
+<script src="logica/Validaciones.js"></script>
 <script src="logica/Datosportafolio.js"></script>
 <script src="logica/Geometria.js"></script>
 <script src="logica/Utilidades.js"></script>

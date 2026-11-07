@@ -4,7 +4,7 @@
 (function () {
   'use strict';
 
-  window.MetodosLlamada = {
+  window.Metodosllamada = window.Validaciones.Congelar({
     Mostrarcontacto(Evento) {
       const Estado = this.Estado || {};
       if (Estado.Contacto) return;
@@ -166,6 +166,6 @@
       if (N.Cablecorto) N.Cablecorto.setAttribute('d', window.Geometria.Espiral(Guia, 30, 8.5, 0));
       if (N.Cablecortobrillo) N.Cablecortobrillo.setAttribute('d', window.Geometria.Espiral(Guia, 30, 8.5, -1.3));
     }
-  };
+  });
 })();
 

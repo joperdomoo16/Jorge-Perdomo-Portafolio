@@ -52,17 +52,18 @@
 
 .Puntos li {
   display: grid;
-  grid-template-columns: 34px minmax(0, 1fr);
-  gap: 6px;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 8px;
   font-size: 17px;
   line-height: 1.55;
 }
 
 .Numeropunto {
-  padding-top: 3px;
-  font-family: var(--Tipomono);
-  font-size: 12px;
+  font-family: inherit;
+  font-size: 20px;
+  line-height: 1.35;
   color: var(--Coloracento);
+  text-align: center;
 }
 
 .Fichaproyecto {

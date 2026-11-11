@@ -13,7 +13,7 @@
   z-index: 3;
   width: min(480px, 88vw);
   transform: translateX(-50%);
-  animation: Entravitrina 720ms var(--Entrada) 820ms both;
+  animation: Entravitrina 680ms var(--Entrada) 380ms both;
 }
 
 /* Dial: asoma bajo las tarjetas con radio 1.45·Lado (algo menor que la rueda, que usa 2.3·Lado) */
@@ -247,7 +247,7 @@
   justify-content: center;
   gap: 6px;
   transform: translateX(-50%);
-  animation: Entramando 480ms var(--Entrada) 1000ms both;
+  animation: Entramando 480ms var(--Entrada) 460ms both;
 }
 
 .Flechacartel {
@@ -297,12 +297,12 @@
 
 /* Transiciones de regreso para la vitrina */
 .Llegada:not(.Regreso):not(.Saliendo) .Vitrina {
-  animation-duration: 680ms;
-  animation-delay: 1420ms;
+  animation-duration: 620ms;
+  animation-delay: 820ms;
 }
 
 .Llegada:not(.Regreso):not(.Saliendo) .Mandovitrina {
-  animation-delay: 1560ms;
+  animation-delay: 860ms;
 }
 
 .Llegada.Regreso:not(.Saliendo) .Vitrina {
@@ -311,6 +311,6 @@
 }
 
 .Llegada.Regreso:not(.Saliendo) .Mandovitrina {
-  animation-delay: 940ms;
+  animation-delay: 480ms;
 }
 

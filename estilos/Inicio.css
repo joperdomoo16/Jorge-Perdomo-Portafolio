@@ -48,7 +48,7 @@
   mask-image: linear-gradient(to bottom, #000 76%, transparent 99%);
   user-select: none;
   -webkit-user-drag: none;
-  animation: Retratoentra 840ms var(--Entrada) 180ms both;
+  animation: Retratoentra 800ms var(--Entrada) 150ms both;
 }
 
 .Saludo {
@@ -179,27 +179,23 @@
 
 /* ==========================================================================
    Coreografía visual de Inicio (carga inicial y regresos entre pantallas)
-   Orden de lectura: 1) DEVELOPER -> 2) Retrato -> 3) Saludo y Rol
+   Secuencia armónica: 1) DEVELOPER -> 2) Retrato -> 3) Saludo y Rol -> 4) Vitrina
    ========================================================================== */
-.Pantalla:not(.Llegada):not(.Saliendo) .Gigante:not(.Reflejo) {
-  animation: Entragigante 720ms var(--Entrada) 40ms both;
-}
-
-.Pantalla:not(.Llegada):not(.Saliendo) .Reflejo {
-  animation: Entrareflejo 640ms var(--Entrada) 180ms both;
+.Gigante:not(.Reflejo) {
+  animation: Entragigante 550ms var(--Entrada) 30ms both;
 }
 
 .Escenario .Entra {
-  animation: Entrainicio 640ms var(--Entrada) both;
-  animation-delay: calc(350ms + var(--Orden, 0) * 85ms);
+  animation: Entrainicio 600ms var(--Entrada) both;
+  animation-delay: calc(260ms + var(--Orden, 0) * 75ms);
 }
 
-/* Al regresar al inicio desde otra sección, espera a que aterrice DEVELOPER (~980ms) */
+/* Al regresar al inicio desde otra sección, acompaña el atraque de DEVELOPER */
 .Llegada:not(.Saliendo) .Retrato {
-  animation-duration: 780ms;
-  animation-delay: 980ms;
+  animation-duration: 720ms;
+  animation-delay: 720ms;
 }
 
 .Llegada:not(.Saliendo) .Escenario .Entra {
-  animation-delay: calc(1090ms + var(--Orden, 0) * 65ms);
+  animation-delay: calc(780ms + var(--Orden, 0) * 60ms);
 }

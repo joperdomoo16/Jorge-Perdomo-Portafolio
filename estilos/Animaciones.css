@@ -49,24 +49,19 @@
 }
 
 /* Coreografía de entrada de la pantalla de inicio
-   Secuencia jerárquica: 1) Palabra gigante -> 2) Retrato -> 3) Saludo y Rol -> 4) Cabecera y Vitrina */
+   Secuencia armónica: 1) DEVELOPER -> 2) Retrato -> 3) Saludo y Rol -> 4) Vitrina */
 @keyframes Entracabecera {
-  from { opacity: 0; transform: translate3d(0, -12px, 0); }
+  from { opacity: 0; transform: translate3d(0, -10px, 0); }
   to { opacity: 1; transform: none; }
 }
 
 @keyframes Entragigante {
-  from { opacity: 0; transform: translate3d(-50%, 24px, 0) scale(0.975); }
-  to { opacity: 1; transform: translate3d(-50%, 0, 0) scale(1); }
-}
-
-@keyframes Entrareflejo {
-  from { opacity: 0; transform: translate3d(-50%, 14px, 0); }
-  to { opacity: 0.2; transform: translate3d(-50%, 0, 0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes Entrainicio {
-  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: none; }
 }
 
@@ -131,9 +126,9 @@
   100% { z-index: 1; transform: translate(-7%, -17%) rotate(-5deg) scale(0.9); }
 }
 
-/* Entrada única de la cabecera en la carga inicial */
+/* Entrada de la cabecera en la carga inicial */
 .Cabecera {
-  animation: Entracabecera 580ms var(--Entrada) 800ms both;
+  animation: Entracabecera 450ms var(--Entrada) both;
 }
 
 /* Estados de transición entre pantallas */

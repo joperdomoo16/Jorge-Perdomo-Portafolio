@@ -15,11 +15,11 @@
   };
 
   var Tarjetas = [
-    { Proyecto: 'Nissi', Titulo: 'Hotel Nissi', Tipo: 'Sitio web & Cotizador', Imagen: 'imagenes/icono-nissi.webp' },
-    { Proyecto: 'Mitecho', Titulo: 'MiTecho', Tipo: 'App FinTech & Vivienda', Imagen: 'imagenes/icono-mitecho.webp' },
-    { Proyecto: 'Neon', Titulo: 'Neon Jump', Tipo: 'Juego móvil', Imagen: 'imagenes/icono-neon.webp' },
-    { Proyecto: 'Sonica', Titulo: 'Sónica', Tipo: 'app de podcasts', Imagen: 'imagenes/icono-sonica.webp' },
-    { Proyecto: 'Moderador', Titulo: 'Moderador', Tipo: 'BackOffice', Imagen: '' }
+    { Proyecto: 'Nissi', Titulo: 'Hotel Nissi', Tipo: 'Sitio web y Cotizador', Imagen: 'imagenes/icono-nissi.webp' },
+    { Proyecto: 'Mitecho', Titulo: 'MiTecho', Tipo: 'App Financiera de Vivienda', Imagen: 'imagenes/icono-mitecho.webp' },
+    { Proyecto: 'Neon', Titulo: 'Neon Jump', Tipo: 'Videojuego Móvil', Imagen: 'imagenes/icono-neon.webp' },
+    { Proyecto: 'Sonica', Titulo: 'Sónica', Tipo: 'Podcasts con Inteligencia Artificial', Imagen: 'imagenes/icono-sonica.webp' },
+    { Proyecto: 'Moderador', Titulo: 'Moderador', Tipo: 'Panel de Control y Gestión', Imagen: '' }
   ];
 
   var Capturas = { Nissi: 8, Mitecho: 6, Sonica: 3, Neon: 3, Moderador: 2 };
@@ -57,18 +57,18 @@
       Esimagen: true,
       Imagen: 'imagenes/icono-nissi.webp',
       Alticono: 'Ícono de Hotel Nissi',
-      Dato: 'Proyecto 01 / 05 · Web & Cotizador · La Guajira',
-      Subtitulo: 'Sitio web oficial y cotizador de estadías para el Hotel Nissi, situado a orillas de la Troncal del Caribe en Mingueo, La Guajira.',
-      Etiquetapuntos: 'Puntos clave de Hotel Nissi',
+      Dato: 'Web y Gestión Hotelera · La Guajira',
+      Subtitulo: 'Sitio web oficial y sistema de reservas para el Hotel Nissi en Mingueo, La Guajira. Permite a los viajeros calcular el valor de su estadía en vivo y ayuda al hotel a registrar el ingreso de huéspedes en recepción.',
+      Etiquetapuntos: 'Cómo funciona y tecnologías de Hotel Nissi',
       Puntos: [
-        { Num: '1.1', Texto: 'Cotizador dinámico de noches y solicitud de reservas con atención vía WhatsApp.' },
-        { Num: '1.2', Texto: 'Panel de recepción con PIN para check-in presencial y sincronización en Google Sheets.' },
-        { Num: '1.3', Texto: 'Desplegado en Firebase Hosting con datos estructurados Schema.org para SEO.' }
+        { Num: '·', Texto: 'Construí la interfaz con JavaScript moderno y estilos visuales adaptables a cualquier pantalla, integrando etiquetas estructuradas de Schema para que buscadores como Google muestren el hotel en los primeros resultados.' },
+        { Num: '·', Texto: 'Conecté la web con la API oficial de WhatsApp para confirmar solicitudes al instante y sumé la inteligencia artificial de Gemini para responder dudas frecuentes de los viajeros de forma automática.' },
+        { Num: '·', Texto: 'Creé un servidor ligero con Google Apps Script que usa Google Sheets como base de datos en vivo, permitiendo al recepcionista ingresar con una clave segura, bloquear habitaciones ocupadas y enviar un balance diario al correo del administrador.' }
       ],
       Ficha: [
-        { Clave: 'Tipo', Valor: 'Sitio web & Cotizador · La Guajira' },
-        { Clave: 'Stack', Valor: 'HTML5 · CSS3 · JavaScript · Firebase' },
-        { Clave: 'Sitio', Valor: 'hotel-nissi-mingueo.web.app' }
+        { Clave: 'Tipo', Valor: 'Web y Gestión hotelera' },
+        { Clave: 'Stack', Valor: 'JavaScript · Apps Script · Google Sheets · Gemini AI · WhatsApp API' },
+        { Clave: 'Alcance', Valor: 'Cotizador en vivo y panel de recepción' }
       ],
       Accion: { Url: 'https://hotel-nissi-mingueo.web.app', Texto: 'Ir a Hotel Nissi' },
       Dispositivo: 'portal',
@@ -93,18 +93,18 @@
       Esimagen: true,
       Imagen: 'imagenes/icono-mitecho.webp',
       Alticono: 'Ícono de la aplicación MiTecho',
-      Dato: 'Proyecto 02 / 05 · App móvil · FinTech & Vivienda',
-      Subtitulo: 'Aplicación financiera e inmobiliaria para calcular capacidad de crédito hipotecario (VIS, VIP, No VIS y Leasing), simular subsidios y organizar el ahorro para comprar vivienda en Colombia.',
-      Etiquetapuntos: 'Puntos clave de MiTecho',
+      Dato: 'Aplicación Móvil · Finanzas y Vivienda',
+      Subtitulo: 'Aplicación móvil para Android e iOS que ayuda a las familias en Colombia a calcular su capacidad de crédito para comprar casa, evaluar subsidios del gobierno y planear su ahorro.',
+      Etiquetapuntos: 'Cómo funciona y tecnologías de MiTecho',
       Puntos: [
-        { Num: '2.1', Texto: 'Backend estructurado con PostgreSQL, Supabase (Auth JWT y API REST) y Supabase Storage para perfiles financieros, transacciones y certificados.' },
-        { Num: '2.2', Texto: 'Simulador hipotecario en Pesos y UVR con cruce de subsidios de Cajas de Compensación, Mi Casa Ya y plan interactivo de liberación de cupo.' },
-        { Num: '2.3', Texto: 'Emisión de Certificado de Capacidad Financiera en PDF y catálogo de proyectos inmobiliarios aliados por ciudad.' }
+        { Num: '·', Texto: 'Desarrollé la aplicación con un motor propio en JavaScript y la empaqueté para celulares usando Capacitor, agregando código nativo en Java con cifrado bancario de alta seguridad y bloqueo de capturas de pantalla para proteger los datos financieros del usuario.' },
+        { Num: '·', Texto: 'Implementé la base de datos en Supabase con PostgreSQL y creé funciones automáticas en la nube para consultar a diario las tasas de interés reales de los bancos en el portal de la Superfinanciera de Colombia.' },
+        { Num: '·', Texto: 'Programé el simulador para comparar créditos en pesos frente a unidades UVR, sumando los subsidios de las cajas de compensación y del programa Mi Casa Ya, para luego generar en el celular un certificado financiero descargable de tres páginas en formato PDF.' }
       ],
       Ficha: [
-        { Clave: 'Tipo', Valor: 'App móvil · FinTech & PropTech' },
-        { Clave: 'Stack', Valor: 'JavaScript · PostgreSQL · Supabase · Storage' },
-        { Clave: 'Alcance', Valor: 'Simulación hipotecaria · Subsidios · PDF' }
+        { Clave: 'Tipo', Valor: 'Aplicación móvil para Android e iOS' },
+        { Clave: 'Stack', Valor: 'JavaScript · Capacitor · Java · Supabase · PostgreSQL · Deno' },
+        { Clave: 'Alcance', Valor: 'Simulador de crédito · Subsidios · Certificado en PDF' }
       ],
       Accion: null,
       Dispositivo: 'movil',
@@ -127,18 +127,18 @@
       Esimagen: true,
       Imagen: 'imagenes/icono-neon.webp',
       Alticono: 'Ícono del juego Neon Jump',
-      Dato: 'Proyecto 03 / 05 · Videojuego móvil · Google Play',
-      Subtitulo: 'Videojuego de estilo casual y estética neón, disponible en la tienda Google Play.',
-      Etiquetapuntos: 'Puntos clave de Neon Jump',
+      Dato: 'Videojuego Móvil · Google Play',
+      Subtitulo: 'Videojuego móvil de saltos infinitos con estilo visual retro neón y tabla de posiciones mundial en tiempo real, publicado y disponible en la tienda Google Play.',
+      Etiquetapuntos: 'Cómo funciona y tecnologías de Neon Jump',
       Puntos: [
-        { Num: '3.1', Texto: 'Físicas de salto y generación procedural de niveles.' },
-        { Num: '3.2', Texto: 'Integración con servicios de monetización.' },
-        { Num: '3.3', Texto: 'Optimización de rendimiento para dispositivos de gama baja.' }
+        { Num: '·', Texto: 'Programé el juego en el lenguaje Dart usando Flutter y el motor especializado Flame Engine, con un sistema que crea plataformas infinitas al azar y recicla elementos en memoria para que la partida funcione con total fluidez en pantallas de 60, 90 y 120 hercios.' },
+        { Num: '·', Texto: 'Integré los servicios de Firebase para permitir el inicio de sesión con cuentas de Google y creé una base de datos en Cloud Firestore que actualiza en vivo la tabla de los mejores cincuenta jugadores del mundo.' },
+        { Num: '·', Texto: 'Protegí los puntajes y monedas contra intentos de trampa ofuscando los números en la memoria del dispositivo, guardé la partida con llaves cifradas e integré anuncios de Google AdMob que permiten al jugador revivir tras ver un video publicitario.' }
       ],
       Ficha: [
-        { Clave: 'Tipo', Valor: 'Videojuego móvil · Google Play' },
-        { Clave: 'Stack', Valor: 'Mobile · Google Play · GameDev' },
-        { Clave: 'Tienda', Valor: 'Google Play' }
+        { Clave: 'Tipo', Valor: 'Videojuego móvil en dos dimensiones' },
+        { Clave: 'Stack', Valor: 'Flutter · Dart · Flame Engine · Firebase · AdMob' },
+        { Clave: 'Tienda', Valor: 'Google Play Store' }
       ],
       Accion: { Url: 'https://play.google.com/store/apps/details?id=com.tustudio.neon%5Fjump', Texto: 'Ver en Google Play' },
       Dispositivo: 'movil',
@@ -158,18 +158,18 @@
       Esimagen: true,
       Imagen: 'imagenes/icono-sonica.webp',
       Alticono: 'Ícono de la aplicación Sónica',
-      Dato: 'Proyecto 04 / 05 · App móvil · Podcasts con IA',
-      Subtitulo: 'Aplicación para escuchar y crear podcasts que genera diálogos realistas, efectos de sonido e imitación de emociones en las voces.',
-      Etiquetapuntos: 'Puntos clave de Sónica',
+      Dato: 'Web y Aplicación Móvil · Podcasts con IA',
+      Subtitulo: 'Plataforma web y móvil para crear y escuchar podcasts con inteligencia artificial, combinando voces realistas entre varios personajes, música de ambiente y efectos sonoros.',
+      Etiquetapuntos: 'Cómo funciona y tecnologías de Sónica',
       Puntos: [
-        { Num: '4.1', Texto: 'Generación de diálogos realistas.' },
-        { Num: '4.2', Texto: 'Uso de WebAudio API para control de sonido inmersivo.' },
-        { Num: '4.3', Texto: 'Sistema de usuarios y gestión de contenido interactivo.' }
+        { Num: '·', Texto: 'Construí la aplicación con JavaScript modular moderno y Tailwind CSS sin depender de librerías pesadas, empaquetándola para celulares con Capacitor y Java nativo para lograr tiempos de carga instantáneos y navegación táctil fluida.' },
+        { Num: '·', Texto: 'Desarrollé un motor de audio continuo con un reproductor flotante que no interrumpe la música al explorar el catálogo, permitiendo abrir una pantalla inmersiva que dibuja la onda sonora y reacciona al tacto del usuario.' },
+        { Num: '·', Texto: 'Integré Firebase para gestionar usuarios y streaming en vivo, sumando las voces sintéticas de ElevenLabs para dar vida a los personajes de las audioseries con diferentes emociones y un panel de creador para subir capítulos y revisar métricas.' }
       ],
       Ficha: [
-        { Clave: 'Tipo', Valor: 'App móvil · Podcasts con IA' },
-        { Clave: 'Stack', Valor: 'JavaScript · Audio · WebAudio' },
-        { Clave: 'Sitio', Valor: 'sónica.com' }
+        { Clave: 'Tipo', Valor: 'Plataforma web y aplicación móvil' },
+        { Clave: 'Stack', Valor: 'JavaScript · Java · Capacitor · Tailwind CSS · Firebase · ElevenLabs' },
+        { Clave: 'Alcance', Valor: 'Podcasts con voces sintéticas y reproductor continuo' }
       ],
       Accion: { Url: 'https://sónica.com', Texto: 'Ir a Sónica' },
       Dispositivo: 'movil',
@@ -189,17 +189,18 @@
       Idtitulo: 'Titulomoderador',
       Esimagen: false,
       Esmoderador: true,
-      Dato: 'Proyecto 05 / 05 · Panel web · Back office',
-      Subtitulo: 'Panel de control Backoffice utilizado para la moderación del ecosistema Sónica.',
-      Etiquetapuntos: 'Puntos clave de Sónica Moderador',
+      Dato: 'Panel de Control · Moderación y Calidad',
+      Subtitulo: 'Panel de administración en tiempo real que permite al equipo de trabajo revisar episodios, aprobar o rechazar series y asegurar la calidad del contenido publicado en Sónica.',
+      Etiquetapuntos: 'Cómo funciona y tecnologías de Sónica Moderador',
       Puntos: [
-        { Num: '5.1', Texto: 'Desarrollado con JavaScript y conexión directa a Firebase.' },
-        { Num: '5.2', Texto: 'Gestión en tiempo real de reportes y aprobaciones.' },
-        { Num: '5.3', Texto: 'Dashboard analítico para administradores.' }
+        { Num: '·', Texto: 'Diseñé la interfaz con JavaScript modular en estándares modernos y Tailwind CSS sobre Vite, logrando un panel administrativo ultraligero que inicia en milisegundos y prescinde de sobrecargas de librerías externas.' },
+        { Num: '·', Texto: 'Conecté el sistema directamente a Cloud Firestore con suscripciones reactivas, actualizando en la pantalla las series, los capítulos subidos y los reportes de la comunidad en el mismo instante en que suceden sin recargar el navegador.' },
+        { Num: '·', Texto: 'Configuré la autenticación de Firebase con permisos exclusivos para moderadores y administradores, incorporando una bitácora protegida que guarda cada aprobación o rechazo de contenido para asegurar máxima transparencia.' }
       ],
       Ficha: [
-        { Clave: 'Tipo', Valor: 'Panel web · Back office' },
-        { Clave: 'Stack', Valor: 'JavaScript · Firebase · Backoffice' }
+        { Clave: 'Tipo', Valor: 'Panel de administración y control en vivo' },
+        { Clave: 'Stack', Valor: 'JavaScript · Tailwind CSS · Vite · Firebase · Cloud Firestore' },
+        { Clave: 'Alcance', Valor: 'Moderación en vivo y bitácora de auditoría' }
       ],
       Accion: { Url: 'https://sonica-moderador-client.web.app/#/login', Texto: 'Ir a Sónica Moderador' },
       Dispositivo: 'portal',

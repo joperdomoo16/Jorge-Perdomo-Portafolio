@@ -226,6 +226,12 @@
   transition: opacity 500ms ease-out 760ms;
 }
 
+/* Con una sola captura no tiene sentido mostrar flechas ni puntos */
+.Portatil.Unacaptura .Navmovil,
+.Portatil.Unacaptura .Puntosmovil {
+  display: none;
+}
+
 .Mesa.Conportal {
   display: block;
   width: 100%;

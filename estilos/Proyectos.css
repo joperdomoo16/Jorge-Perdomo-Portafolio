@@ -136,3 +136,59 @@
   color: var(--Coloracento);
 }
 
+
+/* Aviso de proyecto que todavía no sale a producción (Khronos) */
+.Avisoproduccion {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  margin: 0;
+  padding: 0 20px;
+  border: 1px dashed var(--Coloracento);
+  border-radius: var(--Radiocontrol);
+  font-family: var(--Tipomono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--Coloracento);
+}
+
+.Puntoproduccion {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--Coloracento);
+  animation: Latidoproduccion 1.8s ease-out infinite;
+}
+
+@keyframes Latidoproduccion {
+  0% { box-shadow: 0 0 0 0 rgba(176, 38, 26, 0.45); }
+  70% { box-shadow: 0 0 0 9px rgba(176, 38, 26, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(176, 38, 26, 0); }
+}
+
+/* Sello en la tarjeta de la rueda */
+.Cartelsello {
+  position: absolute;
+  top: 7%;
+  right: -9%;
+  z-index: 1;
+  padding: 4px 8px;
+  border-radius: 2px;
+  background: var(--Coloracento);
+  color: var(--Colorsobreacento);
+  font-family: var(--Tipomono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  transform: rotate(9deg);
+  box-shadow: 0 6px 12px -6px rgba(13, 13, 13, 0.5);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Puntoproduccion { animation: none; }
+}

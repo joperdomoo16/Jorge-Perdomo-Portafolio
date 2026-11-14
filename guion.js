@@ -226,6 +226,7 @@
           Idtitulo: Detalle.Idtitulo,
           Esimagen: !!Detalle.Esimagen,
           Esmoderador: !!Detalle.Esmoderador,
+          Esproximo: !!Detalle.Esproximo,
           Imagen: Validaciones.Validarimagen(Detalle.Imagen),
           Alticono: Detalle.Alticono || '',
           Metadato: Detalle.Dato,
@@ -296,6 +297,7 @@
           Tres: Cartelinfo(2),
           Cuatro: Cartelinfo(3),
           Cinco: Cartelinfo(4),
+          Seis: Cartelinfo(5),
           Cuenta: String(Activo + 1).padStart(2, '0') + ' / ' + String(Totalcarteles).padStart(2, '0'),
           Teclas: this.Teclascarteles,
           Anterior: this.Cartelanterior,
@@ -303,7 +305,7 @@
           Rueda: this.Fijarrueda,
           Esfera: this.Fijaresfera
         },
-        Proyectos: { Nissi: this.Ira.Nissi, Mitecho: this.Ira.Mitecho, Sonica: this.Ira.Sonica, Neon: this.Ira.Neon, Moderador: this.Ira.Moderador },
+        Proyectos: { Nissi: this.Ira.Nissi, Mitecho: this.Ira.Mitecho, Sonica: this.Ira.Sonica, Neon: this.Ira.Neon, Moderador: this.Ira.Moderador, Khronos: this.Ira.Khronos },
         Pila: {
           Uno: Clasepila(0),
           Dos: Clasepila(1),
@@ -313,7 +315,7 @@
         },
         Carrusel: Carruselvista,
         Portal: {
-          Clase: 'Portatil' + (Tapaabierta ? ' Abierto' : ''),
+          Clase: 'Portatil' + (Tapaabierta ? ' Abierto' : '') + (Total === 1 ? ' Unacaptura' : ''),
           Alternar: this.Alternartapa,
           Abierta: Tapaabierta ? 'true' : 'false',
           Etiqueta: Tapaabierta ? 'Cerrar el portátil' : 'Abrir el portátil para ver las capturas'

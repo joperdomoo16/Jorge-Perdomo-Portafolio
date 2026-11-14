@@ -11,7 +11,8 @@
     Mitecho: { Texto: 'MiTecho', Clase: 'Palabragigante Tinta', Tamano: 'min(17.5vw, 228px)' },
     Sonica: { Texto: 'Sónica', Clase: 'Palabragigante Tinta', Tamano: 'min(21.2vw, 240px)' },
     Neon: { Texto: 'Neon Jump', Clase: 'Palabragigante Tinta', Tamano: 'min(14.1vw, 216px)' },
-    Moderador: { Texto: 'Moderador', Clase: 'Palabragigante Tinta', Tamano: 'min(12.8vw, 195px)' }
+    Moderador: { Texto: 'Moderador', Clase: 'Palabragigante Tinta', Tamano: 'min(12.8vw, 195px)' },
+    Khronos: { Texto: 'Khronos', Clase: 'Palabragigante Tinta', Tamano: 'min(16.4vw, 226px)' }
   };
 
   var Tarjetas = [
@@ -19,10 +20,11 @@
     { Proyecto: 'Mitecho', Titulo: 'MiTecho', Tipo: 'App Financiera de Vivienda', Imagen: 'imagenes/icono-mitecho.webp' },
     { Proyecto: 'Neon', Titulo: 'Neon Jump', Tipo: 'Videojuego Móvil', Imagen: 'imagenes/icono-neon.webp' },
     { Proyecto: 'Sonica', Titulo: 'Sónica', Tipo: 'Podcasts con Inteligencia Artificial', Imagen: 'imagenes/icono-sonica.webp' },
-    { Proyecto: 'Moderador', Titulo: 'Moderador', Tipo: 'Panel de Control y Gestión', Imagen: '' }
+    { Proyecto: 'Moderador', Titulo: 'Moderador', Tipo: 'Panel de Control y Gestión', Imagen: '' },
+    { Proyecto: 'Khronos', Titulo: 'Khronos', Tipo: 'Planificador de Tareas, próximo a producción', Imagen: 'imagenes/Iconokhronos.webp' }
   ];
 
-  var Capturas = { Nissi: 8, Mitecho: 6, Sonica: 3, Neon: 3, Moderador: 2 };
+  var Capturas = { Nissi: 8, Mitecho: 6, Sonica: 3, Neon: 3, Moderador: 2, Khronos: 1 };
 
   var Pies = {
     Nissi: [
@@ -45,7 +47,8 @@
     ],
     Sonica: ['Inicio con serie destacada', 'Reproductor con forma de onda', 'Explorar por categorías'],
     Neon: ['Menú principal', 'Partida en curso', 'Ranking global'],
-    Moderador: ['Panel principal con métricas', 'Series publicadas']
+    Moderador: ['Panel principal con métricas', 'Series publicadas'],
+    Khronos: ['Pantalla de inicio con video en bucle y acceso']
   };
 
   var Detalles = {
@@ -82,7 +85,7 @@
         { Src: 'imagenes/nissi-7.webp', Alt: 'Rack operativo de habitaciones en tiempo real' },
         { Src: 'imagenes/nissi-8.webp', Alt: 'Panel gerencial con métricas y rendimiento' }
       ],
-      Anterior: { Proyecto: 'Moderador', Nombre: 'Sónica Moderador' },
+      Anterior: { Proyecto: 'Khronos', Nombre: 'Khronos' },
       Siguiente: { Proyecto: 'Mitecho', Nombre: 'MiTecho' }
     },
     Mitecho: {
@@ -209,6 +212,36 @@
         { Src: 'imagenes/moderador-2.webp', Alt: 'Sección Series publicadas del panel Sónica Moderador' }
       ],
       Anterior: { Proyecto: 'Sonica', Nombre: 'Sónica App de Podcasts' },
+      Siguiente: { Proyecto: 'Khronos', Nombre: 'Khronos' }
+    },
+    Khronos: {
+      Id: 'Khronos',
+      Titulo: 'Khronos',
+      Tamano: 'min(16.4vw, 226px)',
+      Idtitulo: 'Titulokhronos',
+      Esimagen: true,
+      Esproximo: true,
+      Imagen: 'imagenes/Iconokhronos.webp',
+      Alticono: 'Isotipo de Khronos, una K que también es un reloj de arena',
+      Dato: 'Aplicación Web · Planificador de Tareas',
+      Subtitulo: 'Planificador de tareas para equipos de trabajo',
+      Etiquetapuntos: 'Cómo funciona y tecnologías de Khronos',
+      Puntos: [
+        { Num: '·', Texto: 'Diseñé una entrada cinematográfica con video en bucle de una pared iluminada por un reloj de arena; al iniciar sesión, un segundo video hace la transición hasta el panel sin saltos de color, y el isotipo es una K que a la vez funciona como reloj de arena.' },
+        { Num: '·', Texto: 'Armé el tablero con HTML, Bootstrap y JavaScript: las tarjetas se arrastran entre Por hacer, En proceso, Revisión y Hecho, el formulario valida cada campo antes de guardar y todo queda en el localStorage del navegador.' },
+        { Num: '·', Texto: 'Ya funcionan el acceso de prueba, el menú lateral y el tablero con su administrador de tareas; lo que sigue es el registro de usuarios reales, los equipos de trabajo, el calendario y el chat antes de salir a producción.' }
+      ],
+      Ficha: [
+        { Clave: 'Tipo', Valor: 'Aplicación web de gestión de tareas' },
+        { Clave: 'Stack', Valor: 'HTML · CSS · Bootstrap · JavaScript · localStorage · Firebase Hosting' },
+        { Clave: 'Estado', Valor: 'En construcción, con la pantalla de inicio terminada' }
+      ],
+      Accion: { Url: 'https://khronos-co.web.app', Texto: 'Ir a Khronos' },
+      Dispositivo: 'portal',
+      Capturas: [
+        { Src: 'imagenes/Khronosinicio.webp', Alt: 'Pantalla de inicio de Khronos con el lema Domina tu tiempo, conquista tus proyectos, una figura frente a un reloj de arena iluminado y el formulario de acceso' }
+      ],
+      Anterior: { Proyecto: 'Moderador', Nombre: 'Sónica Moderador' },
       Siguiente: { Proyecto: 'Nissi', Nombre: 'Hotel Nissi' }
     }
   };

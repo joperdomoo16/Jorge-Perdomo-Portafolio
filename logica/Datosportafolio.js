@@ -24,7 +24,7 @@
     { Proyecto: 'Khronos', Titulo: 'Khronos', Tipo: 'Planificador de Tareas, próximo a producción', Imagen: 'imagenes/Iconokhronos.webp' }
   ];
 
-  var Capturas = { Nissi: 8, Mitecho: 6, Sonica: 3, Neon: 3, Moderador: 2, Khronos: 1 };
+  var Capturas = { Nissi: 8, Mitecho: 6, Sonica: 3, Neon: 6, Moderador: 2, Khronos: 1 };
 
   var Pies = {
     Nissi: [
@@ -46,7 +46,14 @@
       'Catálogo de proyectos inmobiliarios aliados según presupuesto y ciudad'
     ],
     Sonica: ['Inicio con serie destacada', 'Reproductor con forma de onda', 'Explorar por categorías'],
-    Neon: ['Menú principal', 'Partida en curso', 'Ranking global'],
+    Neon: [
+      'Menú principal con reto del día, racha diaria y accesos rápidos',
+      'Partida en curso sobre la ciudad nocturna y cielo dinámico por altura',
+      'Ranking global y semanal con podio de jugadores',
+      'Tienda de 22 skins organizadas en 4 categorías con vista previa',
+      'Sistema de 27 logros por familias con progreso y recompensas',
+      'Perfil con estadísticas, cuenta de Google y ajustes de control'
+    ],
     Moderador: ['Panel principal con métricas', 'Series publicadas'],
     Khronos: ['Pantalla de inicio con video en bucle y acceso']
   };
@@ -131,24 +138,27 @@
       Imagen: 'imagenes/icono-neon.webp',
       Alticono: 'Ícono del juego Neon Jump',
       Dato: 'Videojuego Móvil · Google Play',
-      Subtitulo: 'Videojuego móvil de saltos infinitos con estilo visual retro neón y tabla de posiciones mundial en tiempo real, publicado y disponible en la tienda Google Play.',
+      Subtitulo: 'Videojuego móvil de saltos infinitos con estética Noche Suave, cielo evolutivo por altura, 22 skins, 27 logros, racha diaria y ranking global y semanal, publicado y disponible en Google Play.',
       Etiquetapuntos: 'Cómo funciona y tecnologías de Neon Jump',
       Puntos: [
-        { Num: '·', Texto: 'Programé el juego en el lenguaje Dart usando Flutter y el motor especializado Flame Engine, con un sistema que crea plataformas infinitas al azar y recicla elementos en memoria para que la partida funcione con total fluidez en pantallas de 60, 90 y 120 hercios.' },
-        { Num: '·', Texto: 'Integré los servicios de Firebase para permitir el inicio de sesión con cuentas de Google y creé una base de datos en Cloud Firestore que actualiza en vivo la tabla de los mejores cincuenta jugadores del mundo.' },
-        { Num: '·', Texto: 'Protegí los puntajes y monedas contra intentos de trampa ofuscando los números en la memoria del dispositivo, guardé la partida con llaves cifradas e integré anuncios de Google AdMob que permiten al jugador revivir tras ver un video publicitario.' }
+        { Num: '·', Texto: 'Reconstruí el juego con HTML, CSS y JavaScript puro dentro de un WebView a pantalla completa con Flutter como anfitrión nativo mediante un puente bidireccional, creando un motor físico propio con plataformas móviles, frágiles y con resorte, partículas y un cielo que evoluciona por altura desde la ciudad hasta el espacio.' },
+        { Num: '·', Texto: 'Integré Firebase (Cloud Firestore, Auth y App Check con Play Integrity) para mantener un ranking global y semanal con nombres únicos normalizados, inicio de sesión con Google, retos diarios, tienda de skins, logros y recordatorios locales de racha.' },
+        { Num: '·', Texto: 'Protegí el progreso del jugador con almacenamiento cifrado en el dispositivo (Flutter Secure Storage), validaciones estrictas de estado, migración automática desde versiones previas, anuncios de AdMob (banner, intersticial y bonificado para revivir) y actualizaciones inmediatas con Play Core.' }
       ],
       Ficha: [
         { Clave: 'Tipo', Valor: 'Videojuego móvil en dos dimensiones' },
-        { Clave: 'Stack', Valor: 'Flutter · Dart · Flame Engine · Firebase · AdMob' },
+        { Clave: 'Stack', Valor: 'HTML · CSS · JavaScript · Flutter · Dart · Firebase · AdMob' },
         { Clave: 'Tienda', Valor: 'Google Play Store' }
       ],
       Accion: { Url: 'https://play.google.com/store/apps/details?id=com.tustudio.neon%5Fjump', Texto: 'Ver en Google Play' },
       Dispositivo: 'movil',
       Capturas: [
-        { Src: 'imagenes/neon-1.webp', Alt: 'Menú principal de Neon Jump' },
-        { Src: 'imagenes/neon-2.webp', Alt: 'Partida en curso de Neon Jump' },
-        { Src: 'imagenes/neon-3.webp', Alt: 'Ranking global de Neon Jump' }
+        { Src: 'imagenes/neon-1.webp', Alt: 'Menú principal de Neon Jump Noche Suave con reto del día y racha diaria' },
+        { Src: 'imagenes/neon-2.webp', Alt: 'Partida en curso de Neon Jump sobre la ciudad nocturna' },
+        { Src: 'imagenes/neon-3.webp', Alt: 'Ranking global y semanal de Neon Jump con podio de jugadores' },
+        { Src: 'imagenes/neon-4.webp', Alt: 'Tienda de 22 skins de Neon Jump organizadas por categorías' },
+        { Src: 'imagenes/neon-5.webp', Alt: 'Pantalla de logros de Neon Jump con progreso y recompensas en monedas' },
+        { Src: 'imagenes/neon-6.webp', Alt: 'Perfil de Neon Jump con estadísticas, vinculación con Google y ajustes' }
       ],
       Anterior: { Proyecto: 'Mitecho', Nombre: 'MiTecho' },
       Siguiente: { Proyecto: 'Sonica', Nombre: 'Sónica App de Podcasts' }

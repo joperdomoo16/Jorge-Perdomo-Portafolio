@@ -60,14 +60,10 @@
         this.Fijaricono[Id] = (Nodo) => { this.Nodosicono[Id] = Nodo; };
       });
 
-      this.Fijartituloproyecto = (Nodo) => {
-        const Pantalla = this.Estado && this.Estado.Pantalla;
-        if (Pantalla && Validaciones.Espropio(this.Fijartitulo, Pantalla)) this.Fijartitulo[Pantalla](Nodo);
-      };
-      this.Fijariconoproyecto = (Nodo) => {
-        const Pantalla = this.Estado && this.Estado.Pantalla;
-        if (Pantalla && Validaciones.Espropio(this.Fijaricono, Pantalla)) this.Fijaricono[Pantalla](Nodo);
-      };
+      // El título y el ícono del proyecto van aparte: si se guardaban con el nombre de la pantalla,
+      // al salir del proyecto el aviso de desmontado borraba el título de la pantalla a la que se llegaba
+      this.Fijartituloproyecto = (Nodo) => { this.Nodotituloproyecto = Nodo; };
+      this.Fijariconoproyecto = (Nodo) => { this.Nodoiconoproyecto = Nodo; };
 
       const Totalcarteles = this.Tarjetas.length;
       this.Nodostarjeta = new Array(Totalcarteles).fill(null);

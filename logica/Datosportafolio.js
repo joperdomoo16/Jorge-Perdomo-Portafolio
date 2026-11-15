@@ -68,7 +68,7 @@
       Imagen: 'imagenes/icono-nissi.webp',
       Alticono: 'Ícono de Hotel Nissi',
       Dato: 'Web y Gestión Hotelera · La Guajira',
-      Subtitulo: 'Sitio web oficial y sistema de reservas para el Hotel Nissi en Mingueo, La Guajira. Permite a los viajeros calcular el valor de su estadía en vivo y ayuda al hotel a registrar el ingreso de huéspedes en recepción.',
+      Subtitulo: 'Sitio web oficial y sistema de reservas del Hotel Nissi en Mingueo, La Guajira',
       Etiquetapuntos: 'Cómo funciona y tecnologías de Hotel Nissi',
       Puntos: [
         { Num: '·', Texto: 'Construí la interfaz con JavaScript moderno y estilos visuales adaptables a cualquier pantalla, integrando etiquetas estructuradas de Schema para que buscadores como Google muestren el hotel en los primeros resultados.' },
@@ -104,7 +104,7 @@
       Imagen: 'imagenes/icono-mitecho.webp',
       Alticono: 'Ícono de la aplicación MiTecho',
       Dato: 'Aplicación Móvil · Finanzas y Vivienda',
-      Subtitulo: 'Aplicación móvil para Android e iOS que ayuda a las familias en Colombia a calcular su capacidad de crédito para comprar casa, evaluar subsidios del gobierno y planear su ahorro.',
+      Subtitulo: 'Aplicación móvil que ayuda a las familias en Colombia a planear la compra de su casa',
       Etiquetapuntos: 'Cómo funciona y tecnologías de MiTecho',
       Puntos: [
         { Num: '·', Texto: 'Desarrollé la aplicación con un motor propio en JavaScript y la empaqueté para celulares usando Capacitor, agregando código nativo en Java con cifrado bancario de alta seguridad y bloqueo de capturas de pantalla para proteger los datos financieros del usuario.' },
@@ -138,12 +138,12 @@
       Imagen: 'imagenes/icono-neon.webp',
       Alticono: 'Ícono del juego Neon Jump',
       Dato: 'Videojuego Móvil · Google Play',
-      Subtitulo: 'Videojuego móvil de saltos infinitos con estética Noche Suave, cielo evolutivo por altura, 22 skins, 27 logros, racha diaria y ranking global y semanal, publicado y disponible en Google Play.',
+      Subtitulo: 'Videojuego móvil de saltos infinitos con estética Noche Suave, publicado en Google Play',
       Etiquetapuntos: 'Cómo funciona y tecnologías de Neon Jump',
       Puntos: [
         { Num: '·', Texto: 'Reconstruí el juego con HTML, CSS y JavaScript puro dentro de un WebView a pantalla completa con Flutter como anfitrión nativo mediante un puente bidireccional, creando un motor físico propio con plataformas móviles, frágiles y con resorte, partículas y un cielo que evoluciona por altura desde la ciudad hasta el espacio.' },
-        { Num: '·', Texto: 'Integré Firebase (Cloud Firestore, Auth y App Check con Play Integrity) para mantener un ranking global y semanal con nombres únicos normalizados, inicio de sesión con Google, retos diarios, tienda de skins, logros y recordatorios locales de racha.' },
-        { Num: '·', Texto: 'Protegí el progreso del jugador con almacenamiento cifrado en el dispositivo (Flutter Secure Storage), validaciones estrictas de estado, migración automática desde versiones previas, anuncios de AdMob (banner, intersticial y bonificado para revivir) y actualizaciones inmediatas con Play Core.' }
+        { Num: '·', Texto: 'Integré Firebase con Cloud Firestore, Auth y App Check con Play Integrity para mantener un ranking global y semanal con nombres únicos normalizados, inicio de sesión con Google, retos diarios, tienda de skins, logros y recordatorios locales de racha.' },
+        { Num: '·', Texto: 'Protegí el progreso del jugador con almacenamiento cifrado en el dispositivo con Flutter Secure Storage, validaciones estrictas de estado, migración automática desde versiones previas, anuncios de AdMob en banner, intersticial y bonificado para revivir, y actualizaciones inmediatas con Play Core.' }
       ],
       Ficha: [
         { Clave: 'Tipo', Valor: 'Videojuego móvil en dos dimensiones' },
@@ -172,7 +172,7 @@
       Imagen: 'imagenes/icono-sonica.webp',
       Alticono: 'Ícono de la aplicación Sónica',
       Dato: 'Web y Aplicación Móvil · Podcasts con IA',
-      Subtitulo: 'Plataforma web y móvil para crear y escuchar podcasts con inteligencia artificial, combinando voces realistas entre varios personajes, música de ambiente y efectos sonoros.',
+      Subtitulo: 'Plataforma web y móvil para crear y escuchar podcasts con voces de inteligencia artificial',
       Etiquetapuntos: 'Cómo funciona y tecnologías de Sónica',
       Puntos: [
         { Num: '·', Texto: 'Construí la aplicación con JavaScript modular moderno y Tailwind CSS sin depender de librerías pesadas, empaquetándola para celulares con Capacitor y Java nativo para lograr tiempos de carga instantáneos y navegación táctil fluida.' },
@@ -203,7 +203,7 @@
       Esimagen: false,
       Esmoderador: true,
       Dato: 'Panel de Control · Moderación y Calidad',
-      Subtitulo: 'Panel de administración en tiempo real que permite al equipo de trabajo revisar episodios, aprobar o rechazar series y asegurar la calidad del contenido publicado en Sónica.',
+      Subtitulo: 'Panel en tiempo real para revisar, aprobar o rechazar el contenido publicado en Sónica',
       Etiquetapuntos: 'Cómo funciona y tecnologías de Sónica Moderador',
       Puntos: [
         { Num: '·', Texto: 'Diseñé la interfaz con JavaScript modular en estándares modernos y Tailwind CSS sobre Vite, logrando un panel administrativo ultraligero que inicia en milisegundos y prescinde de sobrecargas de librerías externas.' },

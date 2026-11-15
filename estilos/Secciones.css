@@ -177,84 +177,104 @@
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
   gap: clamp(32px, 5vw, 96px);
-  align-items: center;
+  align-items: start;
 }
 
-.Composicion {
+/* Manifiesto tipográfico: ocupa el lugar que antes tenía la fotografía */
+.Manifiesto {
   position: relative;
-  width: min(100%, 460px);
-  aspect-ratio: 1 / 1.15;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
+  gap: clamp(24px, 2.8vw, 38px);
+  padding: clamp(30px, 3.4vw, 52px) 0 0 clamp(20px, 2.4vw, 36px);
+  border-left: 1px solid var(--Colorlineafuerte);
 }
 
-.Circulorojo {
+.Manifiesto::before {
+  content: '\201C';
   position: absolute;
-  left: 50%;
-  top: 42%;
-  transform: translate(-50%, -50%);
-  width: 78%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #c42020 0%, #851010 100%);
-  box-shadow: 0 24px 50px -15px rgba(181, 26, 26, 0.45), 0 0 0 1px rgba(181, 26, 26, 0.2);
-  z-index: 1;
-}
-
-.Retratocirculo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  overflow: visible;
-}
-
-.Retratocirculo img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center bottom;
-  filter: drop-shadow(0 20px 30px rgba(13, 13, 13, 0.22)) contrast(1.04);
-}
-
-.Firma {
-  position: relative;
-  z-index: 4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 3px;
-  padding: 10px 22px;
-  border-radius: 14px;
-  background: rgba(246, 245, 241, 0.94);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(13, 13, 13, 0.12);
-  box-shadow: 0 14px 28px -8px rgba(13, 13, 13, 0.16), 0 2px 6px rgba(13, 13, 13, 0.05);
-  margin-bottom: -10px;
-  max-width: 92%;
-}
-
-.Nombrefirma {
+  top: -0.3em;
+  left: -0.08em;
   font-family: var(--Tipogigante);
-  font-size: clamp(20px, 1.8vw, 24px);
-  font-weight: 800;
+  font-size: clamp(170px, 17vw, 280px);
+  font-weight: 900;
+  line-height: 1;
   color: var(--Coloracento);
-  line-height: 1.1;
+  opacity: 0.14;
+  pointer-events: none;
 }
 
-.Rolfirma {
+.Firmamanifiesto {
+  position: relative;
+  color: var(--Coloracento);
+}
+
+.Citamanifiesto {
+  position: relative;
+  margin: 0;
+}
+
+.Citamanifiesto p {
+  margin: 0;
   font-family: var(--Tiposerif);
+  font-size: clamp(36px, 3.7vw, 58px);
   font-style: italic;
-  font-size: clamp(15px, 1.3vw, 17px);
-  color: var(--Colortinta);
-  line-height: 1.2;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.Citamanifiesto em {
+  font-family: var(--Tipogigante);
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: 62%;
+  text-transform: uppercase;
+  color: var(--Coloracento);
+}
+
+.Cifras {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--Colorlineafuerte);
+}
+
+.Cifras li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 14px 0 0;
+}
+
+.Cifras li + li {
+  padding-left: 16px;
+  border-left: 1px solid var(--Colorlinea);
+}
+
+/* Mismo grano rojo de la palabra DEVELOPER del inicio */
+.Cifra {
+  font-family: var(--Tipogigante);
+  font-size: clamp(56px, 5.6vw, 92px);
+  font-weight: 900;
+  font-stretch: 62%;
+  line-height: 0.82;
+  background: var(--Granotinta) 0 0 / 256px 256px repeat, linear-gradient(180deg, var(--Coloracento) 18%, var(--Colorrojohondo) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.Cifratexto {
+  font-family: var(--Tipomono);
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--Colortintatenue);
 }
 
 .Textoconoceme {

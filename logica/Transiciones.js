@@ -44,7 +44,7 @@
 
       if (!Vuelofinal && Indicedestino >= 0) {
         const Datosdestino = this.Tarjetas[Indicedestino];
-        const Nodoactual = this.Nodosicono[Pantallaactual] || (Indiceactual >= 0 ? this.Nodostarjeta[Indiceactual] : null);
+        const Nodoactual = this.Nodoicono(Pantallaactual) ||(Indiceactual >= 0 ? this.Nodostarjeta[Indiceactual] : null);
         const Origen = Medir(Nodoactual);
         if (Origen) {
           this.Origenvuelo = Origen;
@@ -52,7 +52,7 @@
         }
       } else if (!Vuelofinal && Indiceactual >= 0) {
         const Datosactual = this.Tarjetas[Indiceactual];
-        const Origen = Medir(this.Nodosicono[Pantallaactual]);
+        const Origen = Medir(this.Nodoicono(Pantallaactual));
         if (Origen) {
           this.Origenvuelo = Origen;
           if (Destino === 'Inicio') {
@@ -95,6 +95,17 @@
       });
     },
 
+    // Busca el título o el ícono de una pantalla, sea sección o proyecto
+    Nodotitulo(Id) {
+      if (Validaciones.Espropio(this.Detalles, Id)) return this.Nodotituloproyecto || null;
+      return this.Nodostitulo[Id] || null;
+    },
+
+    Nodoicono(Id) {
+      if (Validaciones.Espropio(this.Detalles, Id)) return this.Nodoiconoproyecto || null;
+      return this.Nodosicono[Id] || null;
+    },
+
     Subir() {
       try { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); } catch (Error) {
         try { window.scrollTo(0, 0); } catch (Erroralterno) {}
@@ -121,7 +132,7 @@
 
     Crecerpalabra() {
       const Nodo = this.Nodopalabra;
-      const Destino = this.Nodostitulo[this.Destino];
+      const Destino = this.Nodotitulo(this.Destino);
       if (!Nodo || !Destino || !this.Cajapalabra) { this.Terminarcambio(); return; }
       const Caja = Destino.getBoundingClientRect();
       const Escala = Caja.width / Math.max(1, this.Cajapalabra.Ancho);
@@ -201,7 +212,7 @@
         return;
       }
 
-      const Destino = this.Nodosicono[this.Destino];
+      const Destino = this.Nodoicono(this.Destino);
       if (!Destino) return;
       const Caja = Destino.getBoundingClientRect();
       const Lado = Destino.offsetWidth || Caja.width;

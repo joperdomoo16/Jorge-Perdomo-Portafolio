@@ -12,7 +12,6 @@
   .Columnasexperiencia, .Conocemerejilla, .Proyectorejilla { grid-template-columns: minmax(0, 1fr); }
   .Pila { width: min(240px, 52vw); }
   .Pila.Ancha { width: min(560px, 82vw); }
-  .Composicion { width: min(100%, 460px); }
   .Bloquellamada { left: var(--Margenlateral); right: 76px; top: 92px; width: auto; max-width: 30em; }
 }
 
@@ -25,10 +24,10 @@
   .Hito { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   .Periodo { grid-row: auto; padding-top: 0; }
   .Ficha { grid-template-columns: minmax(0, 1fr); }
-  .Composicion { width: min(100%, 340px); aspect-ratio: 1 / 1.1; margin: 0 auto 20px auto; }
-  .Firma { margin-bottom: -6px; padding: 8px 18px; max-width: 95%; }
-  .Rolfirma { font-size: 14px; }
-  .Nombrefirma { font-size: 19px; }
+  .Manifiesto { padding-left: 18px; }
+  .Cifras li { padding-right: 8px; }
+  .Cifras li + li { padding-left: 10px; }
+  .Cifratexto { font-size: 10px; letter-spacing: 0.05em; }
   .Gracias { top: 96px; font-size: clamp(32px, 6vh, 50px); transform: none; }
   .Piellamada { display: none; }
   .Anios { left: auto; right: 72px; transform: none; font-size: 18px; }

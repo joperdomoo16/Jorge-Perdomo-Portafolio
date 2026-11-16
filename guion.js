@@ -218,6 +218,7 @@
           Id: Detalle.Id,
           Titulo: Detalle.Titulo,
           Prefijooculto: Detalle.Prefijo || '',
+          Antetitulo: Detalle.Antetitulo || '',
           Estilotamano: Validaciones.Validartamano(Detalle.Tamano),
           Idtitulo: Detalle.Idtitulo,
           Esimagen: !!Detalle.Esimagen,

@@ -7,7 +7,7 @@
     Habilidades: { Texto: 'habilidades', Clase: 'Palabragigante Tinta', Tamano: 'min(12.4vw, 190px)' },
     Experiencia: { Texto: 'experiencia', Clase: 'Palabragigante Tinta', Tamano: 'min(12.4vw, 190px)' },
     Conoceme: { Texto: 'conóceme', Clase: 'Palabragigante Tinta', Tamano: 'min(14.4vw, 220px)' },
-    Nissi: { Texto: 'Hotel Nissi', Clase: 'Palabragigante Tinta', Tamano: 'min(14.8vw, 218px)' },
+    Nissi: { Texto: 'Nissi', Clase: 'Palabragigante Tinta', Tamano: 'min(21.2vw, 240px)' },
     Mitecho: { Texto: 'MiTecho', Clase: 'Palabragigante Tinta', Tamano: 'min(17.5vw, 228px)' },
     Sonica: { Texto: 'Sónica', Clase: 'Palabragigante Tinta', Tamano: 'min(21.2vw, 240px)' },
     Neon: { Texto: 'Neon Jump', Clase: 'Palabragigante Tinta', Tamano: 'min(14.1vw, 216px)' },
@@ -16,7 +16,7 @@
   };
 
   var Tarjetas = [
-    { Proyecto: 'Nissi', Titulo: 'Hotel Nissi', Tipo: 'Sitio web y Cotizador', Imagen: 'imagenes/icono-nissi.webp' },
+    { Proyecto: 'Nissi', Titulo: 'Hospedaje Nissi', Tipo: 'Sitio web y Cotizador', Imagen: 'imagenes/icono-nissi.webp' },
     { Proyecto: 'Mitecho', Titulo: 'MiTecho', Tipo: 'App Financiera de Vivienda', Imagen: 'imagenes/icono-mitecho.webp' },
     { Proyecto: 'Neon', Titulo: 'Neon Jump', Tipo: 'Videojuego Móvil', Imagen: 'imagenes/icono-neon.webp' },
     { Proyecto: 'Sonica', Titulo: 'Sónica', Tipo: 'Podcasts con Inteligencia Artificial', Imagen: 'imagenes/icono-sonica.webp' },
@@ -61,17 +61,18 @@
   var Detalles = {
     Nissi: {
       Id: 'Nissi',
-      Titulo: 'Hotel Nissi',
-      Tamano: 'min(14.8vw, 218px)',
+      Titulo: 'Nissi',
+      Antetitulo: 'Hospedaje',
+      Tamano: 'min(21.2vw, 240px)',
       Idtitulo: 'Titulonissi',
       Esimagen: true,
       Imagen: 'imagenes/icono-nissi.webp',
-      Alticono: 'Ícono de Hotel Nissi',
+      Alticono: 'Ícono de Hospedaje Nissi',
       Dato: 'Web y Gestión Hotelera · La Guajira',
-      Subtitulo: 'Sitio web oficial y sistema de reservas del Hotel Nissi en Mingueo, La Guajira',
-      Etiquetapuntos: 'Cómo funciona y tecnologías de Hotel Nissi',
+      Subtitulo: 'Sitio web oficial y sistema de reservas del Hospedaje Nissi en Mingueo, La Guajira',
+      Etiquetapuntos: 'Cómo funciona y tecnologías de Hospedaje Nissi',
       Puntos: [
-        { Num: '·', Texto: 'Construí la interfaz con JavaScript moderno y estilos visuales adaptables a cualquier pantalla, integrando etiquetas estructuradas de Schema para que buscadores como Google muestren el hotel en los primeros resultados.' },
+        { Num: '·', Texto: 'Construí la interfaz con JavaScript moderno y estilos visuales adaptables a cualquier pantalla, integrando etiquetas estructuradas de Schema para que buscadores como Google muestren el hospedaje en los primeros resultados.' },
         { Num: '·', Texto: 'Conecté la web con la API oficial de WhatsApp para confirmar solicitudes al instante y sumé la inteligencia artificial de Gemini para responder dudas frecuentes de los viajeros de forma automática.' },
         { Num: '·', Texto: 'Creé un servidor ligero con Google Apps Script que usa Google Sheets como base de datos en vivo, permitiendo al recepcionista ingresar con una clave segura, bloquear habitaciones ocupadas y enviar un balance diario al correo del administrador.' }
       ],
@@ -80,10 +81,10 @@
         { Clave: 'Stack', Valor: 'JavaScript · Apps Script · Google Sheets · Gemini AI · WhatsApp API' },
         { Clave: 'Alcance', Valor: 'Cotizador en vivo y panel de recepción' }
       ],
-      Accion: { Url: 'https://hotel-nissi-mingueo.web.app', Texto: 'Ir a Hotel Nissi' },
+      Accion: { Url: 'https://hospedaje-nissi-mingueo.web.app/index.html', Texto: 'Ir a Hospedaje Nissi' },
       Dispositivo: 'portal',
       Capturas: [
-        { Src: 'imagenes/nissi-1.webp', Alt: 'Portada principal de Hotel Nissi con cotizador de noches' },
+        { Src: 'imagenes/nissi-1.webp', Alt: 'Portada principal de Hospedaje Nissi con cotizador de noches' },
         { Src: 'imagenes/nissi-2.webp', Alt: 'Catálogo y detalle de habitaciones' },
         { Src: 'imagenes/nissi-3.webp', Alt: 'Ubicación sobre la Troncal del Caribe' },
         { Src: 'imagenes/nissi-4.webp', Alt: 'Infraestructura y servicios de descanso' },
@@ -126,7 +127,7 @@
         { Src: 'imagenes/mitecho-5.webp', Alt: 'Plan de liberación de cupo crediticio apagando deudas en MiTecho' },
         { Src: 'imagenes/mitecho-6.webp', Alt: 'Catálogo de proyectos inmobiliarios aliados por municipio en MiTecho' }
       ],
-      Anterior: { Proyecto: 'Nissi', Nombre: 'Hotel Nissi' },
+      Anterior: { Proyecto: 'Nissi', Nombre: 'Hospedaje Nissi' },
       Siguiente: { Proyecto: 'Neon', Nombre: 'Neon Jump' }
     },
     Neon: {
@@ -252,7 +253,7 @@
         { Src: 'imagenes/Khronosinicio.webp', Alt: 'Pantalla de inicio de Khronos con el lema Domina tu tiempo, conquista tus proyectos, una figura frente a un reloj de arena iluminado y el formulario de acceso' }
       ],
       Anterior: { Proyecto: 'Moderador', Nombre: 'Sónica Moderador' },
-      Siguiente: { Proyecto: 'Nissi', Nombre: 'Hotel Nissi' }
+      Siguiente: { Proyecto: 'Nissi', Nombre: 'Hospedaje Nissi' }
     }
   };
 

@@ -192,3 +192,39 @@
 @media (prefers-reduced-motion: reduce) {
   .Puntoproduccion { animation: none; }
 }
+
+/* Antetítulo sobre la palabra gigante: deja el nombre completo sin que el ícono lo tape */
+.Antetitulo {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--Tamano, 0px) * var(--Escalatitulo, 1) * 0.17 - 4px);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--Tipomono);
+  font-size: clamp(12px, 1.25vw, 17px);
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--Coloracento);
+  white-space: nowrap;
+  transform: translate(-50%, -100%);
+  transition: opacity 420ms ease-out 180ms;
+}
+
+.Antetitulo::before,
+.Antetitulo::after {
+  content: '';
+  width: clamp(24px, 4vw, 56px);
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+.Antetitulo:empty { display: none; }
+.Llegando .Antetitulo,
+.Saliendo .Antetitulo { opacity: 0; transition-delay: 0ms; }
+
+/* Tarjeta de la rueda con el nombre en dos niveles */
+.Cartelpie:has(.Condoble) { border-radius: 10px; padding: 4px 10px 5px; }
+.Condoble { display: flex; flex-direction: column; align-items: center; line-height: 1; }
+.Condoble small { margin-bottom: 2px; font-family: var(--Tipomono); font-size: 6.5px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; opacity: 0.75; }

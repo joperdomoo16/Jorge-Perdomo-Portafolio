@@ -1,11 +1,3 @@
-/* Tipografias locales: las mismas tres familias que trae Google Fonts, pero servidas
-   desde esta carpeta para que el sitio funcione sin internet. Para usarlas, en
-   index.html reemplaza los tres <link> de fonts.googleapis.com por esta sola linea:
-
-   <link rel="stylesheet" href="tipografias/tipografias.css">
-
-   Debe ir ANTES de <link rel="stylesheet" href="estilos.css">. */
-
 @font-face {
   font-family: 'Archivo';
   src: url(archivo.woff2) format('woff2');

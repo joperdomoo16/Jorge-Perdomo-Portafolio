@@ -1,10 +1,3 @@
-/* ==========================================================================
-   Estilos de la Vitrina de Proyectos 3D (Dial, Rueda Orbital y Mandos)
-   ========================================================================== */
-
-/* Vitrina de proyectos: rueda giratoria
-   Las tarjetas orbitan un eje oculto bajo el escenario (radio = 2.3 lados, ver Vitrina.js)
-   y el dial graduado comparte ese mismo centro. */
 .Vitrina {
   --Altodial: clamp(92px, calc(var(--Ladocartel) * 1.1), 110px);
   position: absolute;
@@ -16,7 +9,6 @@
   animation: Entravitrina 680ms var(--Entrada) 380ms both;
 }
 
-/* Dial: asoma bajo las tarjetas con radio 1.45·Lado (algo menor que la rueda, que usa 2.3·Lado) */
 .Esfera {
   position: absolute;
   left: 50%;

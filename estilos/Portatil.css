@@ -1,14 +1,8 @@
-/* ==========================================================================
-   Estilos del Computador Portátil 3D Interactivo
-   ========================================================================== */
-
-/* Portátil de Sónica Moderador y Hospedaje Nissi */
 .Portatil {
   width: min(460px, 100%);
   margin: 0 auto;
 }
 
-/* La perspectiva debe estar en el padre directo de la tapa para que el giro sea 3D */
 .Abretapa {
   position: relative;
   display: flex;
@@ -127,7 +121,6 @@
   transform: rotateX(0deg);
 }
 
-/* Cara trasera de la tapa: visible mientras está cerrada sobre el teclado */
 .Tapaportatil::after {
   content: '';
   position: absolute;
@@ -226,7 +219,6 @@
   transition: opacity 500ms ease-out 760ms;
 }
 
-/* Con una sola captura no tiene sentido mostrar flechas ni puntos */
 .Portatil.Unacaptura .Navmovil,
 .Portatil.Unacaptura .Puntosmovil {
   display: none;

@@ -1,4 +1,3 @@
-/* Constantes y datos iniciales del portafolio */
 (function () {
   'use strict';
 

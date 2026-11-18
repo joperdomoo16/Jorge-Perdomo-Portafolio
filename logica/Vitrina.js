@@ -1,25 +1,19 @@
-/* Portafolio de Jorge David Perdomo
-   Módulo de la vitrina interactiva: rueda giratoria de proyectos con física de resorte,
-   arrastre con inercia, rueda del ratón, dial graduado e inclinación 3D al cursor
-*/
 (function () {
   'use strict';
 
   var Validaciones = window.Validaciones;
 
-  // Geometría de la rueda: proyectos cada 22.5° en abanico apretado sobre 360°
   const Pasogrados = 22.5;
   const Pasoradianes = Pasogrados * Math.PI / 180;
-  const Factorradio = 2.3;          // Radio de la rueda en múltiplos del lado de la tarjeta
-  const Rigidez = 210;              // Resorte del asentamiento
-  const Amortiguacion = 18.5;       // Leve rebote al detenerse
-  const Seguimiento = 0.42;         // Giro máximo (en tarjetas) con el que la rueda sigue al cursor
-  const Imanradio = 1.5;            // Alcance del imán del cursor, en lados de tarjeta
+  const Factorradio = 2.3;
+  const Rigidez = 210;
+  const Amortiguacion = 18.5;
+  const Seguimiento = 0.42;
+  const Imanradio = 1.5;
   const Modulo = (Numero, Total) => ((Numero % Total) + Total) % Total;
   const Limitar = (Valor, Minimo, Maximo) => Math.max(Minimo, Math.min(Maximo, Valor));
 
   window.Metodosvitrina = Validaciones.Congelar({
-    // Montaje de la rueda y oyentes de puntero
     Montarrueda(Nodo) {
       if (this.Nodorueda) {
         const Viejo = this.Nodorueda;
@@ -96,7 +90,6 @@
       this.Colocarrueda();
     },
 
-    // Dibuja cada cuadro de la rueda y suaviza el imán del cursor
     Colocarrueda(Delta) {
       const Rueda = this.Rueda;
       if (!Rueda) return false;
@@ -160,7 +153,6 @@
       return Inquieto;
     },
 
-    // Seguimiento magnético del cursor sobre el escenario
     Seguircursor(Evento) {
       const Rueda = this.Rueda;
       if (!Rueda || Rueda.Retenida || !this.Nodorueda || Evento.pointerType === 'touch' || this.Movimientoreducido()) return;
@@ -235,7 +227,6 @@
       return Lado * Factorradio * Pasoradianes * 1.25;
     },
 
-    // Navegación por flechas, clic y teclado
     Girarcartel(Paso) {
       if (!Number.isFinite(Paso)) return;
       this.Nodostarjeta.forEach((N) => { if (N) this.Limpiarcartel(N); });
@@ -274,7 +265,6 @@
       if (Nuevo) { try { Nuevo.focus({ preventScroll: true }); } catch (Error) {} }
     },
 
-    // Inclinación 3D al cursor sobre cada tarjeta
     Inclinarcartel(Indice, Evento) {
       if (!Number.isInteger(Indice) || Indice < 0 || Indice >= this.Tarjetas.length) return;
       if (this.Movimientoreducido() || Evento.pointerType === 'touch') return;
@@ -306,7 +296,6 @@
       if (Nodo) this.Limpiarcartel(Nodo);
     },
 
-    // Arrastre con inercia
     Empezarcartel(Evento) {
       if ((Evento.button && Evento.button !== 0) || !this.Rueda) return;
       const Estado = this.Estado || {};
@@ -372,7 +361,6 @@
       if (this.Rueda && this.Rueda.Arrastre && !this.Rueda.Arrastre.Activo) this.Rueda.Arrastre = null;
     },
 
-    // Rueda del ratón o panel táctil
     Girarconraton(Evento) {
       const Rueda = this.Rueda;
       if (!Rueda || Evento.ctrlKey) return;

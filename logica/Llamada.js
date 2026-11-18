@@ -1,6 +1,3 @@
-/* Portafolio de Jorge David Perdomo
-   Módulo de la llamada telefónica y contacto: física cinemática del cable espiralado y cámara
-*/
 (function () {
   'use strict';
 

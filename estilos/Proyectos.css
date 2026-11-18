@@ -1,7 +1,3 @@
-/* ==========================================================================
-   Estilos de Detalle de Proyectos (Cabeceras, Puntos, Ficha y Pasos)
-   ========================================================================== */
-
 .Cabeceraproyecto {
   position: relative;
 }
@@ -136,8 +132,6 @@
   color: var(--Coloracento);
 }
 
-
-/* Aviso de proyecto que todavía no sale a producción (Khronos) */
 .Avisoproduccion {
   display: inline-flex;
   align-items: center;
@@ -193,7 +187,6 @@
   .Puntoproduccion { animation: none; }
 }
 
-/* Antetítulo sobre la palabra gigante: deja el nombre completo sin que el ícono lo tape */
 .Antetitulo {
   position: absolute;
   left: 50%;
@@ -224,7 +217,6 @@
 .Llegando .Antetitulo,
 .Saliendo .Antetitulo { opacity: 0; transition-delay: 0ms; }
 
-/* Tarjeta de la rueda con el nombre en dos niveles */
 .Cartelpie:has(.Condoble) { border-radius: 10px; padding: 4px 10px 5px; }
 .Condoble { display: flex; flex-direction: column; align-items: center; line-height: 1; }
 .Condoble small { margin-bottom: 2px; font-family: var(--Tipomono); font-size: 6.5px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; opacity: 0.75; }

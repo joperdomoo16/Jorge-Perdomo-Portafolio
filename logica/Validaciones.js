@@ -1,6 +1,3 @@
-/* Portafolio de Jorge David Perdomo
-   Módulo aislado de validación, saneamiento de entradas, listas blancas e inmutabilidad
-*/
 (function () {
   'use strict';
 
@@ -33,7 +30,6 @@
     'Palabragigante Tinta': true
   });
 
-  // Verifica que la clave pertenezca directamente al objeto y nunca a la cadena de prototipos
   function Espropio(Objeto, Clave) {
     if (Objeto === null || Objeto === undefined) return false;
     if (typeof Objeto !== 'object' && typeof Objeto !== 'function') return false;
@@ -41,7 +37,6 @@
     return Propiedadpropia.call(Objeto, Clave);
   }
 
-  // Congela recursivamente diccionarios y listas estáticas para impedir mutaciones en ejecución
   function Congelar(Objeto) {
     if (Objeto === null || typeof Objeto !== 'object' || Object.isFrozen(Objeto)) return Objeto;
     Object.freeze(Objeto);
@@ -55,14 +50,12 @@
     return typeof Nombre === 'string' && Espropio(Atributosblancos, Nombre);
   }
 
-  // Acepta únicamente rutas relativas locales hacia la carpeta de imágenes sin saltos de directorio
   function Validarimagen(Ruta) {
     if (typeof Ruta !== 'string') return '';
     var Limpio = Ruta.replace(/[\u0000-\u001F\u007F]+/g, '').trim();
     return /^imagenes\/[a-zA-Z0-9._-]+$/.test(Limpio) ? Limpio : '';
   }
 
-  // Lista blanca estricta de esquemas y rutas para enlaces y recursos dinámicos
   function Validarenlace(Valor, Destino) {
     if (typeof Valor !== 'string') return Destino === 'src' ? '' : '#';
     var Limpio = Valor.replace(/[\u0000-\u001F\u007F]+/g, '').trim();
@@ -96,7 +89,6 @@
     return /^min\(\d+(\.\d+)?vw,\s*\d+(\.\d+)?px\)$/.test(Limpio) ? '--Tamano: ' + Limpio : '';
   }
 
-  // Restringe los estilos en línea dinámicos a las cuatro expresiones legítimas de la interfaz
   function Validarestilo(Valor) {
     if (typeof Valor !== 'string') return '';
     var Limpio = Valor.replace(/[\u0000-\u001F\u007F]+/g, '').trim();
@@ -139,7 +131,6 @@
     return Math.max(Minimo, Math.min(Maximo, Valor));
   }
 
-  // Normaliza el estado reactivo garantizando tipos, fronteras numéricas y claves conocidas
   function Sanearestado(Estado, Titulos, Totalproyectos) {
     var Base = Estado && typeof Estado === 'object' ? Estado : {};
     var Total = Number.isFinite(Totalproyectos) && Totalproyectos > 0 ? Math.trunc(Totalproyectos) : 1;

@@ -1,13 +1,9 @@
-/* Portafolio de Jorge David Perdomo
-   Módulo de transiciones cinemáticas entre secciones, palabra flotante y vuelo de iconos
-*/
 (function () {
   'use strict';
 
   var Validaciones = window.Validaciones;
 
   window.Metodostransiciones = Validaciones.Congelar({
-    // Cambio de pantalla: la palabra se rebana, aparece pequeña y crece hasta su lugar
     Ir(Destino, Vuelo) {
       if (!Validaciones.Espropio(this.Titulos, Destino)) return;
       const Estado = this.Estado || {};
@@ -95,7 +91,6 @@
       });
     },
 
-    // Busca el título o el ícono de una pantalla, sea sección o proyecto
     Nodotitulo(Id) {
       if (Validaciones.Espropio(this.Detalles, Id)) return this.Nodotituloproyecto || null;
       return this.Nodostitulo[Id] || null;

@@ -1,14 +1,9 @@
-/* ==========================================================================
-   Tokens globales, normalización, tipografía y componentes base
-   ========================================================================== */
-
 html { scroll-behavior: smooth; }
 body { margin: 0; background: #DCDCDA; }
 *, *::before, *::after { box-sizing: border-box; }
 a { color: inherit; }
 button { font: inherit; color: inherit; }
 
-/* Tokens de diseño del sistema */
 .Raiz {
   --Colorpapel: #DCDCDA;
   --Colorpapelclaro: #E9E9E6;
@@ -126,7 +121,4 @@ button { font: inherit; color: inherit; }
 .Eco > span:nth-child(1) { opacity: 0.38; animation-delay: 980ms; }
 .Eco > span:nth-child(2) { opacity: 0.14; animation-delay: 1080ms; }
 
-/* Las reglas responsive viven en estilos/Adaptable.css (se carga al final) */
-
-/* Evita el parpadeo del marcado sin pintar en la primera carga */
 body.Cargando { visibility: hidden; }

@@ -1,6 +1,3 @@
-/* Portafolio de Jorge David Perdomo
-   Controlador principal y orquestador del portafolio en JavaScript puro
-*/
 (function () {
   'use strict';
 
@@ -60,8 +57,6 @@
         this.Fijaricono[Id] = (Nodo) => { this.Nodosicono[Id] = Nodo; };
       });
 
-      // El título y el ícono del proyecto van aparte: si se guardaban con el nombre de la pantalla,
-      // al salir del proyecto el aviso de desmontado borraba el título de la pantalla a la que se llegaba
       this.Fijartituloproyecto = (Nodo) => { this.Nodotituloproyecto = Nodo; };
       this.Fijariconoproyecto = (Nodo) => { this.Nodoiconoproyecto = Nodo; };
 

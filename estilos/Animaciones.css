@@ -1,8 +1,3 @@
-/* ==========================================================================
-   Animaciones, fotogramas clave y transiciones cinemáticas
-   ========================================================================== */
-
-/* Animación del timbre en el botón de contacto */
 @keyframes Timbre {
   0%, 100% { transform: rotate(0); }
   20% { transform: rotate(-14deg); }
@@ -48,8 +43,6 @@
   to { opacity: 1; transform: none; filter: blur(0); }
 }
 
-/* Coreografía de entrada de la pantalla de inicio
-   Secuencia armónica: 1) DEVELOPER -> 2) Retrato -> 3) Saludo y Rol -> 4) Vitrina */
 @keyframes Entracabecera {
   from { opacity: 0; transform: translate3d(0, -10px, 0); }
   to { opacity: 1; transform: none; }
@@ -95,7 +88,6 @@
   50% { transform: perspective(600px) translateY(-5px); }
 }
 
-/* Invitación cinética en el portátil cerrado de Sónica Moderador */
 @keyframes Respirartapa {
   0%, 100% { transform: rotateX(-114deg); }
   50% { transform: rotateX(-103deg); }

@@ -1,8 +1,6 @@
-/* Modulo de calculos geometricos y curvas matematicas */
 (function () {
   'use strict';
 
-  // Curva suave que pasa por varios puntos (Catmull-Rom), muestreada en varios puntos
   function Curva(Puntos, Muestras) {
     var Salida = [];
     var Total = Puntos.length - 1;
@@ -38,7 +36,6 @@
     return Salida;
   }
 
-  // Curva de Bezier cubica
   function Bezier(Puntoa, Puntob, Puntoc, Puntod, Muestras) {
     var Salida = [];
     var Acumulado = 0;
@@ -60,7 +57,6 @@
     return Salida;
   }
 
-  // Cable en espiral alrededor de una linea guia
   function Espiral(Guia, Vueltas, Radio, Corrimiento) {
     var Largo = Guia[Guia.length - 1].s || 1;
     var Muestras = Math.max(60, Math.round(Vueltas * 11));

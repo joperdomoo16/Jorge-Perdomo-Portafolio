@@ -1,4 +1,3 @@
-/* Motor reactivo nativo para enlace seguro de plantillas y eventos del DOM */
 (function () {
   'use strict';
 
@@ -47,7 +46,6 @@
         this.Refs();
       },
 
-      // Inserta o retira los bloques <template data-si>
       Condicionales: function () {
         var Yo = this;
         var Cambio = false;
@@ -75,7 +73,6 @@
         return Cambio;
       },
 
-      // Enlaza atributos validados por lista blanca y contenido de texto seguro
       Enlazar: function () {
         var Vista = this.Vista;
         var Todos = this.Raiz.getElementsByTagName('*');
@@ -128,7 +125,6 @@
         }
       },
 
-      // Avisa cuando un nodo con data-ref entra o sale del documento
       Refs: function () {
         var Yo = this;
         var Vista = this.Vista;
@@ -153,7 +149,6 @@
         });
       },
 
-      // Delegación global de eventos desde la raíz
       Escuchar: function () {
         var Yo = this;
         var Tipos = ['click', 'keydown', 'pointermove', 'pointerleave', 'pointerdown', 'pointerup', 'pointercancel', 'focus', 'blur'];

@@ -27,27 +27,27 @@
 
   var Pies = {
     Nissi: [
-      'Portada principal y cotizador dinámico de noches',
+      'Portada con cotizador de noches',
       'Catálogo y detalle de habitaciones',
-      'Ubicación estratégica sobre la Troncal del Caribe',
+      'Ubicación sobre la Troncal del Caribe',
       'Infraestructura y servicios de descanso',
       'Atención y solicitud de reservas por WhatsApp',
       'Control de acceso con PIN a recepción',
       'Rack operativo de habitaciones en tiempo real',
-      'Panel gerencial con métricas y rendimiento'
+      'Panel gerencial con métricas'
     ],
     Mitecho: [
       'Panel principal con cupo de vivienda, subsidio y meta de cuota inicial',
-      'Simulador hipotecario con deudas reales y modalidades VIS, VIP y No VIS',
-      'Cierre financiero, comparativa Pesos vs. UVR y certificado PDF',
-      'Control de ingresos, gastos diarios y flujo mensual bancarizado',
-      'Plan de liberación de cupo apagando deudas y proyectando ahorro',
-      'Catálogo de proyectos inmobiliarios aliados según presupuesto y ciudad'
+      'Simulador de crédito con deudas y modalidades VIS, VIP y No VIS',
+      'Cierre financiero, comparación entre pesos y UVR y resumen en PDF',
+      'Registro de ingresos y gastos por día y por mes',
+      'Plan para subir el cupo pagando deudas',
+      'Proyectos de vivienda según presupuesto y ciudad'
     ],
     Sonica: ['Inicio con serie destacada', 'Reproductor con forma de onda', 'Explorar por categorías'],
     Neon: [
       'Menú principal con reto del día, racha diaria y accesos rápidos',
-      'Partida en curso sobre la ciudad nocturna y cielo dinámico por altura',
+      'Partida en curso, con el cielo que cambia según la altura',
       'Ranking global y semanal con podio de jugadores',
       'Tienda de 22 skins organizadas en 4 categorías con vista previa',
       'Sistema de 27 logros por familias con progreso y recompensas',
@@ -71,9 +71,9 @@
       Subtitulo: 'Sitio web oficial y sistema de reservas del Hospedaje Nissi en Mingueo, La Guajira',
       Etiquetapuntos: 'Cómo funciona y tecnologías de Hospedaje Nissi',
       Puntos: [
-        { Num: '·', Texto: 'Construí la interfaz con JavaScript moderno y estilos visuales adaptables a cualquier pantalla, integrando etiquetas estructuradas de Schema para que buscadores como Google muestren el hospedaje en los primeros resultados.' },
-        { Num: '·', Texto: 'Conecté la web con la API oficial de WhatsApp para confirmar solicitudes al instante y sumé la inteligencia artificial de Gemini para responder dudas frecuentes de los viajeros de forma automática.' },
-        { Num: '·', Texto: 'Creé un servidor ligero con Google Apps Script que usa Google Sheets como base de datos en vivo, permitiendo al recepcionista ingresar con una clave segura, bloquear habitaciones ocupadas y enviar un balance diario al correo del administrador.' }
+        { Num: '·', Texto: 'Hice la interfaz en JavaScript y CSS, adaptable a celular y computador, con datos estructurados de Schema para que Google entienda la información del hospedaje.' },
+        { Num: '·', Texto: 'Las solicitudes de reserva llegan por WhatsApp y un asistente con Gemini responde las preguntas frecuentes de los viajeros.' },
+        { Num: '·', Texto: 'La recepción funciona con Google Apps Script y Google Sheets: el recepcionista entra con un PIN, marca las habitaciones ocupadas y el administrador recibe un resumen diario por correo.' }
       ],
       Ficha: [
         { Clave: 'Tipo', Valor: 'Web y Gestión hotelera' },
@@ -90,7 +90,7 @@
         { Src: 'imagenes/nissi-5.webp', Alt: 'Atención y solicitud de reservas por WhatsApp' },
         { Src: 'imagenes/nissi-6.webp', Alt: 'Control de acceso con PIN a recepción' },
         { Src: 'imagenes/nissi-7.webp', Alt: 'Rack operativo de habitaciones en tiempo real' },
-        { Src: 'imagenes/nissi-8.webp', Alt: 'Panel gerencial con métricas y rendimiento' }
+        { Src: 'imagenes/nissi-8.webp', Alt: 'Panel gerencial con métricas' }
       ],
       Anterior: { Proyecto: 'Khronos', Nombre: 'Khronos' },
       Siguiente: { Proyecto: 'Mitecho', Nombre: 'MiTecho' }
@@ -107,9 +107,9 @@
       Subtitulo: 'Aplicación móvil que ayuda a las familias en Colombia a planear la compra de su casa',
       Etiquetapuntos: 'Cómo funciona y tecnologías de MiTecho',
       Puntos: [
-        { Num: '·', Texto: 'Desarrollé la aplicación con un motor propio en JavaScript y la empaqueté para celulares usando Capacitor, agregando código nativo en Java con cifrado bancario de alta seguridad y bloqueo de capturas de pantalla para proteger los datos financieros del usuario.' },
-        { Num: '·', Texto: 'Implementé la base de datos en Supabase con PostgreSQL y creé funciones automáticas en la nube para consultar a diario las tasas de interés reales de los bancos en el portal de la Superfinanciera de Colombia.' },
-        { Num: '·', Texto: 'Programé el simulador para comparar créditos en pesos frente a unidades UVR, sumando los subsidios de las cajas de compensación y del programa Mi Casa Ya, para luego generar en el celular un certificado financiero descargable de tres páginas en formato PDF.' }
+        { Num: '·', Texto: 'La app está hecha en JavaScript y se empaqueta para celular con Capacitor. En la parte nativa, escrita en Java, cifro los datos guardados en el teléfono y bloqueo las capturas de pantalla.' },
+        { Num: '·', Texto: 'Los datos están en Supabase con PostgreSQL, y una función programada consulta cada día las tasas de interés que publica la Superfinanciera.' },
+        { Num: '·', Texto: 'El simulador compara el crédito en pesos y en UVR, suma el subsidio de la caja de compensación y de Mi Casa Ya, y genera un resumen en PDF de tres páginas.' }
       ],
       Ficha: [
         { Clave: 'Tipo', Valor: 'Aplicación móvil para Android e iOS' },
@@ -120,11 +120,11 @@
       Dispositivo: 'movil',
       Capturas: [
         { Src: 'imagenes/mitecho-1.webp', Alt: 'Panel principal de MiTecho con cupo de vivienda, subsidio de Caja y progreso de cuota inicial' },
-        { Src: 'imagenes/mitecho-2.webp', Alt: 'Simulador hipotecario de MiTecho con ingresos, deudas y modalidades de vivienda' },
-        { Src: 'imagenes/mitecho-3.webp', Alt: 'Resultado de cierre financiero de MiTecho con comparativa Pesos vs. UVR y descarga de certificado PDF' },
-        { Src: 'imagenes/mitecho-4.webp', Alt: 'Control mensual de ingresos, gastos y flujo bancarizado en MiTecho' },
-        { Src: 'imagenes/mitecho-5.webp', Alt: 'Plan de liberación de cupo crediticio apagando deudas en MiTecho' },
-        { Src: 'imagenes/mitecho-6.webp', Alt: 'Catálogo de proyectos inmobiliarios aliados por municipio en MiTecho' }
+        { Src: 'imagenes/mitecho-2.webp', Alt: 'Simulador de crédito de MiTecho con ingresos, deudas y modalidades de vivienda' },
+        { Src: 'imagenes/mitecho-3.webp', Alt: 'Resultado de cierre financiero de MiTecho con comparación entre pesos y UVR y descarga del resumen en PDF' },
+        { Src: 'imagenes/mitecho-4.webp', Alt: 'Registro mensual de ingresos y gastos en MiTecho' },
+        { Src: 'imagenes/mitecho-5.webp', Alt: 'Plan para subir el cupo de crédito pagando deudas en MiTecho' },
+        { Src: 'imagenes/mitecho-6.webp', Alt: 'Proyectos de vivienda por municipio en MiTecho' }
       ],
       Anterior: { Proyecto: 'Nissi', Nombre: 'Hospedaje Nissi' },
       Siguiente: { Proyecto: 'Neon', Nombre: 'Neon Jump' }
@@ -141,9 +141,9 @@
       Subtitulo: 'Videojuego móvil de saltos infinitos con estética Noche Suave, publicado en Google Play',
       Etiquetapuntos: 'Cómo funciona y tecnologías de Neon Jump',
       Puntos: [
-        { Num: '·', Texto: 'Reconstruí el juego con HTML, CSS y JavaScript puro dentro de un WebView a pantalla completa con Flutter como anfitrión nativo mediante un puente bidireccional, creando un motor físico propio con plataformas móviles, frágiles y con resorte, partículas y un cielo que evoluciona por altura desde la ciudad hasta el espacio.' },
-        { Num: '·', Texto: 'Integré Firebase con Cloud Firestore, Auth y App Check con Play Integrity para mantener un ranking global y semanal con nombres únicos normalizados, inicio de sesión con Google, retos diarios, tienda de skins, logros y recordatorios locales de racha.' },
-        { Num: '·', Texto: 'Protegí el progreso del jugador con almacenamiento cifrado en el dispositivo con Flutter Secure Storage, validaciones estrictas de estado, migración automática desde versiones previas, anuncios de AdMob en banner, intersticial y bonificado para revivir, y actualizaciones inmediatas con Play Core.' }
+        { Num: '·', Texto: 'El juego está hecho en HTML, CSS y JavaScript dentro de un WebView, con Flutter como app nativa. La física, las plataformas móviles, frágiles y de resorte, y el cielo que cambia con la altura son código propio.' },
+        { Num: '·', Texto: 'Con Firebase manejo el inicio de sesión con Google, el ranking global y semanal, los retos diarios, la tienda de skins y los logros. App Check con Play Integrity revisa que las peticiones vengan de la app.' },
+        { Num: '·', Texto: 'El progreso se guarda cifrado en el dispositivo y se migra desde versiones anteriores. Los anuncios son de AdMob, incluido uno con premio para revivir, y las actualizaciones se avisan con Play Core.' }
       ],
       Ficha: [
         { Clave: 'Tipo', Valor: 'Videojuego móvil en dos dimensiones' },
@@ -175,9 +175,9 @@
       Subtitulo: 'Plataforma web y móvil para crear y escuchar podcasts con voces de inteligencia artificial',
       Etiquetapuntos: 'Cómo funciona y tecnologías de Sónica',
       Puntos: [
-        { Num: '·', Texto: 'Construí la aplicación con JavaScript modular moderno y Tailwind CSS sin depender de librerías pesadas, empaquetándola para celulares con Capacitor y Java nativo para lograr tiempos de carga instantáneos y navegación táctil fluida.' },
-        { Num: '·', Texto: 'Desarrollé un motor de audio continuo con un reproductor flotante que no interrumpe la música al explorar el catálogo, permitiendo abrir una pantalla inmersiva que dibuja la onda sonora y reacciona al tacto del usuario.' },
-        { Num: '·', Texto: 'Integré Firebase para gestionar usuarios y streaming en vivo, sumando las voces sintéticas de ElevenLabs para dar vida a los personajes de las audioseries con diferentes emociones y un panel de creador para subir capítulos y revisar métricas.' }
+        { Num: '·', Texto: 'La app está hecha en JavaScript con Tailwind CSS, sin framework de interfaz, y se empaqueta para celular con Capacitor.' },
+        { Num: '·', Texto: 'Hice un reproductor que sigue sonando mientras se navega el catálogo y una pantalla completa que dibuja la forma de onda del episodio.' },
+        { Num: '·', Texto: 'Firebase maneja los usuarios y el audio; las voces de los personajes se generan con ElevenLabs, y los creadores tienen un panel para subir capítulos y ver sus estadísticas.' }
       ],
       Ficha: [
         { Clave: 'Tipo', Valor: 'Plataforma web y aplicación móvil' },
@@ -206,9 +206,9 @@
       Subtitulo: 'Panel en tiempo real para revisar, aprobar o rechazar el contenido publicado en Sónica',
       Etiquetapuntos: 'Cómo funciona y tecnologías de Sónica Moderador',
       Puntos: [
-        { Num: '·', Texto: 'Diseñé la interfaz con JavaScript modular en estándares modernos y Tailwind CSS sobre Vite, logrando un panel administrativo ultraligero que inicia en milisegundos y prescinde de sobrecargas de librerías externas.' },
-        { Num: '·', Texto: 'Conecté el sistema directamente a Cloud Firestore con suscripciones reactivas, actualizando en la pantalla las series, los capítulos subidos y los reportes de la comunidad en el mismo instante en que suceden sin recargar el navegador.' },
-        { Num: '·', Texto: 'Configuré la autenticación de Firebase con permisos exclusivos para moderadores y administradores, incorporando una bitácora protegida que guarda cada aprobación o rechazo de contenido para asegurar máxima transparencia.' }
+        { Num: '·', Texto: 'El panel está hecho en JavaScript con Tailwind CSS y Vite, sin framework de interfaz.' },
+        { Num: '·', Texto: 'Se conecta a Cloud Firestore con escuchas en tiempo real, así las series, los capítulos y los reportes aparecen sin recargar la página.' },
+        { Num: '·', Texto: 'Firebase Auth limita el acceso a moderadores y administradores, y cada aprobación o rechazo queda registrado en una bitácora.' }
       ],
       Ficha: [
         { Clave: 'Tipo', Valor: 'Panel de administración y control en vivo' },
@@ -237,8 +237,8 @@
       Subtitulo: 'Planificador de tareas para equipos de trabajo',
       Etiquetapuntos: 'Cómo funciona y tecnologías de Khronos',
       Puntos: [
-        { Num: '·', Texto: 'Diseñé una entrada cinematográfica con video en bucle de una pared iluminada por un reloj de arena; al iniciar sesión, un segundo video hace la transición hasta el panel sin saltos de color, y el isotipo es una K que a la vez funciona como reloj de arena.' },
-        { Num: '·', Texto: 'Armé el tablero con HTML, Bootstrap y JavaScript: las tarjetas se arrastran entre Por hacer, En proceso, Revisión y Hecho, el formulario valida cada campo antes de guardar y todo queda en el localStorage del navegador.' },
+        { Num: '·', Texto: 'La pantalla de inicio tiene un video en bucle de una pared con un reloj de arena; al iniciar sesión, otro video hace la transición al panel. El logo es una K que también es un reloj de arena.' },
+        { Num: '·', Texto: 'El tablero está hecho con HTML, Bootstrap y JavaScript: las tarjetas se arrastran entre Por hacer, En proceso, Revisión y Hecho, el formulario valida los campos y todo se guarda en localStorage.' },
         { Num: '·', Texto: 'Ya funcionan el acceso de prueba, el menú lateral y el tablero con su administrador de tareas; lo que sigue es el registro de usuarios reales, los equipos de trabajo, el calendario y el chat antes de salir a producción.' }
       ],
       Ficha: [
